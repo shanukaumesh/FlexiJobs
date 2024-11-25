@@ -9,7 +9,7 @@ const Home = () => {
         <div>
 
             <Header_LoggedUser/>
-            <Header_LogOutUser/>
+            <h1>Hello</h1>
             <Footer/>
 
         </div>
