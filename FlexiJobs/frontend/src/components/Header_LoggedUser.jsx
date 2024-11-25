@@ -4,7 +4,7 @@ import userProfileImage from "../assets/userProfile.png";
 
 const Header_LoggedUser = () => {
   return (
-    <header className="header logged-in">
+    <header className="header-logout">
       <div className="container">
         {/* Logo */}
         <div className="logo">
@@ -17,7 +17,7 @@ const Header_LoggedUser = () => {
         <input type="text" className="search-bar" placeholder="Search Jobs" />
 
         {/* Navigation Menu */}
-        <nav className="nav">
+        <nav>
           <ul className="nav-links">
             <li><a href="/dashboard">Dashboard</a></li>
             <li><a href="/jobs">Browse Jobs</a></li>
