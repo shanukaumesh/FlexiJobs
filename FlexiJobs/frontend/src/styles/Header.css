@@ -1,0 +1,178 @@
+/* Global Variables */
+:root {
+    --primary-color: #4169E1; /* Royal Blue */
+    --secondary-color: #FFD700; /* Golden Yellow */
+    --text-color: #FFFFFF; /* White */
+    --hover-color: #FFD700; /* Same as secondary color */
+  }
+  
+  /* Base Reset */
+  body, ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    font-family: 'Arial', sans-serif;
+  }
+  
+  /* Header Container */
+  .header-logout {
+    background-color: var(--primary-color);
+    padding: 15px 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-bottom: 3px solid var(--hover-color);
+  }
+  
+  /* Inner Content */
+  .container {
+    max-width: 1200px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  /* Logo Styles */
+  .logo {
+    font-size: 24px;
+    font-weight: bold;
+    color: var(--text-color);
+  }
+  
+  .logo-text {
+    color: var(--text-color);
+  }
+  
+  .logo-highlight {
+    color: var(--secondary-color);
+  }
+  
+  /* Navigation Menu */
+  .nav-links {
+    display: flex;
+    gap: 0px;
+  }
+  
+  .nav-links a {
+    color: var(--text-color);
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 500;
+    transition: color 0.3s ease;
+  }
+  
+  .nav-links a:hover {
+    color: var(--hover-color);
+  }
+  
+  /* Right Actions */
+  .header-actions {
+    display: flex;
+    gap: 15px;
+  }
+  
+  .login-btn {
+    color: var(--text-color);
+    font-size: 16px;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s ease;
+    border: none; /* Removes any border */
+  }
+  
+  
+  .login-btn:hover {
+    color: var(--hover-color);
+  }
+  
+  .cta-btn {
+    background-color: var(--secondary-color);
+    color: var(--primary-color);
+    padding: 10px 20px;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .cta-btn:hover {
+    background-color: #FFC107; /* Slightly darker yellow */
+  }
+  
+  .header-actions{
+
+    align-items: center;
+
+  }
+
+  /* User Profile Dropdown Styles */
+.profile-dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.user-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  cursor: pointer;
+  border: 2px solid var(--hover-color);
+  transition: transform 0.2s ease-in-out;
+  
+}
+
+.user-avatar:hover {
+  transform: scale(1.1);
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  right: 0;
+  background-color: var(--primary-color);
+  min-width: 150px;
+  border-radius: 5px;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  z-index: 100;
+}
+
+.profile-dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.dropdown-content a {
+  color: var(--text-color);
+  padding: 10px 15px;
+  text-decoration: none;
+  display: block;
+  font-size: 14px;
+  transition: background-color 0.2s ease;
+}
+
+.dropdown-content a:hover {
+  background-color: var(--hover-color);
+  color: var(--primary-color);
+}
+
+/* Notifications Button */
+.notifications-btn {
+  font-size: 18px;
+  color: var(--text-color);
+  margin-right: 15px;
+  text-decoration: none;
+  transition: transform 0.2s ease-in-out;
+}
+
+.notifications-btn:hover {
+  transform: scale(1.1);
+  color: var(--hover-color);
+}
+
+/* Additional Styling for Logged-in Header */
+.header.logged-in .cta-btn {
+  display: none; /* Remove Register/Login Button for logged-in users */
+}
+
