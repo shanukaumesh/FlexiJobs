@@ -1,11 +1,17 @@
 import React from 'react';
 import '../styles/Home.css'; // Updated import path for the CSS
+import Footer from '../components/Footer';
+import Header_LogOutUser from '../components/Header_LogOutUser';
+import Header_LoggedUser from '../components/Header_LoggedUser';
 
 const Home = () => {
     return (
-        <div className="home-container">
-            <h1>Welcome to FlexiJobs</h1>
-            <p>Find your next job here!</p>
+        <div>
+
+            <Header_LoggedUser/>
+            <Header_LogOutUser/>
+            <Footer/>
+
         </div>
     );
 };
