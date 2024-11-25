@@ -176,3 +176,10 @@
   display: none; /* Remove Register/Login Button for logged-in users */
 }
 
+.search-bar {
+  width: 30%;
+  padding: 8px;
+  border-radius: 20px;
+  border: none;
+  outline: none;
+}
