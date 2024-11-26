@@ -82,16 +82,16 @@
   }
   
   .hero-image .main-image {
-    width: 80%; /* Resize the image to a smaller size */
-    max-width: 200px; /* Optional: Limit the maximum width */
+    width: 100%; /* Resize the image to a smaller size */
+    max-width: 350px; /* Optional: Limit the maximum width */
     border-radius: 10px; /* Keep the rounded corners */
     position: relative;
   }
 
 .hero-image .overlay-text {
   position: absolute;
-  top: 10%;
-  left: 10%;
+  top: 20%;
+  left: -30%;
   background-color: white;
   padding: 10px 20px;
   border-radius: 20px;
