@@ -25,7 +25,7 @@ const Header_LogOutUser = () => {
 
         {/* Right Actions */}
         <div className="header-actions">
-          <a href="/login" className="login-btn">Login</a>
+          <a href="/login" className="login-button">Login</a>
           <a href="/register" className="cta-btn">Register</a>
         </div>
       </div>
