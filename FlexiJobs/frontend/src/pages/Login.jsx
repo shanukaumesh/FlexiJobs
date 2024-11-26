@@ -1,9 +1,11 @@
 import React from 'react';
 import '../styles/Login.css';
 import LoginIllustration from '../assets/loginpageImage.png';
+import Header_LogOutUser from '../components/Header_LogOutUser';
 
 const Login = () => {
   return (
+    <div> <Header_LogOutUser/>
     <div className="login-page">
       <div className="login-card">
         <div className="login-left">
@@ -36,7 +38,7 @@ const Login = () => {
           </p>
         </div>
       </div>
-    </div>
+    </div></div>
   );
 };
 

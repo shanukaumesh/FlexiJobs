@@ -4,6 +4,7 @@ import Step2 from '../components/RegSteps/Step2';
 import Step3 from '../components/RegSteps/Step3';
 import Step4 from '../components/RegSteps/Step4';
 import Success from '../components/RegSteps/Success';
+import Header_LogOutUser from '../components/Header_LogOutUser';
 
 const Register = () => {
   const [currentStep, setCurrentStep] = useState(1);
@@ -39,7 +40,8 @@ const Register = () => {
     }
   };
 
-  return <div>{renderStep()}</div>;
+  return <div>
+    <Header_LogOutUser/>{renderStep()}</div>;
 };
 
 export default Register;
