@@ -113,4 +113,3 @@ public class User {
     public enum Role {
         STUDENT, EMPLOYER
     }
-}
