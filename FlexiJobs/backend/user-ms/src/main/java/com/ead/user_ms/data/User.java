@@ -3,6 +3,7 @@ package com.ead.user_ms.data;
 import jakarta.persistence.*;
 
 @Entity
+@Inheritance(strategy = InheritanceType.JOINED)
 public class User {
 
     @Id
