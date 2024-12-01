@@ -3,6 +3,7 @@ import '../styles/Login.css';
 import LoginIllustration from '../assets/loginpageImage.png';
 import Header_LogOutUser from '../components/Header_LogOutUser';
 
+
 const Login = () => {
   return (
     <div> <Header_LogOutUser/>
@@ -29,7 +30,7 @@ const Login = () => {
                 <input type="checkbox" />
                 Remember me
               </label>
-              <a href="#forgot-password">Forgot Password?</a>
+              <a href="/forgot-password">Forgot Password?</a>
             </div>
             <button type="submit" className="login-btn">Log In</button>
           </form>

@@ -5,6 +5,7 @@ import Home from './pages/Home'; // Updated import path for the Home component
 import AboutPage from './pages/AboutUs';
 import LoginPage from './pages/Login';
 import RegisterPage from './pages/Register';
+import ForgotPassword from './pages/ForgotPassword';
 
 const App = () => {
   return (
@@ -15,6 +16,7 @@ const App = () => {
           <Route path="/about" element={<AboutPage />} />
           <Route path="/login" element={<LoginPage />} />
           <Route path="/register" element={<RegisterPage />} />
+          <Route path="/forgot-password" element={<ForgotPassword />} />
         </Routes>
         
     </div>
