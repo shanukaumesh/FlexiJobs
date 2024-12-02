@@ -1,0 +1,23 @@
+.ongoing-jobs-card {
+    background: #fefefe;
+    padding: 15px;
+    margin: 10px 0;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .ongoing-jobs-card h4 {
+    margin: 0;
+  }
+  
+  .job-footer {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+  }
+  
+  .job-footer a {
+    color: #007bff;
+    text-decoration: none;
+  }
+  

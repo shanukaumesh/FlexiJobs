@@ -1,0 +1,23 @@
+.dashboard {
+    display: flex;
+  }
+  
+  .dashboard-content {
+    flex: 1;
+    padding: 20px;
+  }
+  
+  .greeting {
+    margin-bottom: 20px;
+  }
+  
+  .statistics-section {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+  }
+  
+  .ongoing-jobs-section h3 {
+    margin-bottom: 10px;
+  }
+  
