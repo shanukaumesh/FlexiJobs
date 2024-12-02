@@ -5,6 +5,7 @@ import Header_LoggedUser from '../components/Header_LoggedUser';
 import Header_LogOutUser from '../components/Header_LogOutUser';
 import HeroSection from '../components/HeroSection';
 import StatsSection from '../components/StatsSection';
+import ChatService from "../components/ChatService";
 
 const Home = () => {
     return (
@@ -13,6 +14,7 @@ const Home = () => {
             <Header_LogOutUser/>
             <HeroSection/>
             <StatsSection/>
+            <ChatService/>
             <Footer/>
 
         </div>

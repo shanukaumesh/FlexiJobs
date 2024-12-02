@@ -4,6 +4,7 @@ import StatisticsCard from "../components/StudentUIs/StatisticsCard";
 import OngoingJobsCard from "../components/StudentUIs/OngoingJobsCard";
 import "../styles/StudentUIs/Dashboard.css";
 import Header_LoggedUser from "../components/Header_LoggedUser";
+import ChatService from "../components/ChatService";
 
 const StudentDashboard = () => {
   const statistics = [
@@ -47,6 +48,7 @@ const StudentDashboard = () => {
         </div>
       </div>
     </div>
+    <ChatService />
     </div>
   );
 };
