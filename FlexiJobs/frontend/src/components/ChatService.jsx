@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import '../styles/ChatService.css'; // Add styles for the chat service
+import chatIcon from '../assets/live-chat.png'; // Add chat icon image
 
 const ChatService = () => {
   const [isChatOpen, setIsChatOpen] = useState(false);
@@ -13,7 +14,7 @@ const ChatService = () => {
       {/* Chat Icon */}
       {!isChatOpen && (
         <div className="chat-icon" onClick={toggleChat}>
-          💬
+           <img src={chatIcon} alt="Chat Icon" className="chat-icon-img" />
         </div>
       )}
 

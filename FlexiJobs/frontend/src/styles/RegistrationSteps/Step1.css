@@ -110,7 +110,16 @@ body {
     background-color: #005bb5;
     transform: translateY(-2px);
   }
+
+  .form-pw {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px; /* Adjust the gap between the text fields */
+  }
+
   
+
   /* Media Queries */
   @media (max-width: 768px) {
     .register-card {

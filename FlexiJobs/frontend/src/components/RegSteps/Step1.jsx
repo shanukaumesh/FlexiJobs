@@ -48,6 +48,28 @@ const Step1 = ({ nextStep, formData, setFormData }) => {
                 required
               />
             </div>
+            <div className="form-pw">
+            <div className="form-group">
+              <input
+                type="password"
+                name="password"
+                placeholder="Password"
+                value={formData.password || ''}
+                onChange={handleChange}
+                required
+              />
+            </div>
+            <div className="form-group">
+              <input
+                type="password"
+                name="confirmPassword"
+                placeholder="Confirm Password"
+                value={formData.confirmPassword || ''}
+                onChange={handleChange}
+                required
+              />  
+            </div>
+            </div>
             <button className="register-btn" onClick={nextStep}>
               Next
             </button>

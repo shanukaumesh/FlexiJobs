@@ -21,6 +21,11 @@
     transition: transform 0.3s ease;
   }
   
+  .chat-icon-img {
+    width: 40px; /* Adjust the size */
+    height: 40px;
+}
+
   .chat-icon:hover {
     transform: scale(1.1);
   }
