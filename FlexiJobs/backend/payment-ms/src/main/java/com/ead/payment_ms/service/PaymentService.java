@@ -15,7 +15,6 @@ public class PaymentService {
     @Autowired
     private PaymentRepository payRepo;
 
-
     public List<Payment> getPayment()
     {
         return payRepo.findAll();
@@ -43,10 +42,5 @@ public class PaymentService {
     public void deletePayment(int id)
     {
         payRepo.deleteById(id);
-
-
     }
-
-
-
 }
