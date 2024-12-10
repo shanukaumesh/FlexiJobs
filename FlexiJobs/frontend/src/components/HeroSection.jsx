@@ -19,7 +19,9 @@ const HeroSection = () => {
             <span>80%</span>
           </div>
         </div>
-        <button className="cta-button">Let's Get Started</button>
+        <button className="cta-button" onClick={() => window.location.href = "/login"}>
+          Let's Get Started
+        </button>
       </div>
       <div className="hero-image">
         <img src={studentImage} alt="Student working on a laptop" className="main-image" />

@@ -6,7 +6,7 @@ body {
   background: linear-gradient(135deg, #f3f4f7, #ffffff);
 }
 
-.login-page {
+.welcome-page {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -15,7 +15,7 @@ body {
   background-color: #f3f4f7;
 }
 
-.login-card {
+.welcome-card {
   display: flex;
   flex-wrap: wrap;
   max-width: 900px;
@@ -27,7 +27,7 @@ body {
 }
 
 /* Left Section */
-.login-left {
+.welcome-left {
   flex: 1;
   background: #f9fafc;
   display: flex;
@@ -36,69 +36,43 @@ body {
   padding: 30px;
 }
 
-.login-left img {
+.welcome-left img {
   max-width: 100%;
   height: auto;
 }
 
 /* Right Section */
-.login-right {
+.welcome-right {
   flex: 1;
   padding: 40px;
   display: flex;
   flex-direction: column;
   justify-content: center;
+  text-align: center;
 }
 
-.login-right h2 {
+.welcome-right h2 {
   font-size: 2rem;
   font-weight: bold;
   margin-bottom: 10px;
   color: #333;
 }
 
-.login-right p {
+.welcome-right p {
   font-size: 1rem;
   margin-bottom: 30px;
   color: #666;
 }
 
-.login-form .form-group {
-  margin-bottom: 20px;
-}
-
-.login-form .form-group input {
-  width: 100%;
-  padding: 10px 15px;
-  font-size: 1rem;
-  border: 1px solid #ddd;
-  border-radius: 5px;
-  transition: border-color 0.3s;
-}
-
-.login-form .form-group input:focus {
-  border-color: #5a67d8;
-  outline: none;
-}
-
-.login-options {
+.button-container {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-  font-size: 0.9rem;
-  color: #666;
+  flex-direction: column;
+  gap: 15px;
   margin-bottom: 20px;
 }
 
-.login-options a {
-  color: #5a67d8;
-  text-decoration: none;
-  font-weight: 500;
-}
-
-.login-btn {
-  width: 100%;
-  padding: 10px 15px;
+.role-button {
+  padding: 12px 20px;
   font-size: 1rem;
   color: #fff;
   background: #5a67d8;
@@ -108,27 +82,33 @@ body {
   transition: background 0.3s;
 }
 
-.login-btn:hover {
+.role-button:hover {
   background: #43499c;
 }
 
-.register-link {
-  margin-top: 20px;
-  text-align: center;
+.terms {
+  margin-top: 15px;
   font-size: 0.9rem;
+  color: #666;
 }
 
-.register-link a {
+.terms a {
   color: #5a67d8;
   text-decoration: none;
   font-weight: 500;
 }
 
+.terms a:hover {
+  text-decoration: underline;
+}
+
+/* Responsive Design */
 @media (max-width: 768px) {
-  .login-card {
+  .welcome-card {
     flex-direction: column;
   }
-  .login-left {
+
+  .welcome-left {
     display: none;
   }
 }

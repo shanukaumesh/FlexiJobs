@@ -2,47 +2,57 @@ import React from 'react';
 import '../styles/Login.css';
 import LoginIllustration from '../assets/loginpageImage.png';
 import Header_LogOutUser from '../components/Header_LogOutUser';
+import { useNavigate } from "react-router-dom";
 
 
-const Login = () => {
-  
+const Welcome = () => {
+
+const navigate = useNavigate();
+
+const goToStudentLogin =()=>{
+
+    navigate('/student-login');
+
+}
+
+
+const goToEmployerLogin =()=>{
+
+    navigate('/employer-login');
+
+}
+
+
   return (
-    
-    <div> <Header_LogOutUser/>
-    <div className="login-page">
-      <div className="login-card">
-        <div className="login-left">
-          <img
-            src={LoginIllustration} // Replace with your image path
-            alt="Login Illustration"
-          />
-        </div>
-        <div className="login-right">
-          <h2>Welcome Back</h2>
-          <p>Please log in to your account</p>
-          <form className="login-form">
-            <div className="form-group">
-              <input type="email" placeholder="Email" required />
+    <div>
+      <Header_LogOutUser />
+      <div className="welcome-page">
+        <div className="welcome-card">
+          <div className="welcome-left">
+            <img
+              src={LoginIllustration} // Replace with your image path
+              alt="Welcome Illustration"
+            />
+          </div>
+          <div className="welcome-right">
+            <h2>Welcome Back!</h2>
+            <p>Select your role to continue</p>
+            <div className="button-container">
+             
+              <button className="role-button" onClick={goToStudentLogin} >Student</button>
+              <button className="role-button" onClick={goToEmployerLogin}>Employer</button>
+
             </div>
-            <div className="form-group">
-              <input type="password" placeholder="Password" required />
-            </div>
-            <div className="login-options">
-              <label>
-                <input type="checkbox" />
-                Remember me
-              </label>
-              <a href="/forgot-password">Forgot Password?</a>
-            </div>
-            <button type="submit" className="login-btn">Log In</button>
-          </form>
-          <p className="register-link">
-            Don't have an account? <a href="/register">Sign Up</a>
-          </p>
+            <p className="terms">
+              By creating an account, you agree with our{' '}
+              <a href="/terms">Terms and Conditions</a> and{' '}
+              <a href="/privacy">Privacy Policy</a>.
+            </p>
+          </div>
         </div>
       </div>
-    </div></div>
+    </div>
   );
 };
 
-export default Login;
+export default Welcome;
