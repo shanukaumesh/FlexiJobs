@@ -42,7 +42,5 @@ public class PaymentController {
     public void deletePayment(@PathVariable int id)
     {
         obj.deletePayment(id);
-
     }
-
 }
