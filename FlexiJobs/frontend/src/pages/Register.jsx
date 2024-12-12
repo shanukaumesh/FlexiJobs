@@ -4,7 +4,7 @@ import LoginIllustration from '../assets/loginpageImage.png';
 import Header_LogOutUser from '../components/Header_LogOutUser';
 import { useNavigate } from "react-router-dom";
 
-const register = () => {
+const Register = () => {
 
   const navigate = useNavigate();
 
@@ -49,4 +49,4 @@ const register = () => {
   );
 };
 
-export default register;
+export default Register;

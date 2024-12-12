@@ -1,8 +1,17 @@
 import React from "react";
 import "../styles/Header.css";
 import userProfileImage from "../assets/userProfile.png";
+import { useNavigate } from "react-router-dom";
 
 const Header_LoggedUser = () => {
+
+  const navigate = useNavigate();
+
+  const goToLogout = () => {
+    navigate("/login");
+  };
+
+
   return (
     <header className="header-logout">
       <div className="container">
@@ -42,7 +51,7 @@ const Header_LoggedUser = () => {
             <div className="dropdown-content">
               <a href="/profile">My Profile</a>
               <a href="/settings">Settings</a>
-              <a href="/logout">Logout</a>
+              <a onClick={goToLogout}>Logout</a>
             </div>
           </div>
         </div>
