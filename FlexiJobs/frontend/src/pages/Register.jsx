@@ -1,47 +1,52 @@
-import React, { useState } from 'react';
-import Step1 from '../components/RegSteps/Step1';
-import Step2 from '../components/RegSteps/Step2';
-import Step3 from '../components/RegSteps/Step3';
-import Step4 from '../components/RegSteps/Step4';
-import Success from '../components/RegSteps/Success';
+import React from 'react';
+import '../styles/Login.css';
+import LoginIllustration from '../assets/loginpageImage.png';
 import Header_LogOutUser from '../components/Header_LogOutUser';
+import { useNavigate } from "react-router-dom";
 
-const Register = () => {
-  const [currentStep, setCurrentStep] = useState(1);
-  const [formData, setFormData] = useState({});
+const register = () => {
 
-  const nextStep = () => {
-    setCurrentStep(currentStep + 1);
-  };
+  const navigate = useNavigate();
 
-  const prevStep = () => {
-    setCurrentStep(currentStep - 1);
-  };
+  const goToStudentRegister = () => {
+    navigate('/student-register');
+  }
 
-  const handleSubmit = () => {
-    console.log('Form Submitted', formData);
-    nextStep();
-  };
 
-  const renderStep = () => {
-    switch (currentStep) {
-      case 1:
-        return <Step1 nextStep={nextStep} formData={formData} setFormData={setFormData} />;
-      case 2:
-        return <Step2 nextStep={nextStep} prevStep={prevStep} formData={formData} setFormData={setFormData} />;
-      case 3:
-        return <Step3 nextStep={nextStep} prevStep={prevStep} formData={formData} setFormData={setFormData} />;
-      case 4:
-        return <Step4 nextStep={handleSubmit} prevStep={prevStep} formData={formData} setFormData={setFormData} />;
-      case 5:
-        return <Success />;
-      default:
-        return <Step1 nextStep={nextStep} formData={formData} setFormData={setFormData} />;
-    }
-  };
+  const goToEmployerRegister = () => {
+    navigate('/employer-register');
+  }
 
-  return <div>
-    <Header_LogOutUser/>{renderStep()}</div>;
+  return (
+    <div>
+      <Header_LogOutUser />
+      <div className="welcome-page">
+        <div className="welcome-card">
+          <div className="welcome-left">
+            <img
+              src={LoginIllustration} // Replace with your image path
+              alt="Welcome Illustration"
+            />
+          </div>
+          <div className="welcome-right">
+            <h2>Welcome Back!</h2>
+            <p>Select your role to continue</p>
+            <div className="button-container">
+
+              <button className="role-button" onClick={goToStudentRegister} >Student</button>
+              <button className="role-button" onClick={goToEmployerRegister}>Employer</button>
+
+            </div>
+            <p className="terms">
+              By creating an account, you agree with our{' '}
+              <a href="/terms">Terms and Conditions</a> and{' '}
+              <a href="/privacy">Privacy Policy</a>.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
 };
 
-export default Register;
+export default register;

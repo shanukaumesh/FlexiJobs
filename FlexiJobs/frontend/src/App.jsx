@@ -10,6 +10,9 @@ import StudentDashboard from './pages/StudentDashboard';
 import NotFound from './pages/NotFound';
 import StudentLogin from './pages/StudentLogin';
 import EmployerLogin from './pages/EmployerLogin';
+import StudentRegister from './pages/StudentRegister';
+import EmployerRegister from './pages/EmployerRegister';
+
 
 const App = () => {
   return (
@@ -24,7 +27,10 @@ const App = () => {
           <Route path="/Student" element={<StudentDashboard />} />
           <Route path="/student-login" element={<StudentLogin/>} />
           <Route path="/employer-login" element={<EmployerLogin/>} />
-
+          <Route path="/student-register" element={<StudentRegister/>} />
+          <Route path="/employer-register" element={<EmployerRegister/>} />
+         
+     
           <Route path="*" element={<NotFound />} />
         </Routes>
         
