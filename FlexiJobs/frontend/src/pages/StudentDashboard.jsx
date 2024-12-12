@@ -5,6 +5,7 @@ import OngoingJobsCard from "../components/StudentUIs/OngoingJobsCard";
 import "../styles/StudentUIs/Dashboard.css";
 import Header_LoggedUser from "../components/Header_LoggedUser";
 import ChatService from "../components/ChatService";
+import LoginIllustration from '../assets/EmployerGroupImage.png';
 
 const StudentDashboard = () => {
   const statistics = [
@@ -17,11 +18,23 @@ const StudentDashboard = () => {
   const ongoingJobs = [
     {
       title: "Accountant",
-      location: "Nugegoda, Colombo",
-      status: "Ongoing",
-      date: "16th September 2026",
-      salary: "LKR 2,500",
+      company: "IVS Holdings",
+      location: "Colombo, Nugegoda",
+      status: "Started",
+      image: LoginIllustration,
+      timePeriod: "00:02:05:10",
     },
+
+    {
+      title: "Accountant",
+      company: "MAS Holdings",
+      location: "Colombo, Kottawa",
+      status: "Not Started",
+      image: LoginIllustration,
+      timePeriod: "00:00:00:00",
+    },
+    
+    
   ];
 
   return (
@@ -42,9 +55,11 @@ const StudentDashboard = () => {
         </div>
         <div className="ongoing-jobs-section">
           <h3>Ongoing Jobs</h3>
+          <div className="job-list">
           {ongoingJobs.map((job, index) => (
             <OngoingJobsCard key={index} job={job} />
           ))}
+          </div>
         </div>
       </div>
     </div>
