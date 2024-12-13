@@ -1,11 +1,15 @@
 package com.ead.job_ms.data;
 
-
-import jakarta.persistence.*;
-
-import javax.management.relation.Role;
 import java.math.BigDecimal;
 import java.util.Date;
+
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
 
 @Entity
 public class Job {
@@ -28,10 +32,10 @@ public class Job {
     private String jobRole;
 
     @Column(name = "district")
-    private  String district;
+    private String district;
 
     @Column(name = "city")
-    private  String city;
+    private String city;
 
     @Enumerated(EnumType.STRING)
     @Column(name = "application_receiving")
@@ -159,8 +163,7 @@ public class Job {
         this.jobPhoto = jobPhoto;
     }
 
-    public enum ApplicationReceiving
-    {
-        email,dashboard
+    public enum ApplicationReceiving {
+        email, dashboard
     }
 }

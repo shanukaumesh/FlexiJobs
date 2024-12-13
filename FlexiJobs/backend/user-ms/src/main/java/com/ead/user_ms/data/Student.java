@@ -1,22 +1,32 @@
 package com.ead.user_ms.data;
 
-import jakarta.persistence.*;
-
 import java.util.Date;
 
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+
 @Entity
-public class Student extends User{
+public class Student extends User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private int id;
 
-    @Column(name = "dob")
-    private Date dob;
+    @Column(name = "user_id")
+    private int userId;
 
     @Column(name = "nic")
     private Long nic;
+
+    @Column(name = "dob")
+    private Date dob;
+
+    @Column(name = "address")
+    private String address;
 
     @Column(name = "nic_photo")
     private String nicPhoto;
@@ -30,32 +40,8 @@ public class Student extends User{
     @Column(name = "uni_email")
     private String uniEmail;
 
-    @Column(name = "uni_id_photo")
+    @Column(name = "uni_id")
     private String uniIdPhoto;
-
-    @Column(name = "bio")
-    private String bio;
-
-    @Column(name = "skill", columnDefinition = "JSON")
-    private String skill;
-
-    @Column(name = "field")
-    private String field;
-
-    @Column(name = "available_dates", columnDefinition = "JSON")
-    private String availableDates;
-
-    @Column(name = "start_time")
-    private String startTime;
-
-    @Column(name = "end_time")
-    private String endTime;
-
-    @Column(name = "bank_name")
-    private String bankName;
-
-    @Column(name = "bank_accno")
-    private String bankAccNo;
 
     @Column(name = "status")
     private boolean status = true;
@@ -70,12 +56,12 @@ public class Student extends User{
         this.id = id;
     }
 
-    public Date getDob() {
-        return dob;
+    public int getUserId() {
+        return userId;
     }
 
-    public void setDob(Date dob) {
-        this.dob = dob;
+    public void setUserId(int userId) {
+        this.userId = userId;
     }
 
     public Long getNic() {
@@ -84,6 +70,22 @@ public class Student extends User{
 
     public void setNic(Long nic) {
         this.nic = nic;
+    }
+
+    public Date getDob() {
+        return dob;
+    }
+
+    public void setDob(Date dob) {
+        this.dob = dob;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
     }
 
     public String getNicPhoto() {
@@ -124,70 +126,6 @@ public class Student extends User{
 
     public void setUniIdPhoto(String uniIdPhoto) {
         this.uniIdPhoto = uniIdPhoto;
-    }
-
-    public String getBio() {
-        return bio;
-    }
-
-    public void setBio(String bio) {
-        this.bio = bio;
-    }
-
-    public String getSkill() {
-        return skill;
-    }
-
-    public void setSkill(String skill) {
-        this.skill = skill;
-    }
-
-    public String getField() {
-        return field;
-    }
-
-    public void setField(String field) {
-        this.field = field;
-    }
-
-    public String getAvailableDates() {
-        return availableDates;
-    }
-
-    public void setAvailableDates(String availableDates) {
-        this.availableDates = availableDates;
-    }
-
-    public String getStartTime() {
-        return startTime;
-    }
-
-    public void setStartTime(String startTime) {
-        this.startTime = startTime;
-    }
-
-    public String getEndTime() {
-        return endTime;
-    }
-
-    public void setEndTime(String endTime) {
-        this.endTime = endTime;
-    }
-
-    public String getBankName() {
-        return bankName;
-    }
-
-    public void setBankName(String bankName) {
-        this.bankName = bankName;
-    }
-
-    public String getBankAccNo() {
-        return bankAccNo;
-    }
-
-    public void setBankAccNo(String bankAccNo) {
-        this.bankAccNo = bankAccNo;
     }
 
     @Override

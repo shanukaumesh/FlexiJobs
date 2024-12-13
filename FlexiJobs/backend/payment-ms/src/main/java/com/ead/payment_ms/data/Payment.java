@@ -1,9 +1,13 @@
 package com.ead.payment_ms.data;
 
-import jakarta.persistence.*;
-
 import java.math.BigDecimal;
 import java.util.Date;
+
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
 
 @Entity
 public class Payment {
