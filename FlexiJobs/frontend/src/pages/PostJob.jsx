@@ -41,6 +41,20 @@ const PostJob = () => {
 
     console.log("Form submission started.");
 
+    // Retrieve and parse the user data from localStorage
+    const userData = JSON.parse(localStorage.getItem("user"));
+    if (!userData || !userData.email) {
+      console.error(
+        "User data in localStorage is invalid or missing:",
+        userData
+      );
+      alert("User email not found. Please log in again.");
+      return;
+    }
+
+    const userEmail = userData.email;
+    console.log("User email retrieved successfully:", userEmail);
+
     // Creating the payload in the expected structure
     const payload = {
       jobTitle: formData.jobTitle,
@@ -55,17 +69,22 @@ const PostJob = () => {
       contactEmail: formData.contact,
       category: formData.jobCategory,
       logo: "dummy-logo.png", // Hardcoded for now
-      postedBy: localStorage.getItem("user.email"),
+      postedBy: userEmail,
+      status: true,
     };
 
     console.log("Payload constructed:", payload);
 
     try {
-      const response = await axios.post("http://localhost:8001/job-ms/jobs", payload, {
-        headers: {
-          "Content-Type": "application/json",
-        },
-      });
+      const response = await axios.post(
+        "http://localhost:8001/job-ms/jobs",
+        payload,
+        {
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      );
 
       console.log("Job posted successfully:", response.data);
       alert("Job posted successfully!");
@@ -218,15 +237,15 @@ const PostJob = () => {
             </div>
             <div className="form-group">
               <label>Upload Company Logo</label>
-              <input
-                type="file"
-                onChange={handleFileChange}
-                accept="image/*"
-              />
+              <input type="file" onChange={handleFileChange} accept="image/*" />
             </div>
             <div className="form-actions">
-              <button type="submit" className="submit-btn">Post Job</button>
-              <button type="button" className="cancel-btn">Cancel</button>
+              <button type="submit" className="submit-btn">
+                Post Job
+              </button>
+              <button type="button" className="cancel-btn">
+                Cancel
+              </button>
             </div>
           </form>
         </div>
