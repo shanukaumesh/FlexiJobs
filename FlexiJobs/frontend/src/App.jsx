@@ -13,6 +13,7 @@ import EmployerRegister from './pages/EmployerRegister';
 import EmployerDashboard from './pages/EmployerDashboard';
 import AvailableJobs from './pages/AvailableJobs';
 import SingleJobPost from './pages/SingleJobPost';
+import PostJob from './pages/PostJob';
 
 
 const App = () => {
@@ -31,6 +32,7 @@ const App = () => {
           <Route path="/employer-register" element={<EmployerRegister/>} />
           <Route path="/available-Jobs" element={<AvailableJobs />} />
           <Route path="/job/:id" element={<SingleJobPost />} />
+          <Route path="/post-job" element={<PostJob />} />
          
      
           <Route path="*" element={<NotFound />} />
