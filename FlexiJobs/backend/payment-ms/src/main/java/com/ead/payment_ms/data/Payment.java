@@ -17,16 +17,16 @@ public class Payment {
     @Column(name = "id")
     private int id;
 
-    @Column(name = "user_name", nullable = false)
-    private String username;
+    @Column(name = "user_email")
+    private String userEmail;
 
-    @Column(name = " job_title", nullable = false)
+    @Column(name = "job_title")
     private String jobTitle;
 
-    @Column(name = "amount", nullable = false)
+    @Column(name = "amount")
     private BigDecimal amount;
 
-    @Column(name = "paid_date", nullable = false)
+    @Column(name = "paid_date")
     private Date paidDate;
 
     @Column(name = "status")
@@ -40,12 +40,16 @@ public class Payment {
         this.id = id;
     }
 
-    public String getUsername() {
-        return username;
+    public String getUserEmail() {
+        return userEmail;
     }
 
-    public void setUsername(String username) {
-        this.username = username;
+    public void setUserEmail(String userEmail) {
+        this.userEmail = userEmail;
+    }
+
+    public void setStatus(boolean status) {
+        this.status = status;
     }
 
     public String getJobTitle() {

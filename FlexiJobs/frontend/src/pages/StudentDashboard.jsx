@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import Axios from "axios"; 
 import Sidebar from "../components/StudentUIs/Sidebar";
 import StatisticsCard from "../components/StudentUIs/StatisticsCard";
 import OngoingJobsCard from "../components/StudentUIs/OngoingJobsCard";
@@ -8,6 +9,9 @@ import ChatService from "../components/ChatService";
 import LoginIllustration from '../assets/EmployerGroupImage.png';
 
 const StudentDashboard = () => {
+  const [ongoingJobs, setOngoingJobs] = useState([]); 
+  const [loading, setLoading] = useState(true); 
+
   const statistics = [
     { title: "Total Post Engage", value: "58" },
     { title: "Applied Jobs", value: "12" },
@@ -15,54 +19,53 @@ const StudentDashboard = () => {
     { title: "Completed", value: "6" },
   ];
 
-  const ongoingJobs = [
-    {
-      title: "Accountant",
-      company: "IVS Holdings",
-      location: "Colombo, Nugegoda",
-      status: "Started",
-      image: LoginIllustration,
-      timePeriod: "00:02:05:10",
-    },
-
-    {
-      title: "Accountant",
-      company: "MAS Holdings",
-      location: "Colombo, Kottawa",
-      status: "Not Started",
-      image: LoginIllustration,
-      timePeriod: "00:00:00:00",
-    },
-    
-    
-  ];
+  useEffect(() => {
+    Axios.get("http://localhost:8002/application-ms/applications")
+      .then((response) => {
+        console.log("Fetched Data: ", response.data);
+        setOngoingJobs(response.data); 
+        setLoading(false);
+      })
+      .catch((error) => {
+        console.error("Error fetching ongoing jobs:", error);
+        setLoading(false); 
+      });
+  }, []); 
 
   return (
     <div>
-    <Header_LoggedUser />
-    <div className="dashboard">
-      <Sidebar/>
-      <div className="dashboard-content">
-        <div className="greeting">
-          <h2>Hi Aloka De Silva</h2>
-          <p>Good Evening!</p>
-        </div>
-        <div className="statistics-section">
-          {statistics.map((stat, index) => (
-            <StatisticsCard key={index} title={stat.title} value={stat.value} />
-          ))}
-        </div>
-        <div className="ongoing-jobs-section">
-          <h3>Ongoing Jobs</h3>
-          <div className="job-list">
-          {ongoingJobs.map((job, index) => (
-            <OngoingJobsCard key={index} job={job} />
-          ))}
+      <Header_LoggedUser />
+      <div className="dashboard">
+        <Sidebar />
+        <div className="dashboard-content">
+          <div className="greeting">
+            <h2>Hi Aloka De Silva</h2>
+            <p>Good Evening!</p>
+          </div>
+          <div className="statistics-section">
+            {statistics.map((stat, index) => (
+              <StatisticsCard key={index} title={stat.title} value={stat.value} />
+            ))}
+          </div>
+          <div className="ongoing-jobs-section">
+            <h3>Ongoing Jobs</h3>
+            {loading ? (
+              <p>Loading...</p> 
+            ) : (
+              <div className="job-list">
+                {ongoingJobs.length > 0 ? (
+                  ongoingJobs.map((job, index) => (
+                    <OngoingJobsCard key={index} job={{ ...job, image: LoginIllustration }} />
+                  ))
+                ) : (
+                  <p>No ongoing jobs available.</p> 
+                )}
+              </div>
+            )}
           </div>
         </div>
       </div>
-    </div>
-    <ChatService />
+      <ChatService />
     </div>
   );
 };

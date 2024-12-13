@@ -3,8 +3,12 @@ import axios from "axios";
 import Sidebar from "../components/EmployerUIs/Sidebar";
 import "../styles/PostJob.css";
 import Header_LoggedUser from "../components/Header_LoggedUser";
+import { useNavigate } from "react-router-dom";
 
 const PostJob = () => {
+
+  const navigate = useNavigate();
+
   const [formData, setFormData] = useState({
     jobTitle: "",
     companyName: "",
@@ -87,7 +91,7 @@ const PostJob = () => {
       );
 
       console.log("Job posted successfully:", response.data);
-      alert("Job posted successfully!");
+      navigate("/employer");
     } catch (error) {
       if (error.response) {
         console.error("Server responded with an error:", error.response.data);

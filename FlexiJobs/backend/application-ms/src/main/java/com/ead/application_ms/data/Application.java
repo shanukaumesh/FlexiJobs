@@ -18,42 +18,20 @@ public class Application {
     @Column(name = "id")
     private int id;
 
-    @Column(name = "job_title", nullable = false)
+    @Column(name = "job_title")
     private String jobTitle;
 
-    @Column(name = "name", nullable = false)
-    private String name;
+    @Column(name = "location")
+    private String location;
 
-    @Column(name = "contact_no", nullable = false)
-    private String contactNo;
+    @Column(name = "full_name")
+    private String fullName;
 
-    @Column(name = "email", nullable = false)
+    @Column(name = "email")
     private String email;
 
-    @Column(name = " age")
-    private int age;
-
-    @Column(name = " address")
-    private String address;
-
-    @Column(name = "current_job")
-    private String currentJob;
-
-    @Column(name = "university")
-    private String university;
-
-    @Column(name = "work_experience")
-    private String workExperience;
-
-    @Column(name = " cv ")
-    private String cv;
-
-    @Enumerated(EnumType.STRING)
-    @Column(name = " application_status")
-    private ApplicationStatus applicationStatus;
-
-    @Column(name = " applied_date")
-    private Timestamp appliedDate;
+    @Column(name = "resume")
+    private String resume;
 
     @Column(name = "status")
     private boolean status;
@@ -74,20 +52,20 @@ public class Application {
         this.jobTitle = jobTitle;
     }
 
-    public String getName() {
-        return name;
+    public String getLocation() {
+        return location;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setLocation(String location) {
+        this.location = location;
     }
 
-    public String getContactNo() {
-        return contactNo;
+    public String getFullName() {
+        return fullName;
     }
 
-    public void setContactNo(String contactNo) {
-        this.contactNo = contactNo;
+    public void setFullName(String fullName) {
+        this.fullName = fullName;
     }
 
     public String getEmail() {
@@ -98,60 +76,12 @@ public class Application {
         this.email = email;
     }
 
-    public int getAge() {
-        return age;
+    public String getResume() {
+        return resume;
     }
 
-    public void setAge(int age) {
-        this.age = age;
-    }
-
-    public String getAddress() {
-        return address;
-    }
-
-    public void setAddress(String address) {
-        this.address = address;
-    }
-
-    public String getCurrentJob() {
-        return currentJob;
-    }
-
-    public void setCurrentJob(String currentJob) {
-        this.currentJob = currentJob;
-    }
-
-    public String getUniversity() {
-        return university;
-    }
-
-    public void setUniversity(String university) {
-        this.university = university;
-    }
-
-    public String getWorkExperience() {
-        return workExperience;
-    }
-
-    public void setWorkExperience(String workExperience) {
-        this.workExperience = workExperience;
-    }
-
-    public String getCv() {
-        return cv;
-    }
-
-    public void setCv(String cv) {
-        this.cv = cv;
-    }
-
-    public Timestamp getAppliedDate() {
-        return appliedDate;
-    }
-
-    public void setAppliedDate(Timestamp appliedDate) {
-        this.appliedDate = appliedDate;
+    public void setResume(String resume) {
+        this.resume = resume;
     }
 
     public boolean isStatus() {
@@ -160,9 +90,5 @@ public class Application {
 
     public void setStatus(boolean status) {
         this.status = status;
-    }
-
-    public enum ApplicationStatus {
-        pending, approved, inReview, rejected
     }
 }

@@ -6,8 +6,8 @@ const OngoingJobsCard = ({ job }) => {
     <div className="job-card">
       <img src={job.image} alt={job.title} className="job-image" />
       <div className="job-details">
-        <h4>{job.title}</h4>
-        <p>{job.company}</p>
+        <h4>{job.jobTitle}</h4>
+        <p>{job.companyName}</p>
         <p>{job.location}</p>
         <p className="job-status">{job.status}</p>
         <p className="job-amount">Duration: {job.timePeriod}</p>

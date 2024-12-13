@@ -1,19 +1,49 @@
-import React from "react";
-import { useLocation, useNavigate } from "react-router-dom";
-import "../styles/SingleJobPost.css"; // Make sure you have this CSS file for styling
-import Header_LoggedUser from "../components/Header_LoggedUser"; // Import the header
+import React, { useEffect, useState } from "react";
+import { useParams, useNavigate } from "react-router-dom";
+import axios from "axios";
+import "../styles/SingleJobPost.css"; 
+import Header_LoggedUser from "../components/Header_LoggedUser";
 
 const SingleJobPost = () => {
-  
-  const location = useLocation(); // Retrieve the job data passed through state
+  const { id } = useParams(); 
   const navigate = useNavigate();
-  const { job } = location.state || {}; // Get job data from the state
 
-  // If no job data exists, navigate back or show an error
-  if (!job) {
+  const [job, setJob] = useState(null); 
+  const [loading, setLoading] = useState(true); 
+  const [error, setError] = useState(null); 
+
+  // Fetch job details when the component mounts
+  useEffect(() => {
+    const fetchJobDetails = async () => {
+      try {
+        setLoading(true);
+        const response = await axios.get(`http://localhost:8001/job-ms/jobs/${id}`);
+        console.log("API Response:", response.data); 
+        setJob(response.data); 
+      } catch (err) {
+        console.error("Error fetching job details:", err);
+        setError("Failed to load job details. Please try again later.");
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchJobDetails();
+  }, [id]);
+
+  // Handle the Apply Now button click
+  const handleApply = () => {
+    alert(`You have applied for the ${job.jobTitle} position!`);
+  };
+
+  if (loading) {
+    return <p>Loading job details...</p>;
+  }
+
+  if (error) {
     return (
       <div className="job-not-found">
-        <h2>Job Not Found</h2>
+        <h2>{error}</h2>
         <button onClick={() => navigate(-1)} className="back-button">
           Go Back
         </button>
@@ -21,16 +51,11 @@ const SingleJobPost = () => {
     );
   }
 
-  // Handle the Apply Now button click
-  const handleApply = () => {
-    alert(`You have applied for the ${job.title} position!`); // You can replace this with actual apply functionality
-  };
-
+  // Render the job post page if data is available
   return (
     <div>
       <Header_LoggedUser />
       <div className="job-post-container">
-        {/* Sidebar */}
         <div className="sidebar">
           <h3>Select Location</h3>
           <select className="sort-dropdown">
@@ -47,41 +72,38 @@ const SingleJobPost = () => {
           </ul>
         </div>
 
-        {/* Job Post Main */}
         <div className="job-post-main">
           <div className="job-header">
             <button onClick={() => navigate(-1)} className="back-button">
               &#8592; Back
             </button>
             <div className="job-title">
-              <h2>{job.title}</h2>
-              <p>{job.company}</p>
+              <h2>{job.jobTitle}</h2>
+              <p>{job.companyName}</p>
               <p className="salary">{job.salary}</p>
             </div>
           </div>
 
-          {/* Job Image */}
           <img
-            src={job.image}
-            alt={`${job.title} Job Illustration`}
+            src={job.logo} 
+            alt={`${job.jobTitle} Job Illustration`}
             className="job-image"
           />
 
-          {/* Job Description Section */}
           <div className="job-details">
             <h3>Job Description:</h3>
             <p>{job.description}</p>
 
-            <h3>Qualifications:</h3>
-            <ul>
-              {job.qualifications.map((item, index) => (
-                <li key={index}>{item}</li>
-              ))}
-            </ul>
+            <h3>Skills:</h3>
+            <p>{job.skills}</p>
+
+            <h3>Employment Details:</h3>
+            <p>Type: {job.employmentType}</p>
+            <p>Experience Level: {job.experienceLevel}</p>
 
             <h3>Contacts:</h3>
-            <p>Phone: {job.contacts.phone}</p>
-            <p>Email: {job.contacts.email}</p>
+            <p>Phone: Not provided in API</p> {/* You can handle missing fields appropriately */}
+            <p>Email: {job.contactEmail}</p>
 
             <button className="apply-button" onClick={handleApply}>
               Apply Now

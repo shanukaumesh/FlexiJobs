@@ -1,49 +1,43 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import axios from "axios";
 import Sidebar from "../components/StudentUIs/Sidebar";
 import "../styles/StudentUIs/AvailableJobs.css";
 import Header_LoggedUser from "../components/Header_LoggedUser";
 import ChatService from "../components/ChatService";
-import AvailableJobs from "../components/StudentUIs/AvailableJobs"; // Import the job card component
-import LoginIllustration from '../assets/EmployerGroupImage.png'; // Example image import
+import AvailableJobs from "../components/StudentUIs/AvailableJobs"; 
 import { useNavigate } from "react-router-dom";
 
 const AvailableJobsPage = () => {
+  const [jobs, setJobs] = useState([]); 
+  const [loading, setLoading] = useState(true); 
+  const [error, setError] = useState(null); 
   const navigate = useNavigate();
 
+  // Fetch available jobs from the database
+  useEffect(() => {
+    const fetchJobs = async () => {
+      console.log("Starting to fetch available jobs...");
+      try {
+        setLoading(true);
+        const response = await axios.get("http://localhost:8001/job-ms/jobs");
+        console.log("API Response:", response.data); 
+        setJobs(response.data); 
+      } catch (err) {
+        console.error("Error fetching available jobs:", err);
+        setError("Failed to fetch available jobs. Please try again later.");
+      } finally {
+        setLoading(false);
+        console.log("Finished fetching available jobs.");
+      }
+    };
+
+    fetchJobs();
+  }, []);
+
   const handleClick = (job) => {
-    // Navigate to single job post with state
+    console.log("Navigating to job details page for job:", job);
     navigate(`/job/${job.id}`, { state: { job } });
   };
-
-  const availableJobs = [
-    {
-      id: "1",
-      title: "Driver",
-      company: "IWS Holdings",
-      location: "Colombo, Nugegoda",
-      status: "Open",
-      timePeriod: "Full-Time",
-      image: LoginIllustration,
-    },
-    {
-      id: "2",
-      title: "Waiter",
-      company: "Lords Restaurant",
-      location: "Colombo, Nugegoda",
-      status: "Open",
-      timePeriod: "Part-Time",
-      image: LoginIllustration,
-    },
-    {
-      id: "3",
-      title: "Software Engineer",
-      company: "MAS Holdings",
-      location: "Kandy, Sri Lanka",
-      status: "Open",
-      timePeriod: "Full-Time",
-      image: LoginIllustration,
-    },
-  ];
 
   return (
     <div>
@@ -57,15 +51,23 @@ const AvailableJobsPage = () => {
           </div>
           <div className="available-jobs-section">
             <h3>Jobs List</h3>
-            <div className="job-list">
-              {availableJobs.map((job, index) => (
-                <AvailableJobs
-                  key={index}
-                  job={job}
-                  onClick={() => handleClick(job)} // Pass the job to the handler
-                />
-              ))}
-            </div>
+            {loading ? (
+              <p>Loading jobs...</p>
+            ) : error ? (
+              <p className="error">{error}</p>
+            ) : jobs.length > 0 ? (
+              <div className="job-list">
+                {jobs.map((job, index) => (
+                  <AvailableJobs
+                    key={index}
+                    job={job}
+                    onClick={() => handleClick(job)} 
+                  />
+                ))}
+              </div>
+            ) : (
+              <p>No jobs found.</p>
+            )}
           </div>
         </div>
       </div>
