@@ -98,7 +98,7 @@ public class User {
         student, employer
     }
 
-    public class UserLoginRequest {
+    public static class UserLoginRequest {
         private String email;
         private String password;
 

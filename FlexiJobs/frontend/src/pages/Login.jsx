@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import axios from "axios"; // Import axios for HTTP requests
 import '../styles/StudentLogin.css';
 import LoginIllustration from '../assets/EmployerGroupImage.png';
 import Header_LogOutUser from '../components/Header_LogOutUser';
@@ -7,34 +8,44 @@ import Header_LogOutUser from '../components/Header_LogOutUser';
 const Login = () => {
   const navigate = useNavigate();
 
-  // Dummy user data
-  const users = [
-    { email: "employer@example.com", password: "password123", role: "employer" },
-    { email: "worker@example.com", password: "password123", role: "worker" },
-  ];
-
   // State for form inputs
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
-    // Find user based on email and password
-    const user = users.find(
-      (u) => u.email === email && u.password === password
-    );
+    console.log("Form submitted with email:", email, "and password:", password); // Log email and password
 
-    if (user) {
-      // Redirect based on role
-      if (user.role === "employer") {
-        navigate("/employer");
-      } else if (user.role === "worker") {
-        navigate("/student");
+    try {
+      // Make a POST request to the backend login API
+      const response = await axios.post("http://localhost:8000/user-ms/users/login", {
+        email,
+        password,
+      });
+
+      // Log the response from the backend
+      console.log("Login response from backend:", response);
+
+      // Check if the login was successful
+      const user = response.data;
+      
+      if (user) {
+        console.log("User logged in successfully:", user); // Log the logged-in user details
+
+        // Redirect based on the role
+        if (user.role === "employer") {
+          console.log("Redirecting to /employer");
+          navigate("/employer");
+        } else if (user.role === "worker") {
+          console.log("Redirecting to /student");
+          navigate("/student");
+        }
       }
-    } else {
-      // Show error if credentials are invalid
+    } catch (error) {
+      // Handle error if login fails
+      console.log("Login error:", error); // Log the error if login fails
       setError("Invalid email or password.");
     }
   };
