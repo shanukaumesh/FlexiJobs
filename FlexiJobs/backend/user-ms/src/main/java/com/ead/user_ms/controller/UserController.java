@@ -2,16 +2,11 @@ package com.ead.user_ms.controller;
 
 import java.util.List;
 
+import com.ead.user_ms.data.ErrorResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import com.ead.user_ms.data.User;
 import com.ead.user_ms.service.UserService;
@@ -60,5 +55,16 @@ public class UserController {
             return new ResponseEntity<>(HttpStatus.NO_CONTENT); // 204 No Content
         }
         return new ResponseEntity<>(HttpStatus.NOT_FOUND); // 404 Not Found
+    }
+
+    @PostMapping (path = "/users/login")
+    public ResponseEntity<?> loginUser(@RequestBody User.UserLoginRequest loginRequest) {
+        User user = userService.getUserByEmailAndPassword(loginRequest.getEmail(), loginRequest.getPassword());
+
+        if (user != null) {
+            return new ResponseEntity<>(user, HttpStatus.OK); // 200 OK, user object with role
+        } else {
+            return new ResponseEntity<>(new ErrorResponse("Invalid email or password"), HttpStatus.UNAUTHORIZED); // 401 Unauthorized
+        }
     }
 }
