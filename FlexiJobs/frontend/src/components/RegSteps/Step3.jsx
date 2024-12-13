@@ -1,23 +1,81 @@
-import React from 'react';
-import RegisterPageImage from '../../assets/loginpageImage.png';
+import React from "react";
+import axios from "axios";
+import RegisterPageImage from "../../assets/loginpageImage.png";
 
 const Step3 = ({ nextStep, prevStep, formData, setFormData }) => {
   const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData({ ...formData, [name]: value });
+    setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleFileChange = (event) => {
-    const file = event.target.files[0];
-    if (file) {
-      setFormData({ ...formData, nicPhoto: file }); // Store the NIC photo file in formData
-    }
-  };
-
-  const handleNext = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log("Navigating to Step 4");
-    nextStep(); // Move to Step 4 without making an API call
+
+    // Retrieve the userId from localStorage
+    const userId = localStorage.getItem("userId");
+
+    if (!userId) {
+      console.error("User ID is missing from localStorage");
+      alert("User ID is not set. Please go back and try again.");
+      return;
+    }
+
+    // Dummy data for photos (to be replaced with actual file uploads in the future)
+    const nicPhotoDummy = "https://example.com/dummy-nic-photo.png";
+    const uniIdPhotoDummy = "https://example.com/dummy-uni-id-photo.png";
+
+    const data = {
+      nic: formData.nic,
+      dob: formData.dob,
+      address: formData.address,
+      nicPhoto: nicPhotoDummy,
+      university: formData.university,
+      uniID: formData.uniIndex,
+      uniEmail: formData.uniEmail,
+      uniIdPhoto: uniIdPhotoDummy,
+    };
+
+    console.log("User ID retrieved from localStorage:", userId);
+    console.log("API Endpoint:", `http://localhost:8000/user-ms/users/${userId}/students`);
+    console.log("Payload Data:", data);
+
+    try {
+      // Test using axios
+      const response = await axios.put(
+        `http://localhost:8000/user-ms/users/${userId}/students`,
+        data,
+        {
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      );
+
+      if (response.status === 200 || response.status === 201) {
+        console.log("Student data created successfully:", response.data);
+        nextStep(); // Proceed to the next step
+      } else {
+        console.error("Failed to create student data:", response);
+        alert("Failed to create student data. Please check the server logs.");
+      }
+    } catch (error) {
+      console.error("Error while creating student data:", error.response || error);
+
+      // Handle specific error cases
+      if (error.response) {
+        const { status, data } = error.response;
+        if (status === 400) {
+          alert(`Validation Error: ${data.message}`);
+        } else if (status === 404) {
+          alert("Endpoint not found. Check the API URL.");
+        } else if (status === 500) {
+          alert("Internal server error. Please try again later.");
+        } else {
+          alert(`Unexpected Error: ${status} - ${data.message || "Unknown error"}`);
+        }
+      } else {
+        alert("Network error. Ensure the backend is running and reachable.");
+      }
+    }
   };
 
   return (
@@ -29,13 +87,13 @@ const Step3 = ({ nextStep, prevStep, formData, setFormData }) => {
         <div className="register-right">
           <h2>Sign Up</h2>
           <p>Provide your identification details</p>
-          <form>
+          <form onSubmit={handleSubmit}>
             <div className="form-group">
               <input
                 type="text"
                 name="nic"
                 placeholder="ID/Passport No."
-                value={formData.nic || ''}
+                value={formData.nic || ""}
                 onChange={handleChange}
                 required
               />
@@ -44,7 +102,7 @@ const Step3 = ({ nextStep, prevStep, formData, setFormData }) => {
               <input
                 type="date"
                 name="dob"
-                value={formData.dob || ''}
+                value={formData.dob || ""}
                 onChange={handleChange}
                 required
               />
@@ -54,7 +112,7 @@ const Step3 = ({ nextStep, prevStep, formData, setFormData }) => {
                 type="text"
                 name="address"
                 placeholder="Address"
-                value={formData.address || ''}
+                value={formData.address || ""}
                 onChange={handleChange}
                 required
               />
@@ -62,25 +120,22 @@ const Step3 = ({ nextStep, prevStep, formData, setFormData }) => {
 
             <hr className="solid" />
             <h5>Upload NIC Photo</h5>
-
             <div className="form-group">
               <input
                 type="file"
                 name="nicPhoto"
                 accept="image/*"
-                onChange={handleFileChange} // Store NIC photo in formData
-                required
+                disabled // Disabled because we're using dummy data
               />
             </div>
 
             <h4>Provide your academic details</h4>
-          <form>
             <div className="form-group">
               <input
                 type="text"
                 name="university"
                 placeholder="University Name"
-                value={formData.university || ''}
+                value={formData.university || ""}
                 onChange={handleChange}
                 required
               />
@@ -88,9 +143,9 @@ const Step3 = ({ nextStep, prevStep, formData, setFormData }) => {
             <div className="form-group">
               <input
                 type="text"
-                name="uniID"
+                name="uniIndex"
                 placeholder="University Index No."
-                value={formData.uniIndex || ''}
+                value={formData.uniIndex || ""}
                 onChange={handleChange}
                 required
               />
@@ -101,7 +156,7 @@ const Step3 = ({ nextStep, prevStep, formData, setFormData }) => {
                 type="email"
                 name="uniEmail"
                 placeholder="University Email"
-                value={formData.uniEmail || ''}
+                value={formData.uniEmail || ""}
                 onChange={handleChange}
                 required
               />
@@ -111,18 +166,15 @@ const Step3 = ({ nextStep, prevStep, formData, setFormData }) => {
               <input
                 type="file"
                 name="uniIdPhoto"
-                onChange={handleFileChange} // Store proof of university ID in formData
-                required
+                disabled // Disabled because we're using dummy data
               />
             </div>
 
-            </form>
-
             <div className="button-group">
-              <button className="register-btn" onClick={prevStep}>
+              <button type="button" className="register-btn" onClick={prevStep}>
                 Back
               </button>
-              <button className="register-btn" onClick={handleSubmit}>
+              <button type="submit" className="register-btn">
                 Submit
               </button>
             </div>

@@ -52,7 +52,7 @@ const Login = () => {
           </div>
           <div className="login-right">
             <h2>Welcome Back!</h2>
-            <p>Please log in to your employer account</p>
+            <p>Please log in to your account</p>
             <form className="login-form" onSubmit={handleSubmit}>
               {error && <p className="error-message">{error}</p>}
               <div className="form-group">

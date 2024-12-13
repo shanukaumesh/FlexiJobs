@@ -1,10 +1,17 @@
-import React, { useState } from 'react';
-import '../../styles/RegistrationSteps/Step1.css';
-import RegisterPageImage from '../../assets/loginpageImage.png';
-import axios from 'axios';
+import React, { useState } from "react";
+import "../../styles/RegistrationSteps/Step1.css";
+import RegisterPageImage from "../../assets/loginpageImage.png";
+import axios from "axios";
 
-const Step1 = ({ nextStep, formData, setFormData }) => {
-  const [error, setError] = useState(''); // State to handle error messages
+const Step1 = ({ nextStep }) => {
+  const [error, setError] = useState(""); // State to handle error messages
+  const [formData, setFormData] = useState({
+    firstName: "",
+    lastName: "",
+    email: "",
+    password: "",
+    confirmPassword: "",
+  });
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -13,22 +20,31 @@ const Step1 = ({ nextStep, formData, setFormData }) => {
 
   const handleNext = async (e) => {
     e.preventDefault(); // Prevent default form submission
-    setError(''); // Reset error state
+    setError(""); // Reset error state
 
     // Include the role in the formData
-    const userData = { ...formData, role: 'student' };
+    const userData = { ...formData, role: "student" };
 
     try {
       // API call to create the user
-      const response = await axios.post('http://localhost:8000/user-ms/users', userData);
+      const response = await axios.post(
+        "http://localhost:8000/user-ms/users",
+        userData
+      );
 
-      console.log('User created successfully:', response.data);
-      // If the user is created successfully, proceed to the next step
+      console.log("User created successfully:", response.data);
+
+      // Save userId in localStorage
+      localStorage.setItem("userId", response.data); // Save the integer response directly
+
+      // Proceed to the next step
       nextStep();
     } catch (err) {
-      console.error('Error creating user:', err);
+      console.error("Error creating user:", err);
       // Handle error and show a message to the user
-      setError(err.response?.data?.message || 'An error occurred. Please try again.');
+      setError(
+        err.response?.data?.message || "An error occurred. Please try again."
+      );
     }
   };
 
@@ -47,7 +63,7 @@ const Step1 = ({ nextStep, formData, setFormData }) => {
                 type="text"
                 name="firstName"
                 placeholder="First Name"
-                value={formData.firstName || ''}
+                value={formData.firstName}
                 onChange={handleChange}
                 required
               />
@@ -57,7 +73,7 @@ const Step1 = ({ nextStep, formData, setFormData }) => {
                 type="text"
                 name="lastName"
                 placeholder="Last Name"
-                value={formData.lastName || ''}
+                value={formData.lastName}
                 onChange={handleChange}
                 required
               />
@@ -67,7 +83,7 @@ const Step1 = ({ nextStep, formData, setFormData }) => {
                 type="email"
                 name="email"
                 placeholder="Email"
-                value={formData.email || ''}
+                value={formData.email}
                 onChange={handleChange}
                 required
               />
@@ -78,7 +94,7 @@ const Step1 = ({ nextStep, formData, setFormData }) => {
                   type="password"
                   name="password"
                   placeholder="Password"
-                  value={formData.password || ''}
+                  value={formData.password}
                   onChange={handleChange}
                   required
                 />
@@ -88,7 +104,7 @@ const Step1 = ({ nextStep, formData, setFormData }) => {
                   type="password"
                   name="confirmPassword"
                   placeholder="Confirm Password"
-                  value={formData.confirmPassword || ''}
+                  value={formData.confirmPassword}
                   onChange={handleChange}
                   required
                 />

@@ -43,9 +43,10 @@ const StudentRegister = () => {
             prevStep={prevStep}
             formData={formData}
             setFormData={setFormData}
+            userId={formData.userId}
           />
         );
-      
+
       case 4:
         return <Success />;
       default:
