@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import axios from "axios"; // Import axios for HTTP requests
-import '../styles/StudentLogin.css';
-import LoginIllustration from '../assets/EmployerGroupImage.png';
-import Header_LogOutUser from '../components/Header_LogOutUser';
+import axios from "axios";
+import "../styles/StudentLogin.css";
+import LoginIllustration from "../assets/EmployerGroupImage.png";
+import Header_LogOutUser from "../components/Header_LogOutUser";
 
 const Login = () => {
   const navigate = useNavigate();
@@ -20,25 +20,32 @@ const Login = () => {
 
     try {
       // Make a POST request to the backend login API
-      const response = await axios.post("http://localhost:8000/user-ms/users/login", {
-        email,
-        password,
-      });
+      const response = await axios.post(
+        "http://localhost:8000/user-ms/users/login",
+        {
+          email,
+          password,
+        }
+      );
 
       // Log the response from the backend
       console.log("Login response from backend:", response);
 
       // Check if the login was successful
       const user = response.data;
-      
+
       if (user) {
-        console.log("User logged in successfully:", user); // Log the logged-in user details
+        console.log("User logged in successfully:", user);
+
+        // Save user data to localStorage
+        localStorage.setItem("user", JSON.stringify(user));
+        console.log("User data saved to localStorage");
 
         // Redirect based on the role
         if (user.role === "employer") {
           console.log("Redirecting to /employer");
           navigate("/employer");
-        } else if (user.role === "worker") {
+        } else if (user.role === "student") {
           console.log("Redirecting to /student");
           navigate("/student");
         }
@@ -91,7 +98,9 @@ const Login = () => {
                 </label>
                 <a href="/forgot-password">Forgot Password?</a>
               </div>
-              <button type="submit" className="login-btn">Log In</button>
+              <button type="submit" className="login-btn">
+                Log In
+              </button>
             </form>
             <p className="register-link">
               Don't have an account? <a href="/register">Sign Up</a>
