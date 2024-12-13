@@ -5,7 +5,7 @@ import "../../styles/EmployerUIs/Sidebar.css";
 const Sidebar = () => {
   return (
     <div className="sidebar">
-      <NavLink to="/dashboard" className="sidebar-link">
+      <NavLink to="/employer" className="sidebar-link">
         <i className="icon-dashboard" /> Dashboard
       </NavLink>
       <NavLink to="/post-job" className="sidebar-link">

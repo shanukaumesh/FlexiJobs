@@ -1,3 +1,11 @@
+.dashboard{
+    display: flex;
+}
+
+.dashboard .dashboard-content{
+    flex: 6;
+    padding: 20px;
+}
 .job-list {
     display: grid;
     grid-template-columns: repeat(4, 1fr);

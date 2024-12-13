@@ -41,8 +41,7 @@ const StudentDashboard = () => {
     <div>
     <Header_LoggedUser />
     <div className="dashboard">
-      
-      <Sidebar />
+      <Sidebar/>
       <div className="dashboard-content">
         <div className="greeting">
           <h2>Hi Aloka De Silva</h2>

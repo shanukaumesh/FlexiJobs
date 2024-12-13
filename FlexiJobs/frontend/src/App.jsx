@@ -11,7 +11,8 @@ import NotFound from './pages/NotFound';
 import StudentRegister from './pages/StudentRegister';
 import EmployerRegister from './pages/EmployerRegister';
 import EmployerDashboard from './pages/EmployerDashboard';
-import AvailableJobs from './components/StudentUIs/AvailableJobs';
+import AvailableJobs from './pages/AvailableJobs';
+import SingleJobPost from './pages/SingleJobPost';
 
 
 const App = () => {
@@ -28,7 +29,8 @@ const App = () => {
           <Route path="/Employer" element={<EmployerDashboard />} />
           <Route path="/student-register" element={<StudentRegister/>} />
           <Route path="/employer-register" element={<EmployerRegister/>} />
-          <Route path="/jobs" element={<StudentDashboard />} />
+          <Route path="/available-Jobs" element={<AvailableJobs />} />
+          <Route path="/job/:id" element={<SingleJobPost />} />
          
      
           <Route path="*" element={<NotFound />} />
