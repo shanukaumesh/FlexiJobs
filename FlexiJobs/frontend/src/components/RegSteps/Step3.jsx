@@ -1,6 +1,5 @@
 import React from 'react';
 import RegisterPageImage from '../../assets/loginpageImage.png';
-import axios from 'axios';
 
 const Step3 = ({ nextStep, prevStep, formData, setFormData }) => {
   const handleChange = (e) => {
@@ -11,34 +10,14 @@ const Step3 = ({ nextStep, prevStep, formData, setFormData }) => {
   const handleFileChange = (event) => {
     const file = event.target.files[0];
     if (file) {
-      // Handle file upload logic here
-      console.log('NIC Photo:', file);
+      setFormData({ ...formData, nicPhoto: file }); // Store the NIC photo file in formData
     }
   };
 
-  const handleNext = async (e) => {
-    // e.preventDefault();
-
-    // try {
-    //   const { userId, nic, dob, address } = formData;
-
-    //   // Update student record using userId
-    //   const response = await axios.put(
-    //     `http://localhost:8000/user-ms/users/${userId}/students`,
-    //     { nic, dob, address },
-    //     {
-    //       headers: {
-    //         'Content-Type': 'application/json',
-    //       },
-    //     }
-    //   );
-
-    //   console.log('Student record updated successfully:', response.data);
-    //   nextStep(); // Proceed to the next step
-    // } catch (err) {
-    //   console.error('Error updating student record:', err);
-    //   alert('Failed to update student record. Please try again.');
-    // }
+  const handleNext = (e) => {
+    e.preventDefault();
+    console.log("Navigating to Step 4");
+    nextStep(); // Move to Step 4 without making an API call
   };
 
   return (
@@ -81,20 +60,18 @@ const Step3 = ({ nextStep, prevStep, formData, setFormData }) => {
               />
             </div>
 
-           
-            <hr class="solid"></hr>
+            <hr className="solid" />
             <h5>Upload NIC Photo</h5>
 
-
             <div className="form-group">
-          <input
-            type="file"
-            name="nicPhoto"
-            accept="image/*"
-            onChange={handleFileChange} // Add a handler for file change
-            required
-          />
-        </div>
+              <input
+                type="file"
+                name="nicPhoto"
+                accept="image/*"
+                onChange={handleFileChange} // Store NIC photo in formData
+                required
+              />
+            </div>
 
             <div className="button-group">
               <button className="register-btn" onClick={prevStep}>
