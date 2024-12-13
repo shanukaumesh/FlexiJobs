@@ -8,17 +8,21 @@ const Sidebar = () => {
       <NavLink to="/dashboard" className="sidebar-link">
         <i className="icon-dashboard" /> Dashboard
       </NavLink>
-      <NavLink to="/post-job" className="sidebar-link">
-        <i className="icon-post-job" /> Post Job
+      <NavLink to="/jobs" className="sidebar-link">
+        <i className="icon-post-job" /> Available Jobs
       </NavLink>
       <NavLink to="/applications" className="sidebar-link">
-        <i className="icon-applications" /> Applications
+        <i className="icon-applications" />My Applications
       </NavLink>
       <NavLink to="/job-tracking" className="sidebar-link">
         <i className="icon-job-tracking" /> Job Tracking
       </NavLink>
       <NavLink to="/payments" className="sidebar-link">
         <i className="icon-payments" /> Payments
+      </NavLink>
+
+      <NavLink to="/settings" className="sidebar-link">
+        <i className="icon-payments" /> Settings
       </NavLink>
     </div>
   );
