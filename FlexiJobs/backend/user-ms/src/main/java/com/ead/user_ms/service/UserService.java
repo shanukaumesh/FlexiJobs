@@ -1,6 +1,5 @@
 package com.ead.user_ms.service;
 
-
 import com.ead.user_ms.data.User;
 import com.ead.user_ms.data.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,16 +23,19 @@ public class UserService
     //get user by their id
     public User getUserById(int id)
     {
-        Optional<User> course = userRepo.findById(id);
-        if(course.isPresent()){
-            return course.get();
+        // Find user by ID using the repository
+        Optional<User> user = userRepo.findById(id);
+
+        // Check if the user is present, return it; otherwise, throw an exception or return null
+        if (user.isPresent()) {
+            return user.get();
+        } else {
+            throw new RuntimeException("User with ID " + id + " not found");
         }
-        return null;
     }
 
     //create user
-    public User createUser(User user)
-    {
+    public User createUser(User user) {
         return (User) userRepo.save(user);
     }
 

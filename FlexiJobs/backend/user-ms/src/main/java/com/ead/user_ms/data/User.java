@@ -19,20 +19,20 @@ public class User {
     @Column(name = "id")
     private int id;
 
-    @Column(name = "first_name", nullable = false)
+    @Column(name = "first_name")
     private String firstName;
 
-    @Column(name = "last_name", nullable = false)
+    @Column(name = "last_name")
     private String lastName;
 
     @Column(name = "email", nullable = false, unique = true)
     private String email;
 
-    @Column(name = "password", nullable = false)
+    @Column(name = "password")
     private String password;
 
     @Enumerated(EnumType.STRING)
-    @Column(name = "role")
+    @Column(name = "role", nullable = false)
     private Role role;
 
     @Column(name = "status")
@@ -78,6 +78,14 @@ public class User {
         this.password = password;
     }
 
+    public Role getRole() {
+        return role;
+    }
+
+    public void setRole(Role role) {
+        this.role = role;
+    }
+
     public boolean isStatus() {
         return status;
     }
@@ -87,6 +95,6 @@ public class User {
     }
 
     public enum Role {
-        STUDENT, EMPLOYER
+        student, employer
     }
 }

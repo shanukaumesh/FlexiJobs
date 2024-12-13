@@ -1,11 +1,42 @@
-import React from 'react';
+import React, { useState } from 'react';
 import '../../styles/RegistrationSteps/Step1.css';
-import RegisterPageImage from '../../assets/loginpageImage.png'
+import RegisterPageImage from '../../assets/loginpageImage.png';
+import axios from 'axios';
 
 const Step1 = ({ nextStep, formData, setFormData }) => {
+  const [error, setError] = useState(''); // State to handle error messages
+
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
+  };
+
+  const handleNext = async (e) => {
+    e.preventDefault(); // Prevent default form submission
+    setError(''); // Reset error state
+
+    // Include the role in the formData
+    const userData = { ...formData, role: 'student' };
+
+    try {
+      // API call to create the user
+      const response = await axios.post('http://localhost:8000/user-ms/users', userData, {
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      });
+
+      // Capture the userId and store it in formData
+      const { id: userId } = response.data;
+      setFormData({ ...formData, userId });
+
+      console.log('User created successfully:', response.data);
+      nextStep(); // Proceed to the next step
+    } catch (err) {
+      console.error('Error creating user:', err);
+      // Handle error and show a message to the user
+      setError(err.response?.data?.message || 'An error occurred. Please try again.');
+    }
   };
 
   return (
@@ -49,28 +80,29 @@ const Step1 = ({ nextStep, formData, setFormData }) => {
               />
             </div>
             <div className="form-pw">
-            <div className="form-group">
-              <input
-                type="password"
-                name="password"
-                placeholder="Password"
-                value={formData.password || ''}
-                onChange={handleChange}
-                required
-              />
+              <div className="form-group">
+                <input
+                  type="password"
+                  name="password"
+                  placeholder="Password"
+                  value={formData.password || ''}
+                  onChange={handleChange}
+                  required
+                />
+              </div>
+              <div className="form-group">
+                <input
+                  type="password"
+                  name="confirmPassword"
+                  placeholder="Confirm Password"
+                  value={formData.confirmPassword || ''}
+                  onChange={handleChange}
+                  required
+                />
+              </div>
             </div>
-            <div className="form-group">
-              <input
-                type="password"
-                name="confirmPassword"
-                placeholder="Confirm Password"
-                value={formData.confirmPassword || ''}
-                onChange={handleChange}
-                required
-              />  
-            </div>
-            </div>
-            <button className="register-btn" onClick={nextStep}>
+            {error && <p className="error-message">{error}</p>} {/* Display error message */}
+            <button className="register-btn" onClick={handleNext}>
               Next
             </button>
           </form>

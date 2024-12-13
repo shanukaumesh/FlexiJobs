@@ -19,32 +19,40 @@ public class Student extends User {
     @Column(name = "user_id")
     private int userId;
 
-    @Column(name = "nic")
+    @Column(name = "nic", nullable = true)
     private Long nic;
 
-    @Column(name = "dob")
+    @Column(name = "dob", nullable = true)
     private Date dob;
 
-    @Column(name = "address")
+    @Column(name = "address", nullable = true)
     private String address;
 
-    @Column(name = "nic_photo")
+    @Column(name = "nic_photo", nullable = true)
     private String nicPhoto;
 
-    @Column(name = "university")
+    @Column(name = "university", nullable = true)
     private String university;
 
-    @Column(name = "uni_index")
+    @Column(name = "uni_index", nullable = true)
     private String uniIndex;
 
-    @Column(name = "uni_email")
+    @Column(name = "uni_email", nullable = true)
     private String uniEmail;
 
-    @Column(name = "uni_id")
+    @Column(name = "uni_id", nullable = true)
     private String uniIdPhoto;
 
     @Column(name = "status")
     private boolean status = true;
+
+    // Default constructor
+    public Student() {}
+
+    // Constructor with userId
+    public Student(int userId) {
+        this.userId = userId;
+    }
 
     @Override
     public int getId() {
