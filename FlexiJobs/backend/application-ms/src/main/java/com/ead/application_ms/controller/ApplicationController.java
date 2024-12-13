@@ -1,6 +1,5 @@
 package com.ead.application_ms.controller;
 
-
 import com.ead.application_ms.data.Application;
 import com.ead.application_ms.service.ApplicationService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,32 +14,27 @@ public class ApplicationController {
     private ApplicationService obj;
 
     @GetMapping(path = "/applications")
-    public List<Application> getApplication()
-    {
+    public List<Application> getApplication() {
         return obj.getApplication();
     }
 
     @GetMapping(path = "/applications/{id}")
-    public Application getApplicationById(@PathVariable int id)
-    {
+    public Application getApplicationById(@PathVariable int id) {
         return obj.getApplicationById(id);
     }
 
     @PostMapping(path = "/applications")
-    public Application createApplication(@RequestBody Application application)
-    {
+    public Application createApplication(@RequestBody Application application) {
         return obj.createApplication(application);
     }
 
     @PutMapping(path = "/applications")
-    public Application updateApplication(@RequestBody Application application)
-    {
+    public Application updateApplication(@RequestBody Application application) {
         return obj.updateApplication(application);
     }
 
     @DeleteMapping(path = "/applications/{id}")
-    public void deleteApplication(@PathVariable int id)
-    {
+    public void deleteApplication(@PathVariable int id) {
         obj.deleteApplication(id);
     }
 }

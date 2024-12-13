@@ -1,6 +1,14 @@
 package com.ead.user_ms.data;
 
-import jakarta.persistence.*;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.Inheritance;
+import jakarta.persistence.InheritanceType;
 
 @Entity
 @Inheritance(strategy = InheritanceType.JOINED)
@@ -22,15 +30,6 @@ public class User {
 
     @Column(name = "password", nullable = false)
     private String password;
-
-    @Column(name = "contact_no")
-    private String contactNo;
-
-    @Column(name = "address")
-    private String address;
-
-    @Column(name = "display_name")
-    private String displayName;
 
     @Enumerated(EnumType.STRING)
     @Column(name = "role")
@@ -79,30 +78,6 @@ public class User {
         this.password = password;
     }
 
-    public String getContactNo() {
-        return contactNo;
-    }
-
-    public void setContactNo(String contactNo) {
-        this.contactNo = contactNo;
-    }
-
-    public String getAddress() {
-        return address;
-    }
-
-    public void setAddress(String address) {
-        this.address = address;
-    }
-
-    public String getDisplayName() {
-        return displayName;
-    }
-
-    public void setDisplayName(String displayName) {
-        this.displayName = displayName;
-    }
-
     public boolean isStatus() {
         return status;
     }
@@ -114,3 +89,4 @@ public class User {
     public enum Role {
         STUDENT, EMPLOYER
     }
+}

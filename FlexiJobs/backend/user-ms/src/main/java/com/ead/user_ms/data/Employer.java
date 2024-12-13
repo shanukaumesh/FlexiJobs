@@ -1,14 +1,21 @@
 package com.ead.user_ms.data;
 
-import jakarta.persistence.*;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
 
 @Entity
-public class Employer extends User{
+public class Employer extends User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private int id;
+
+    @Column(name = "user_id")
+    private int userId;
 
     @Column(name = "web_url")
     private String webUrl;
@@ -27,6 +34,14 @@ public class Employer extends User{
     @Override
     public void setId(int id) {
         this.id = id;
+    }
+
+    public int getUserId() {
+        return userId;
+    }
+
+    public void setUserId(int userId) {
+        this.userId = userId;
     }
 
     public String getWebUrl() {

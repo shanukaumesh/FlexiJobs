@@ -15,7 +15,6 @@ public class UserService
     @Autowired
     private UserRepository userRepo;
 
-
     //get users
     public List<User> getUser()
     {
@@ -36,7 +35,6 @@ public class UserService
     public User createUser(User user)
     {
         return (User) userRepo.save(user);
-
     }
 
     //update user
@@ -49,7 +47,5 @@ public class UserService
     public void deleteUser(int id)
     {
         userRepo.deleteById(id);
-
-
     }
 }
