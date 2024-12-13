@@ -61,6 +61,9 @@ public class Job {
     @Column(name = "posted_by")
     private String postedBy;
 
+    @Column(name = "job_status")
+    private boolean jobStatus;
+
     public int getId() {
         return id;
     }
@@ -171,6 +174,14 @@ public class Job {
 
     public void setPostedBy(String postedBy) {
         this.postedBy = postedBy;
+    }
+
+    public boolean isStatus() {
+        return jobStatus;
+    }
+
+    public void setStatus(boolean status) {
+        this.jobStatus = status;
     }
 
     public enum EmploymentType {
