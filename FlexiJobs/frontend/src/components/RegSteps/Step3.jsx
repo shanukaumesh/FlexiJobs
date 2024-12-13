@@ -9,28 +9,28 @@ const Step3 = ({ nextStep, prevStep, formData, setFormData }) => {
   };
 
   const handleNext = async (e) => {
-    e.preventDefault();
+    // e.preventDefault();
 
-    try {
-      const { userId, idNumber, dateOfBirth, address } = formData;
+    // try {
+    //   const { userId, nic, dob, address } = formData;
 
-      // Update student record using userId
-      const response = await axios.put(
-        `http://localhost:8000/user-ms/users/${userId}/students`,
-        { idNumber, dateOfBirth, address },
-        {
-          headers: {
-            'Content-Type': 'application/json',
-          },
-        }
-      );
+    //   // Update student record using userId
+    //   const response = await axios.put(
+    //     `http://localhost:8000/user-ms/users/${userId}/students`,
+    //     { nic, dob, address },
+    //     {
+    //       headers: {
+    //         'Content-Type': 'application/json',
+    //       },
+    //     }
+    //   );
 
-      console.log('Student record updated successfully:', response.data);
-      nextStep(); // Proceed to the next step
-    } catch (err) {
-      console.error('Error updating student record:', err);
-      alert('Failed to update student record. Please try again.');
-    }
+    //   console.log('Student record updated successfully:', response.data);
+    //   nextStep(); // Proceed to the next step
+    // } catch (err) {
+    //   console.error('Error updating student record:', err);
+    //   alert('Failed to update student record. Please try again.');
+    // }
   };
 
   return (
@@ -46,9 +46,9 @@ const Step3 = ({ nextStep, prevStep, formData, setFormData }) => {
             <div className="form-group">
               <input
                 type="text"
-                name="idNumber"
+                name="nic"
                 placeholder="ID/Passport No."
-                value={formData.idNumber || ''}
+                value={formData.nic || ''}
                 onChange={handleChange}
                 required
               />
@@ -56,8 +56,8 @@ const Step3 = ({ nextStep, prevStep, formData, setFormData }) => {
             <div className="form-group">
               <input
                 type="date"
-                name="dateOfBirth"
-                value={formData.dateOfBirth || ''}
+                name="dob"
+                value={formData.dob || ''}
                 onChange={handleChange}
                 required
               />
