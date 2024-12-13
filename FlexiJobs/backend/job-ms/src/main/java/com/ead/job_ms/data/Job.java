@@ -19,45 +19,47 @@ public class Job {
     @Column(name = "id")
     private int id;
 
-    @Column(name = "title", nullable = false)
-    private String title;
-
-    @Column(name = "description", nullable = false)
-    private String description;
-
-    @Column(name = "job_type", nullable = false)
+    @Column(name = "job_title")
     private String jobTitle;
 
-    @Column(name = "job_role")
-    private String jobRole;
+    @Column(name = "company_name")
+    private String companyName;
 
-    @Column(name = "district")
-    private String district;
+    @Column(name = "description")
+    private String description;
 
-    @Column(name = "city")
-    private String city;
+    @Column(name = "location")
+    private String location;
+
+    @Column(name = "salary")
+    private String salary;
 
     @Enumerated(EnumType.STRING)
-    @Column(name = "application_receiving")
-    private ApplicationReceiving applicationReceiving;
+    @Column(name = "employment_type")
+    private EmploymentType employmentType;
 
-    @Column(name = "education")
-    private String education;
+    @Column(name = "skills")
+    private String skills;
 
-    @Column(name = "starting_salary")
-    private BigDecimal startingSalary;
+    @Enumerated(EnumType.STRING)
+    @Column(name = "experience_level")
+    private ExperienceLevel experienceLevel;
 
-    @Column(name = "salary_limit")
-    private BigDecimal salaryLimit;
+    @Column(name = "deadline")
+    private Date deadline;
 
-    @Column(name = "application_deadline")
-    private Date applicationDeadline;
+    @Column(name = "contact_email")
+    private String contactEmail;
 
-    @Column(name = " job_status")
-    private boolean jobStatus;
+    @Enumerated(EnumType.STRING)
+    @Column(name = "category")
+    private JobCategory category;
 
-    @Column(name = "job_photo")
-    private String jobPhoto;
+    @Column(name = "logo")
+    private String logo;
+
+    @Column(name = "posted_by")
+    private String postedBy;
 
     public int getId() {
         return id;
@@ -65,22 +67,6 @@ public class Job {
 
     public void setId(int id) {
         this.id = id;
-    }
-
-    public String getTitle() {
-        return title;
-    }
-
-    public void setTitle(String title) {
-        this.title = title;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
     }
 
     public String getJobTitle() {
@@ -91,79 +77,111 @@ public class Job {
         this.jobTitle = jobTitle;
     }
 
-    public String getJobRole() {
-        return jobRole;
+    public String getCompanyName() {
+        return companyName;
     }
 
-    public void setJobRole(String jobRole) {
-        this.jobRole = jobRole;
+    public void setCompanyName(String companyName) {
+        this.companyName = companyName;
     }
 
-    public String getDistrict() {
-        return district;
+    public String getDescription() {
+        return description;
     }
 
-    public void setDistrict(String district) {
-        this.district = district;
+    public void setDescription(String description) {
+        this.description = description;
     }
 
-    public String getCity() {
-        return city;
+    public String getLocation() {
+        return location;
     }
 
-    public void setCity(String city) {
-        this.city = city;
+    public void setLocation(String location) {
+        this.location = location;
     }
 
-    public String getEducation() {
-        return education;
+    public String getSalary() {
+        return salary;
     }
 
-    public void setEducation(String education) {
-        this.education = education;
+    public void setSalary(String salary) {
+        this.salary = salary;
     }
 
-    public BigDecimal getStartingSalary() {
-        return startingSalary;
+    public EmploymentType getEmploymentType() {
+        return employmentType;
     }
 
-    public void setStartingSalary(BigDecimal startingSalary) {
-        this.startingSalary = startingSalary;
+    public void setEmploymentType(EmploymentType type) {
+        this.employmentType = type;
     }
 
-    public BigDecimal getSalaryLimit() {
-        return salaryLimit;
+    public String getSkills() {
+        return skills;
     }
 
-    public void setSalaryLimit(BigDecimal salaryLimit) {
-        this.salaryLimit = salaryLimit;
+    public void setSkills(String skills) {
+        this.skills = skills;
     }
 
-    public Date getApplicationDeadline() {
-        return applicationDeadline;
+    public ExperienceLevel getExperienceLevel() {
+        return experienceLevel;
     }
 
-    public void setApplicationDeadline(Date applicationDeadline) {
-        this.applicationDeadline = applicationDeadline;
+    public void setExperienceLevel(ExperienceLevel level) {
+        this.experienceLevel = level;
     }
 
-    public boolean isJobStatus() {
-        return jobStatus;
+    public Date getDeadline() {
+        return deadline;
     }
 
-    public void setJobStatus(boolean jobStatus) {
-        this.jobStatus = jobStatus;
+    public void setDeadline(Date deadline) {
+        this.deadline = deadline;
     }
 
-    public String getJobPhoto() {
-        return jobPhoto;
+    public String getContactEmail() {
+        return contactEmail;
     }
 
-    public void setJobPhoto(String jobPhoto) {
-        this.jobPhoto = jobPhoto;
+    public void setContactEmail(String contactEmail) {
+        this.contactEmail = contactEmail;
     }
 
-    public enum ApplicationReceiving {
-        email, dashboard
+    public JobCategory getCategory() {
+        return category;
+    }
+
+    public void setCategory(JobCategory category) {
+        this.category = category;
+    }
+
+    public String getLogo() {
+        return logo;
+    }
+
+    public void setLogo(String logo) {
+        this.logo = logo;
+    }
+
+    public String getPostedBy() {
+        return postedBy;
+    }
+
+    public void setPostedBy(String postedBy) {
+        this.postedBy = postedBy;
+    }
+
+    public enum EmploymentType {
+        Full_Time, Part_Time, Contract, Freelance
+    }
+
+    public enum ExperienceLevel {
+        Entry_Level, Mid_Level, Senior_Level
+    }
+
+    public enum JobCategory {
+        IT,Marketing,Sales,Accounting
     }
 }
