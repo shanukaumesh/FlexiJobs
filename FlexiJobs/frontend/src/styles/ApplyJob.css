@@ -1,0 +1,158 @@
+/* ApplyJob.css */
+
+/* Container for the entire ApplyJob page */
+.job-details-page {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+  }
+  
+  .main-content {
+    display: flex;
+    flex: 1;
+    margin-top: 20px;
+  }
+
+  .back-btn {
+    background-color: #f44336; /* Red background color */
+    color: white; /* White text color */
+    padding: 10px 20px; /* Padding around the text */
+    border: none; /* Remove border */
+    border-radius: 5px; /* Add slight rounding to the corners */
+    cursor: pointer; /* Change cursor to pointer on hover */
+    margin-top: 20px; /* Add space above the button */
+  }
+
+  .apply-btn{
+    background-color: #4CAF50; /* Green background color */
+    color: white; /* White text color */
+    padding: 10px 20px; /* Padding around the text */
+    border: none; /* Remove border */
+    border-radius: 5px; /* Add slight rounding to the corners */
+    cursor: pointer; /* Change cursor to pointer on hover */
+    margin-top: 20px; /* Add space above the button */
+    margin-left: 0px; /* Add space to the left of the button */
+  }
+  
+  .apply-btn:hover {
+    background-color: #45a049; /* Darker green color on hover */
+  }
+  
+  .apply-btn:active {
+    background-color: #3e8e41; /* Slightly darker green color when button is clicked */
+  }
+  
+
+  
+  .job-details-content {
+    width: 80%;
+    padding: 20px;
+  }
+  
+  h1 {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+  }
+  
+  p {
+    font-size: 18px;
+    margin-bottom: 10px;
+  }
+  
+  form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    max-width: 600px;
+    margin-top: 20px;
+  }
+  
+  form div {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  form label {
+    font-size: 16px;
+    margin-bottom: 5px;
+  }
+  
+  form input[type="text"],
+  form input[type="email"],
+  form input[type="file"] {
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+  }
+  
+  form button {
+    padding: 10px;
+    font-size: 16px;
+    background-color: #4169e1;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  form button:hover {
+    background-color: #3759b2;
+  }
+  
+  /* Styling for back button */
+  button[type="button"] {
+    padding: 10px 20px;
+    background-color: #f0f0f0;
+    color: #333;
+    border: 1px solid #ccc;
+    cursor: pointer;
+    font-size: 16px;
+    border-radius: 5px;
+  }
+  
+  button[type="button"]:hover {
+    background-color: #e0e0e0;
+  }
+  
+  /* Style for resume file input */
+  input[type="file"] {
+    padding: 10px;
+  }
+  
+  input[type="file"]:invalid {
+    border-color: red;
+  }
+
+
+  
+  /* Apply job form styling for smaller screens */
+  @media (max-width: 768px) {
+    .main-content {
+      flex-direction: column;
+    }
+  
+    .sidebar {
+      width: 100%;
+      padding: 10px;
+    }
+  
+    .job-details-content {
+      width: 100%;
+    }
+  
+    h1 {
+      font-size: 20px;
+    }
+  
+    p {
+      font-size: 16px;
+    }
+  
+    form {
+      width: 100%;
+    }
+  }
+  
