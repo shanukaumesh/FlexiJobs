@@ -1,5 +1,5 @@
 import React from "react";
-import { useLocation } from "react-router-dom";
+import { useLocation, Link } from "react-router-dom";
 import Sidebar from "../components/StudentUIs/Sidebar";
 import Header_LoggedUser from "../components/Header_LoggedUser";
 import "../styles/JobDetails.css"; // Import the CSS file
@@ -36,10 +36,13 @@ const JobDetails = () => {
           {/* Back button */}
           <button className="back-btn" onClick={() => window.history.back()}>Back</button>
 
-          {/* Apply button */}
-          <button className="apply-btn" onClick={() => alert("You applied for this job!")}>
-            Apply
-          </button>
+          {/* Apply link */}
+          <Link
+            to="/apply"
+            state={{ job }} // Passing job details to the ApplyJob component
+          >
+            <button className="apply-btn">Apply</button>
+          </Link>
         </div>
       </div>
     </div>
