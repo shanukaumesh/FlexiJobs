@@ -1,6 +1,6 @@
 import React from 'react';
-import '../../styles/RegistrationSteps/Step1.css';
-import RegisterPageImage from '../../assets/loginpageImage.png'
+import '../../../styles/RegistrationSteps/Step1.css';
+import RegisterPageImage from '../../../assets/EmployerGroupImage.png'
 
 const Step1 = ({ nextStep, formData, setFormData }) => {
   const handleChange = (e) => {
@@ -16,7 +16,7 @@ const Step1 = ({ nextStep, formData, setFormData }) => {
         </div>
         <div className="register-right">
           <h2>Sign Up</h2>
-          <h4>Earn while you learn. Start working today!</h4>
+          <h4>Find the perfect talent for your business!</h4>
           <form>
             <div className="form-group">
               <input

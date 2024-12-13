@@ -11,6 +11,7 @@ import NotFound from './pages/NotFound';
 import StudentRegister from './pages/StudentRegister';
 import EmployerRegister from './pages/EmployerRegister';
 import EmployerDashboard from './pages/EmployerDashboard';
+import AvailableJobs from './components/StudentUIs/AvailableJobs';
 
 
 const App = () => {

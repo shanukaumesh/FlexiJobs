@@ -29,7 +29,7 @@ const Register = () => {
             />
           </div>
           <div className="welcome-right">
-            <h2>Welcome Back!</h2>
+            <h2>Welcome to Flexi Jobs </h2>
             <p>Select your role to continue</p>
             <div className="button-container">
 
