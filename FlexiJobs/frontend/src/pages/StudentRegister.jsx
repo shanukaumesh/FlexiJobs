@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import Step1 from "../components/RegSteps/Step1";
 import Step2 from "../components/RegSteps/Step2";
 import Step3 from "../components/RegSteps/Step3";
-import Step4 from "../components/RegSteps/Step4";
 import Success from "../components/RegSteps/Success";
 import Header_LogOutUser from "../components/Header_LogOutUser";
 
@@ -46,16 +45,8 @@ const StudentRegister = () => {
             setFormData={setFormData}
           />
         );
+      
       case 4:
-        return (
-          <Step4
-            nextStep={handleSubmit}
-            prevStep={prevStep}
-            formData={formData}
-            setFormData={setFormData}
-          />
-        );
-      case 5:
         return <Success />;
       default:
         return (

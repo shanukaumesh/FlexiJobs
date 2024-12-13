@@ -73,12 +73,57 @@ const Step3 = ({ nextStep, prevStep, formData, setFormData }) => {
               />
             </div>
 
+            <h4>Provide your academic details</h4>
+          <form>
+            <div className="form-group">
+              <input
+                type="text"
+                name="university"
+                placeholder="University Name"
+                value={formData.university || ''}
+                onChange={handleChange}
+                required
+              />
+            </div>
+            <div className="form-group">
+              <input
+                type="text"
+                name="uniID"
+                placeholder="University Index No."
+                value={formData.uniIndex || ''}
+                onChange={handleChange}
+                required
+              />
+            </div>
+
+            <div className="form-group">
+              <input
+                type="email"
+                name="uniEmail"
+                placeholder="University Email"
+                value={formData.uniEmail || ''}
+                onChange={handleChange}
+                required
+              />
+            </div>
+
+            <div className="form-group">
+              <input
+                type="file"
+                name="uniIdPhoto"
+                onChange={handleFileChange} // Store proof of university ID in formData
+                required
+              />
+            </div>
+
+            </form>
+
             <div className="button-group">
               <button className="register-btn" onClick={prevStep}>
                 Back
               </button>
-              <button className="register-btn" onClick={handleNext}>
-                Next
+              <button className="register-btn" onClick={handleSubmit}>
+                Submit
               </button>
             </div>
           </form>
