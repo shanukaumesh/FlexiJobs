@@ -8,6 +8,14 @@ const Step3 = ({ nextStep, prevStep, formData, setFormData }) => {
     setFormData({ ...formData, [name]: value });
   };
 
+  const handleFileChange = (event) => {
+    const file = event.target.files[0];
+    if (file) {
+      // Handle file upload logic here
+      console.log('NIC Photo:', file);
+    }
+  };
+
   const handleNext = async (e) => {
     // e.preventDefault();
 
@@ -72,6 +80,22 @@ const Step3 = ({ nextStep, prevStep, formData, setFormData }) => {
                 required
               />
             </div>
+
+           
+            <hr class="solid"></hr>
+            <h5>Upload NIC Photo</h5>
+
+
+            <div className="form-group">
+          <input
+            type="file"
+            name="nicPhoto"
+            accept="image/*"
+            onChange={handleFileChange} // Add a handler for file change
+            required
+          />
+        </div>
+
             <div className="button-group">
               <button className="register-btn" onClick={prevStep}>
                 Back

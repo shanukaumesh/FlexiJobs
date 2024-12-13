@@ -30,17 +30,29 @@ const Step4 = ({ nextStep, prevStep, formData, setFormData }) => {
             <div className="form-group">
               <input
                 type="text"
-                name="course"
-                placeholder="Course Name"
-                value={formData.course || ''}
+                name="UniversityID"
+                placeholder="University ID"
+                value={formData.uniID || ''}
                 onChange={handleChange}
                 required
               />
             </div>
+
+            <div className="form-group">
+              <input
+                type="email"
+                name="UniversityEmail"
+                placeholder="University Email"
+                value={formData.uniEmail || ''}
+                onChange={handleChange}
+                required
+              />
+            </div>
+
             <div className="form-group">
               <input
                 type="file"
-                name="proofOfEnrollment"
+                name="proofOfUniID"
                 onChange={(e) =>
                   setFormData({ ...formData, proofOfEnrollment: e.target.files[0] })
                 }
