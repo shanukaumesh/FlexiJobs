@@ -14,6 +14,7 @@ import EmployerDashboard from './pages/EmployerDashboard';
 import AvailableJobs from './pages/AvailableJobs';
 import SingleJobPost from './pages/SingleJobPost';
 import PostJob from './pages/PostJob';
+import JobDetails from './pages/JobDetails';
 
 
 const App = () => {
@@ -31,7 +32,7 @@ const App = () => {
           <Route path="/student-register" element={<StudentRegister/>} />
           <Route path="/employer-register" element={<EmployerRegister/>} />
           <Route path="/available-Jobs" element={<AvailableJobs />} />
-          <Route path="/job/:id" element={<SingleJobPost />} />
+          <Route path="/job/:id" element={<JobDetails />} />
           <Route path="/post-job" element={<PostJob />} />
          
      
