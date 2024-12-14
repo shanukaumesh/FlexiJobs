@@ -38,4 +38,8 @@ public class ApplicationService {
     public void deleteApplication(int id) {
         applicationRepo.deleteById(id);
     }
+
+    public List<Application> getApplicationByEmail (String email) {
+        return applicationRepo.getApplicationByEmail(email);
+    }
 }

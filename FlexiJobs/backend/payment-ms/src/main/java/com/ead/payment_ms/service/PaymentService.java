@@ -38,4 +38,8 @@ public class PaymentService {
     public void deletePayment(int id) {
         payRepo.deleteById(id);
     }
+
+    public List<Payment> getPaymentsByUserEmail(String userEmail) {
+        return payRepo.findByUserEmail(userEmail);
+    }
 }

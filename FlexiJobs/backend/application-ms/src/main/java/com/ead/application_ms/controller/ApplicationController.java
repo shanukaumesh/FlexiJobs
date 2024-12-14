@@ -37,4 +37,9 @@ public class ApplicationController {
     public void deleteApplication(@PathVariable int id) {
         obj.deleteApplication(id);
     }
+
+    @GetMapping(path = "/applications", params = "email")
+    public List<Application> getApplicationByEmail(@RequestParam String email) {
+        return obj.getApplicationByEmail(email);
+    }
 }

@@ -3,13 +3,7 @@ package com.ead.payment_ms.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import com.ead.payment_ms.data.Payment;
 import com.ead.payment_ms.service.PaymentService;
@@ -43,5 +37,13 @@ public class PaymentController {
     @DeleteMapping(path = "/payments/{id}")
     public void deletePayment(@PathVariable int id) {
         obj.deletePayment(id);
+    }
+
+    @GetMapping(path = "/payments")
+    public List<Payment> getPayments(@RequestParam(required = false) String email) {
+        if (email != null && !email.isEmpty()) {
+            return obj.getPaymentsByUserEmail(email); // Fetch payments by email
+        }
+        return obj.getPayment(); // Fetch all payments
     }
 }

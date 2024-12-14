@@ -37,6 +37,9 @@ public class JobService {
 
     public void deleteJob(int id) {
         jobRepo.deleteById(id);
+    }
 
+    public List<Job> getJobsByPostedBy(String postedBy) {
+        return jobRepo.getJobsByPostedBy(postedBy);
     }
 }
