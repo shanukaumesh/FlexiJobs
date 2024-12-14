@@ -8,6 +8,10 @@ const Header_LoggedUser = () => {
   const navigate = useNavigate();
 
   const goToLogout = () => {
+    // Clear localStorage
+    localStorage.clear();
+
+    // Navigate to the login page
     navigate("/login");
   };
 

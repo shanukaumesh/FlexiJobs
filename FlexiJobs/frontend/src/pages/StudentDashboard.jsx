@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import Axios from "axios"; 
+import Axios from "axios"; // For API requests
 import Sidebar from "../components/StudentUIs/Sidebar";
 import StatisticsCard from "../components/StudentUIs/StatisticsCard";
 import OngoingJobsCard from "../components/StudentUIs/OngoingJobsCard";
@@ -9,8 +9,9 @@ import ChatService from "../components/ChatService";
 import LoginIllustration from '../assets/EmployerGroupImage.png';
 
 const StudentDashboard = () => {
-  const [ongoingJobs, setOngoingJobs] = useState([]); 
-  const [loading, setLoading] = useState(true); 
+  const [ongoingJobs, setOngoingJobs] = useState([]); // State to store ongoing jobs
+  const [loading, setLoading] = useState(true); // State to handle loading status
+  const [error, setError] = useState(null); // State to handle errors
 
   const statistics = [
     { title: "Total Post Engage", value: "58" },
@@ -20,17 +21,41 @@ const StudentDashboard = () => {
   ];
 
   useEffect(() => {
-    Axios.get("http://localhost:8002/application-ms/applications")
-      .then((response) => {
-        console.log("Fetched Data: ", response.data);
-        setOngoingJobs(response.data); 
-        setLoading(false);
-      })
-      .catch((error) => {
-        console.error("Error fetching ongoing jobs:", error);
-        setLoading(false); 
-      });
-  }, []); 
+    const fetchOngoingJobs = async () => {
+      console.log("Fetching user data from local storage...");
+      
+      // Retrieve and parse the user data from localStorage
+      const userData = JSON.parse(localStorage.getItem("user"));
+      if (!userData || !userData.email) {
+        console.error(
+          "User data in localStorage is invalid or missing:",
+          userData
+        );
+        alert("User email not found. Please log in again.");
+        return;
+      }
+
+      const userEmail = userData.email;
+      console.log("User email retrieved successfully:", userEmail);
+
+      try {
+        // Fetch ongoing jobs for the user based on their email
+        console.log(`Fetching ongoing jobs for email: ${userEmail}`);
+        const response = await Axios.get(
+          `http://localhost:8002/application-ms/applications?email=${userEmail}`
+        );
+        console.log("Fetched Ongoing Jobs: ", response.data); // Log the fetched data
+        setOngoingJobs(response.data); // Set ongoing jobs to state
+      } catch (err) {
+        console.error("Error fetching ongoing jobs:", err);
+        setError("Failed to fetch ongoing jobs.");
+      } finally {
+        setLoading(false); // Stop loading in both success and error cases
+      }
+    };
+
+    fetchOngoingJobs();
+  }, []); // Run only once after initial render
 
   return (
     <div>
@@ -51,16 +76,16 @@ const StudentDashboard = () => {
             <h3>Ongoing Jobs</h3>
             {loading ? (
               <p>Loading...</p> 
-            ) : (
+            ) : error ? (
+              <p className="error-message">{error}</p>
+            ) : ongoingJobs.length > 0 ? (
               <div className="job-list">
-                {ongoingJobs.length > 0 ? (
-                  ongoingJobs.map((job, index) => (
-                    <OngoingJobsCard key={index} job={{ ...job, image: LoginIllustration }} />
-                  ))
-                ) : (
-                  <p>No ongoing jobs available.</p> 
-                )}
+                {ongoingJobs.map((job, index) => (
+                  <OngoingJobsCard key={index} job={{ ...job, image: LoginIllustration }} />
+                ))}
               </div>
+            ) : (
+              <p>No ongoing jobs available.</p>
             )}
           </div>
         </div>

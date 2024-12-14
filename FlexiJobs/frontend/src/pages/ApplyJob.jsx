@@ -68,7 +68,7 @@ const ApplyJob = () => {
 
       if (response.status === 200) {
         console.log("Application submitted successfully:", response.data);
-        alert("Application submitted successfully!");
+        navigate("/applications")
       }
     } catch (error) {
       if (error.response) {
