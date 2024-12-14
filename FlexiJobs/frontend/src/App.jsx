@@ -15,6 +15,7 @@ import AvailableJobs from './pages/AvailableJobs';
 import PostJob from './pages/PostJob';
 import JobDetails from './pages/JobDetails';
 import ApplyJob from './pages/ApplyJob';
+import ApplicationPage from './pages/Applications';
 
 
 const App = () => {
@@ -34,7 +35,8 @@ const App = () => {
           <Route path="/available-Jobs" element={<AvailableJobs />} />
           <Route path="/job/:id" element={<JobDetails />} />
           <Route path="/post-job" element={<PostJob />} />
-          <Route path="/apply" element={<ApplyJob />} /> {/* Apply page */}
+          <Route path="/apply" element={<ApplyJob />} /> 
+          <Route path="/applications" element={<ApplicationPage />} />
          
      
           <Route path="*" element={<NotFound />} />
