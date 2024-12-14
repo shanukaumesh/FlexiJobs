@@ -18,8 +18,8 @@ const Header_LogOutUser = () => {
           <ul className="nav-links">
             <li><a href="/">Home</a></li>
             <li><a href="/about">About Us</a></li>
-            <li><a href="/jobs">Browse Jobs</a></li>
-            <li><a href="/jobs">For Employers</a></li>
+            <li><a href="/student-register">Browse Jobs</a></li>
+            <li><a href="/employer-register">For Employers</a></li>
           </ul>
         </nav>
 

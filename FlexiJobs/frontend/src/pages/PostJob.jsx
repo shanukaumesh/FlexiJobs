@@ -92,6 +92,7 @@ const PostJob = () => {
 
       console.log("Job posted successfully:", response.data);
       navigate("/employer");
+      
     } catch (error) {
       if (error.response) {
         console.error("Server responded with an error:", error.response.data);

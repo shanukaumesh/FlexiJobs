@@ -11,7 +11,7 @@ const Step1 = ({ nextStep }) => {
     email: "",
     password: "",
     confirmPassword: "",
-  });
+  }); 
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -56,7 +56,7 @@ const Step1 = ({ nextStep }) => {
         </div>
         <div className="register-right">
           <h2>Sign Up</h2>
-          <p>Start your journey with us</p>
+          <h4>Start your journey with us</h4>
           <form>
             <div className="form-group">
               <input
@@ -88,7 +88,7 @@ const Step1 = ({ nextStep }) => {
                 required
               />
             </div>
-            <div className="form-pw">
+           
               <div className="form-group">
                 <input
                   type="password"
@@ -109,7 +109,7 @@ const Step1 = ({ nextStep }) => {
                   required
                 />
               </div>
-            </div>
+            
             {error && <p className="error-message">{error}</p>} {/* Display error message */}
             <button className="register-btn" onClick={handleNext}>
               Next
