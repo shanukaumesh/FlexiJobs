@@ -3,6 +3,7 @@ package com.ead.user_ms.service;
 import com.ead.user_ms.data.User;
 import com.ead.user_ms.data.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -13,6 +14,9 @@ public class UserService
 {
     @Autowired
     private UserRepository userRepo;
+
+    @Autowired
+    private BCryptPasswordEncoder encoder;
 
     //get users
     public List<User> getUser()
@@ -36,6 +40,8 @@ public class UserService
 
     //create user
     public User createUser(User user) {
+        // Hash the password before saving
+        user.setPassword(encoder.encode(user.getPassword()));
         return (User) userRepo.save(user);
     }
 
