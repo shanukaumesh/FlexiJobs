@@ -59,7 +59,7 @@ public class UserService
 
     public User getUserByEmailAndPassword (String email, String password) {
         Optional<User> user = userRepo.findByEmail(email);
-        if (user.isPresent() && user.get().getPassword().equals(password)){
+        if (user.isPresent() && encoder.matches(password, user.get().getPassword())){
             return user.get();
         } else {
             return null;
