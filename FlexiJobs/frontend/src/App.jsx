@@ -16,6 +16,9 @@ import PostJob from './pages/PostJob';
 import JobDetails from './pages/JobDetails';
 import ApplyJob from './pages/ApplyJob';
 import ApplicationPage from './pages/Applications';
+import EmployerProfile from './pages/EmployerProfile';
+import StudentProfile from './pages/StudentProfilePage';
+import SettingsPage from './pages/SettingsPage';
 
 
 const App = () => {
@@ -37,6 +40,9 @@ const App = () => {
           <Route path="/post-job" element={<PostJob />} />
           <Route path="/apply" element={<ApplyJob />} /> 
           <Route path="/applications" element={<ApplicationPage />} />
+          <Route path="/profile-employer" element={<EmployerProfile />} />
+          <Route path="/profile-student" element={<StudentProfile />} />
+          <Route path="/settings" element={<SettingsPage/>} />
          
      
           <Route path="*" element={<NotFound />} />

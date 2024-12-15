@@ -21,8 +21,8 @@ const Sidebar = () => {
         <i className="icon-payments" /> Payments
       </NavLink>
 
-      <NavLink to="/settings" className="sidebar-link">
-        <i className="icon-payments" /> Settings
+      <NavLink to="/profile-student" className="sidebar-link">
+        <i className="icon-payments" /> Profile
       </NavLink>
     </div>
   );

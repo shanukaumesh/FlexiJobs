@@ -20,6 +20,9 @@ const Sidebar = () => {
       <NavLink to="/payments" className="sidebar-link">
         <i className="icon-payments" /> Payments
       </NavLink>
+      <NavLink to="/profile-employer" className="sidebar-link">
+        <i className="icon-payments" /> Profile
+      </NavLink>
     </div>
   );
 };
