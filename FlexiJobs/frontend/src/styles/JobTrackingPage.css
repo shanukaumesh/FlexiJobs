@@ -10,15 +10,11 @@
     margin-top: 0px;
   }
   
-  /* Sidebar styles */
-  .sidebar {
-    flex: 6; /* Fixed width for sidebar */
-    
-  }
-  
+    /* Sidebar section */
+
   /* Tracking content section */
   .tracking-content {
-    flex: 1; /* Take remaining space */
+    flex: 6; /* Take remaining space */
     background-color: #fff;
     border-radius: 8px;
     padding: 20px;
