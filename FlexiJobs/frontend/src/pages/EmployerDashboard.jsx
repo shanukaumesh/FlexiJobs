@@ -24,8 +24,8 @@ const EmployerDashboard = () => {
         const response = await axios.get(
           `http://localhost:8080/jobs/employer/${userId}`
         );
-        console.log("Fetched Jobs:", response.data); // Log the response
-        setJobs(response.data); // Set jobs to state
+        console.log("Fetched Jobs:", response.data.jobs); // Log the response
+        setJobs(response.data.jobs); // Set jobs to state
       } catch (err) {
         console.error("Error fetching jobs:", err);
         setError("Failed to fetch jobs. Please try again later.");
