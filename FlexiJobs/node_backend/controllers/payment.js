@@ -3,7 +3,7 @@ const logger = require("../middlewares/logger.js");
 
 // Create a new payment
 exports.createPayment = async (req, res) => {
-  const { studentId, jobId, amount, patmentStatus, paidDate, status } =
+  const { studentId, jobId, amount, paymentStatus, paidDate, status } =
     req.body;
 
   try {
@@ -12,7 +12,7 @@ exports.createPayment = async (req, res) => {
       studentId,
       jobId,
       amount,
-      patmentStatus,
+      paymentStatus,
       paidDate,
       status,
     });
@@ -33,7 +33,7 @@ exports.createPayment = async (req, res) => {
 // Update a payment
 exports.updatePayment = async (req, res) => {
   const { id } = req.params;
-  const { studentId, jobId, amount, patmentStatus, paidDate, status } =
+  const { studentId, jobId, amount, paymentStatus, paidDate, status } =
     req.body;
 
   try {
@@ -57,8 +57,8 @@ exports.updatePayment = async (req, res) => {
       payment.amount = amount;
     }
 
-    if (patmentStatus) {
-      payment.patmentStatus = patmentStatus;
+    if (paymentStatus) {
+      payment.paymentStatus = paymentStatus;
     }
 
     if (paidDate) {

@@ -102,3 +102,6 @@
     at async model.save (C:\Users\User\Downloads\FlexiJobs\FlexiJobs\node_backend\node_modules\sequelize\lib\model.js:2490:35)
     at async Job.create (C:\Users\User\Downloads\FlexiJobs\FlexiJobs\node_backend\node_modules\sequelize\lib\model.js:1362:12)
     at async exports.createJob (C:\Users\User\Downloads\FlexiJobs\FlexiJobs\node_backend\controllers\job.js:26:20)
+2024-12-16T23:51:43.160Z [FlexiJobs] error: ReferenceError: patmentStatus is not defined
+    at exports.updatePayment (C:\Users\User\Downloads\FlexiJobs\FlexiJobs\node_backend\controllers\payment.js:60:5)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
