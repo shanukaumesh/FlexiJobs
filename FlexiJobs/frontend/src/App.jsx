@@ -24,6 +24,7 @@ import JobTrackingPage from './pages/JobTrackingPage';
 import JobDetailsPage from './pages/JobDetailsPage';
 import ApplicantPage from './pages/Applicants';
 import StudentJobTracking from './pages/StudentJobTracking';
+import StudentJobDetails from './pages/StudentJobDetails';
 
 const App = () => {
   return (
@@ -52,7 +53,7 @@ const App = () => {
           <Route path="/job-details" element={<JobDetailsPage />} />
           <Route path="/applicants" element={<ApplicantPage />} />
           <Route path="/student-jobs" element={<StudentJobTracking />} />
-          <Route path="/student-job/:id" element={<JobDetails />} />
+          <Route path="/student-job-details/:id" element={<StudentJobDetails />} />
          
      
           <Route path="*" element={<NotFound />} />

@@ -68,7 +68,7 @@ const StudentJobTracking = () => {
                       {job.status}
                     </td>
                     <td>
-                      <Link to={`/student-job/${job.id}`}>View Details</Link>
+                      <Link to={`/student-job-details/${job.id}`}>View Details</Link>
                     </td>
                   </tr>
                 ))}

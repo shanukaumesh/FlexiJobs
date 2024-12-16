@@ -1,0 +1,86 @@
+/* General container styles */
+.student-job-details-page {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+  }
+  
+  .main-content {
+    display: flex;
+    flex-grow: 1;
+  }
+  
+  .sidebar {
+    width: 250px;
+    background-color: #f4f4f4;
+    padding: 20px;
+  }
+  
+  .job-details-content {
+    flex-grow: 1;
+    padding: 20px;
+  }
+  
+  .job-details-content h1 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    font-weight: bold;
+  }
+  
+  .job-details {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .job-details p {
+    font-size: 1.2rem;
+    margin: 10px 0;
+  }
+  
+  .job-details p strong {
+    font-weight: bold;
+    color: #333;
+  }
+  
+  /* Job status styling */
+  .status-completed {
+    color: green;
+    font-weight: bold;
+  }
+  
+  .status-ongoing {
+    color: orange;
+    font-weight: bold;
+  }
+  
+  .status-not-started {
+    color: red;
+    font-weight: bold;
+  }
+  
+  /* Add some responsiveness for smaller screens */
+  @media (max-width: 768px) {
+    .main-content {
+      flex-direction: column;
+    }
+  
+    .sidebar {
+      width: 100%;
+      padding: 10px;
+    }
+  
+    .job-details-content {
+      padding: 10px;
+    }
+  
+    .job-details {
+      padding: 15px;
+    }
+  
+    .job-details p {
+      font-size: 1rem;
+    }
+  }
+  
