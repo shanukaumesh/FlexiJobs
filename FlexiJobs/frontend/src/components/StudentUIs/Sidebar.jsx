@@ -3,6 +3,9 @@ import { NavLink } from "react-router-dom";
 import "../../styles/EmployerUIs/Sidebar.css";
 
 const Sidebar = () => {
+
+    
+
   return (
     <div className="sidebar">
       <NavLink to="/student" className="sidebar-link">
@@ -14,8 +17,8 @@ const Sidebar = () => {
       <NavLink to="/applications" className="sidebar-link">
         <i className="icon-applications" />My Applications
       </NavLink>
-      <NavLink to="/job-tracking" className="sidebar-link">
-        <i className="icon-job-tracking" /> Job Tracking
+      <NavLink to="/student-jobs" className="sidebar-link">
+        <i className="icon-job-tracking" /> My Jobs
       </NavLink>
       <NavLink to="/payments" className="sidebar-link">
         <i className="icon-payments" /> Payments
