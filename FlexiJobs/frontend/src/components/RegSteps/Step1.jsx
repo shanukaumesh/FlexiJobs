@@ -11,7 +11,7 @@ const Step1 = ({ nextStep }) => {
     email: "",
     password: "",
     confirmPassword: "",
-  }); 
+  });
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -23,19 +23,19 @@ const Step1 = ({ nextStep }) => {
     setError(""); // Reset error state
 
     // Include the role in the formData
-    const userData = { ...formData, role: "student" };
+    const userData = { ...formData };
 
     try {
       // API call to create the user
       const response = await axios.post(
-        "http://localhost:8000/user-ms/users",
+        "http://localhost:8080/auth/register/student",
         userData
       );
 
       console.log("User created successfully:", response.data);
 
-      // Save userId in localStorage
-      localStorage.setItem("userId", response.data); // Save the integer response directly
+      // Store the userid in local storage
+      localStorage.setItem("userId", response.data.id);
 
       // Proceed to the next step
       nextStep();
@@ -88,29 +88,28 @@ const Step1 = ({ nextStep }) => {
                 required
               />
             </div>
-           
-              <div className="form-group">
-                <input
-                  type="password"
-                  name="password"
-                  placeholder="Password"
-                  value={formData.password}
-                  onChange={handleChange}
-                  required
-                />
-              </div>
-              <div className="form-group">
-                <input
-                  type="password"
-                  name="confirmPassword"
-                  placeholder="Confirm Password"
-                  value={formData.confirmPassword}
-                  onChange={handleChange}
-                  required
-                />
-              </div>
-            
-            {error && <p className="error-message">{error}</p>} {/* Display error message */}
+            <div className="form-group">
+              <input
+                type="password"
+                name="password"
+                placeholder="Password"
+                value={formData.password}
+                onChange={handleChange}
+                required
+              />
+            </div>
+            <div className="form-group">
+              <input
+                type="password"
+                name="confirmPassword"
+                placeholder="Confirm Password"
+                value={formData.confirmPassword}
+                onChange={handleChange}
+                required
+              />
+            </div>
+            {error && <p className="error-message">{error}</p>}{" "}
+            {/* Display error message */}
             <button className="register-btn" onClick={handleNext}>
               Next
             </button>

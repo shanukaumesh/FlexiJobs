@@ -10,38 +10,39 @@ const Step3 = ({ nextStep, prevStep, formData, setFormData }) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    // Retrieve the userId from localStorage
+    // Retrieve the user id from the local storage
     const userId = localStorage.getItem("userId");
 
-    if (!userId) {
-      console.error("User ID is missing from localStorage");
-      alert("User ID is not set. Please go back and try again.");
-      return;
-    }
+    // Console log the retrieved user id
+    console.log("User ID:", userId);
 
-    // Dummy data for photos (to be replaced with actual file uploads in the future)
-    const nicPhotoDummy = "https://example.com/dummy-nic-photo.png";
-    const uniIdPhotoDummy = "https://example.com/dummy-uni-id-photo.png";
-
+    // Data to send in the request
     const data = {
       nic: formData.nic,
       dob: formData.dob,
       address: formData.address,
-      nicPhoto: nicPhotoDummy,
+      nicPhoto: "https://example.com/dummy-nic-photo.png", // Dummy photo
       university: formData.university,
-      uniID: formData.uniIndex,
-      uniEmail: formData.uniEmail,
-      uniIdPhoto: uniIdPhotoDummy,
+      universityID: formData.uniIndex,
+      universityEmail: formData.uniEmail,
+      universityIDPhoto: "https://example.com/dummy-uni-id-photo.png", // Dummy photo
     };
 
-    console.log("User ID retrieved from localStorage:", userId);
-    console.log("API Endpoint:", `http://localhost:8000/user-ms/users/${userId}/students`);
-    console.log("Payload Data:", data);
+    console.log("Form Data being sent:", {
+      nic: formData.nic,
+      dob: formData.dob,
+      address: formData.address,
+      nicPhoto: "https://example.com/dummy-nic-photo.png",
+      university: formData.university,
+      universityID: formData.uniIndex,
+      universityEmail: formData.uniEmail,
+      universityIDPhoto: "https://example.com/dummy-uni-id-photo.png",
+    });
 
     try {
-      // Test using axios
+      // Make PUT request to update user data
       const response = await axios.put(
-        `http://localhost:8000/user-ms/users/${userId}/students`,
+        `http://localhost:8080/students/${userId}`,
         data,
         {
           headers: {
@@ -50,15 +51,20 @@ const Step3 = ({ nextStep, prevStep, formData, setFormData }) => {
         }
       );
 
+      console.log("API Response:", response);
+
       if (response.status === 200 || response.status === 201) {
-        console.log("Student data created successfully:", response.data);
+        console.log("Student data updated successfully:", response.data);
         nextStep(); // Proceed to the next step
       } else {
-        console.error("Failed to create student data:", response);
-        alert("Failed to create student data. Please check the server logs.");
+        console.error("Failed to update student data:", response);
+        alert("Failed to update student data. Please check the server logs.");
       }
     } catch (error) {
-      console.error("Error while creating student data:", error.response || error);
+      console.error(
+        "Error while updating student data:",
+        error.response || error
+      );
 
       // Handle specific error cases
       if (error.response) {
@@ -70,7 +76,9 @@ const Step3 = ({ nextStep, prevStep, formData, setFormData }) => {
         } else if (status === 500) {
           alert("Internal server error. Please try again later.");
         } else {
-          alert(`Unexpected Error: ${status} - ${data.message || "Unknown error"}`);
+          alert(
+            `Unexpected Error: ${status} - ${data.message || "Unknown error"}`
+          );
         }
       } else {
         alert("Network error. Ensure the backend is running and reachable.");

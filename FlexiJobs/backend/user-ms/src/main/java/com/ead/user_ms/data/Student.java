@@ -9,15 +9,24 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 
 @Entity
-public class Student extends User {
+public class Student  {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private int id;
 
-    @Column(name = "user_id")
-    private int userId;
+    @Column(name = "first_name", nullable = false)
+    private String firstName;
+
+    @Column(name = "last_name", nullable = false)
+    private String lastName;
+
+    @Column(name = "email", nullable = false, unique = true)
+    private String email;
+
+    @Column(name = "password", nullable = false)
+    private String password;
 
     @Column(name = "nic", nullable = true)
     private Long nic;
@@ -46,30 +55,46 @@ public class Student extends User {
     @Column(name = "status")
     private boolean status = true;
 
-    // Default constructor
-    public Student() {}
 
-    // Constructor with userId
-    public Student(int userId) {
-        this.userId = userId;
-    }
-
-    @Override
     public int getId() {
         return id;
     }
 
-    @Override
+
     public void setId(int id) {
         this.id = id;
     }
 
-    public int getUserId() {
-        return userId;
+    public String getFirstName() {
+        return firstName;
     }
 
-    public void setUserId(int userId) {
-        this.userId = userId;
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     public Long getNic() {
@@ -136,13 +161,35 @@ public class Student extends User {
         this.uniIdPhoto = uniIdPhoto;
     }
 
-    @Override
+
     public boolean isStatus() {
         return status;
     }
 
-    @Override
+
     public void setStatus(boolean status) {
         this.status = status;
+    }
+
+    public static class StudentLoginRequest {
+        private String email;
+        private String password;
+
+        // Getters and setters
+        public String getEmail() {
+            return email;
+        }
+
+        public void setEmail(String email) {
+            this.email = email;
+        }
+
+        public String getPassword() {
+            return password;
+        }
+
+        public void setPassword(String password) {
+            this.password = password;
+        }
     }
 }

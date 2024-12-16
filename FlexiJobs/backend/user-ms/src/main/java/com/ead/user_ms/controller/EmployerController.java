@@ -1,35 +1,61 @@
 package com.ead.user_ms.controller;
 
 import com.ead.user_ms.data.Employer;
+import com.ead.user_ms.data.ErrorResponse;
+import com.ead.user_ms.data.Student;
 import com.ead.user_ms.service.EmployerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 public class EmployerController {
     @Autowired
     EmployerService employerService;
 
-    // Update the employer record associated with userId
-    @PutMapping(path = "/users/{userId}/employers")
-    public ResponseEntity<Employer> updateEmployer(@PathVariable int userId, @RequestBody Employer employer) {
-        Employer existingEmployer = employerService.getEmployerByUserId(userId);
-        if (existingEmployer != null) {
-            employer.setId(existingEmployer.getId()); // Ensure the same record is updated
-            employer.setUserId(userId); // Maintain the association
-            employer.setFirstName(existingEmployer.getFirstName());
-            employer.setLastName(existingEmployer.getLastName());
-            employer.setEmail(existingEmployer.getEmail());
-            employer.setPassword(existingEmployer.getPassword());
-            employer.setRole(existingEmployer.getRole());
-            Employer updatedEmployer = employerService.updateEmployer(employer);
-            return new ResponseEntity<>(updatedEmployer, HttpStatus.OK);
+
+    @GetMapping(path ="/employers")
+    public List<Employer> getEmployer()
+    {
+        return employerService.getEmployer();
+    }
+
+    @GetMapping(path="/employers/{id}")
+    public Employer getEmployerById(@PathVariable int id)
+    {
+        return employerService.getEmployerById(id);
+    }
+
+    @PostMapping(path= "/employers")
+    public Employer createEmployer(@RequestBody Employer employer)
+    {
+        return employerService.createEmployer(employer);
+    }
+
+    @PutMapping(path= "/employers")
+    public Employer updateEmployer(@RequestBody Employer employer)
+    {
+        return employerService.updateEmployer(employer);
+    }
+
+    @DeleteMapping(path = "/employers/{id}")
+    public void deleteEmployer(@PathVariable int id)
+    {
+        employerService.deleteEmployer(id);
+
+    }
+
+    @PostMapping (path = "/employers/login")
+    public ResponseEntity<?> loginUser(@RequestBody Employer.EmployerLoginRequest  loginRequest) {
+        Employer employer = employerService.getEmployerByEmailAndPassword(loginRequest.getEmail(), loginRequest.getPassword());
+
+        if (employer != null) {
+            return new ResponseEntity<>(employer, HttpStatus.OK); // 200 OK, user object with role
+        } else {
+            return new ResponseEntity<>(new ErrorResponse("Invalid email or password"), HttpStatus.UNAUTHORIZED); // 401 Unauthorized
         }
-        return new ResponseEntity<>(null, HttpStatus.NOT_FOUND);
     }
 }

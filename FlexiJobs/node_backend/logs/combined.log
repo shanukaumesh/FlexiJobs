@@ -1,0 +1,95 @@
+2024-12-16T20:01:53.947Z [NuraNest] info: Database connection has been established successfully.
+2024-12-16T20:02:17.466Z [NuraNest] info: Database connection has been established successfully.
+2024-12-16T20:03:17.249Z [NuraNest] info: Database connection has been established successfully.
+2024-12-16T20:03:17.252Z [NuraNest] info: Database connection has been established successfully.
+2024-12-16T20:03:17.367Z [NuraNest] error: Error
+    at Query.run (C:\Users\User\Downloads\FlexiJobs\FlexiJobs\node_backend\node_modules\sequelize\lib\dialects\postgres\query.js:50:25)
+    at C:\Users\User\Downloads\FlexiJobs\FlexiJobs\node_backend\node_modules\sequelize\lib\sequelize.js:315:28
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async PostgresQueryInterface.createTable (C:\Users\User\Downloads\FlexiJobs\FlexiJobs\node_backend\node_modules\sequelize\lib\dialects\abstract\query-interface.js:98:12)
+    at async Job.sync (C:\Users\User\Downloads\FlexiJobs\FlexiJobs\node_backend\node_modules\sequelize\lib\model.js:942:7)
+    at async Sequelize.sync (C:\Users\User\Downloads\FlexiJobs\FlexiJobs\node_backend\node_modules\sequelize\lib\sequelize.js:377:9)
+    at async initializeDatabase (C:\Users\User\Downloads\FlexiJobs\FlexiJobs\node_backend\index.js:18:5)
+2024-12-16T20:05:35.247Z [NuraNest] info: Database connection has been established successfully.
+2024-12-16T20:05:35.250Z [NuraNest] info: Database connection has been established successfully.
+2024-12-16T20:05:35.364Z [NuraNest] error: Error
+    at Query.run (C:\Users\User\Downloads\FlexiJobs\FlexiJobs\node_backend\node_modules\sequelize\lib\dialects\postgres\query.js:50:25)
+    at C:\Users\User\Downloads\FlexiJobs\FlexiJobs\node_backend\node_modules\sequelize\lib\sequelize.js:315:28
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async PostgresQueryInterface.createTable (C:\Users\User\Downloads\FlexiJobs\FlexiJobs\node_backend\node_modules\sequelize\lib\dialects\abstract\query-interface.js:98:12)
+    at async Job.sync (C:\Users\User\Downloads\FlexiJobs\FlexiJobs\node_backend\node_modules\sequelize\lib\model.js:942:7)
+    at async Sequelize.sync (C:\Users\User\Downloads\FlexiJobs\FlexiJobs\node_backend\node_modules\sequelize\lib\sequelize.js:377:9)
+    at async initializeDatabase (C:\Users\User\Downloads\FlexiJobs\FlexiJobs\node_backend\index.js:18:5)
+2024-12-16T20:07:12.977Z [NuraNest] info: Database connection has been established successfully.
+2024-12-16T20:07:12.979Z [NuraNest] info: Database connection has been established successfully.
+2024-12-16T20:07:13.124Z [NuraNest] error: Error
+    at Query.run (C:\Users\User\Downloads\FlexiJobs\FlexiJobs\node_backend\node_modules\sequelize\lib\dialects\postgres\query.js:50:25)
+    at C:\Users\User\Downloads\FlexiJobs\FlexiJobs\node_backend\node_modules\sequelize\lib\sequelize.js:315:28
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async PostgresQueryInterface.createTable (C:\Users\User\Downloads\FlexiJobs\FlexiJobs\node_backend\node_modules\sequelize\lib\dialects\abstract\query-interface.js:98:12)
+    at async Payment.sync (C:\Users\User\Downloads\FlexiJobs\FlexiJobs\node_backend\node_modules\sequelize\lib\model.js:942:7)
+    at async Sequelize.sync (C:\Users\User\Downloads\FlexiJobs\FlexiJobs\node_backend\node_modules\sequelize\lib\sequelize.js:377:9)
+    at async initializeDatabase (C:\Users\User\Downloads\FlexiJobs\FlexiJobs\node_backend\index.js:18:5)
+2024-12-16T20:07:14.430Z [NuraNest] info: Database connection has been established successfully.
+2024-12-16T20:07:14.433Z [NuraNest] info: Database connection has been established successfully.
+2024-12-16T20:07:14.610Z [NuraNest] error: Error
+    at Query.run (C:\Users\User\Downloads\FlexiJobs\FlexiJobs\node_backend\node_modules\sequelize\lib\dialects\postgres\query.js:50:25)
+    at C:\Users\User\Downloads\FlexiJobs\FlexiJobs\node_backend\node_modules\sequelize\lib\sequelize.js:315:28
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async PostgresQueryInterface.createTable (C:\Users\User\Downloads\FlexiJobs\FlexiJobs\node_backend\node_modules\sequelize\lib\dialects\abstract\query-interface.js:98:12)
+    at async Application.sync (C:\Users\User\Downloads\FlexiJobs\FlexiJobs\node_backend\node_modules\sequelize\lib\model.js:942:7)
+    at async Sequelize.sync (C:\Users\User\Downloads\FlexiJobs\FlexiJobs\node_backend\node_modules\sequelize\lib\sequelize.js:377:9)
+    at async initializeDatabase (C:\Users\User\Downloads\FlexiJobs\FlexiJobs\node_backend\index.js:18:5)
+2024-12-16T20:07:24.137Z [NuraNest] info: Database connection has been established successfully.
+2024-12-16T20:07:24.140Z [NuraNest] info: Database connection has been established successfully.
+2024-12-16T20:07:24.293Z [NuraNest] info: All models were synchronized successfully.
+2024-12-16T20:07:38.957Z [NuraNest] info: Database connection has been established successfully.
+2024-12-16T20:07:38.960Z [NuraNest] info: Database connection has been established successfully.
+2024-12-16T20:07:38.997Z [NuraNest] info: All models were synchronized successfully.
+2024-12-16T20:11:38.188Z [NuraNest] info: Database connection has been established successfully.
+2024-12-16T20:11:38.191Z [NuraNest] info: Database connection has been established successfully.
+2024-12-16T20:11:38.220Z [NuraNest] info: All models were synchronized successfully.
+2024-12-16T20:11:50.427Z [NuraNest] info: Database connection has been established successfully.
+2024-12-16T20:11:50.430Z [NuraNest] info: Database connection has been established successfully.
+2024-12-16T20:11:50.461Z [NuraNest] info: All models were synchronized successfully.
+2024-12-16T20:13:14.836Z [NuraNest] info: Database connection has been established successfully.
+2024-12-16T20:13:14.839Z [NuraNest] info: Database connection has been established successfully.
+2024-12-16T20:13:14.868Z [NuraNest] info: All models were synchronized successfully.
+2024-12-16T21:24:50.010Z [FlexiJobs] info: Database connection has been established successfully.
+2024-12-16T21:24:50.013Z [FlexiJobs] info: Database connection has been established successfully.
+2024-12-16T21:24:50.053Z [FlexiJobs] info: All models were synchronized successfully.
+2024-12-16T21:27:43.233Z [FlexiJobs] info: Database connection has been established successfully.
+2024-12-16T21:27:43.236Z [FlexiJobs] info: Database connection has been established successfully.
+2024-12-16T21:27:43.274Z [FlexiJobs] info: All models were synchronized successfully.
+2024-12-16T21:28:52.982Z [FlexiJobs] info: Student registered successfully: emma@gmail.com
+2024-12-16T21:30:15.517Z [FlexiJobs] info: Student logged in successfully: emma@gmail.com
+2024-12-16T21:33:44.362Z [FlexiJobs] info: Database connection has been established successfully.
+2024-12-16T21:33:44.364Z [FlexiJobs] info: Database connection has been established successfully.
+2024-12-16T21:33:44.396Z [FlexiJobs] info: All models were synchronized successfully.
+2024-12-16T21:48:40.320Z [FlexiJobs] info: Student registered successfully: fernandonirmal607@gmail.com
+2024-12-16T21:52:19.601Z [FlexiJobs] error: Error: Illegal arguments: undefined, string
+    at bcrypt.hashSync (C:\Users\User\Downloads\FlexiJobs\FlexiJobs\node_backend\node_modules\bcryptjs\dist\bcrypt.js:189:19)
+    at exports.updateStudent (C:\Users\User\Downloads\FlexiJobs\FlexiJobs\node_backend\controllers\student.js:34:35)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+2024-12-16T21:53:03.409Z [FlexiJobs] info: Student updated successfully: john.doe@example.com
+2024-12-16T21:55:37.615Z [FlexiJobs] info: Database connection has been established successfully.
+2024-12-16T21:55:37.618Z [FlexiJobs] info: Database connection has been established successfully.
+2024-12-16T21:55:37.650Z [FlexiJobs] info: All models were synchronized successfully.
+2024-12-16T21:59:28.079Z [FlexiJobs] info: Student registered successfully: shifryshaliha@gmail.com
+2024-12-16T21:59:49.858Z [FlexiJobs] error: Error: Illegal arguments: undefined, string
+    at bcrypt.hashSync (C:\Users\User\Downloads\FlexiJobs\FlexiJobs\node_backend\node_modules\bcryptjs\dist\bcrypt.js:189:19)
+    at exports.updateStudent (C:\Users\User\Downloads\FlexiJobs\FlexiJobs\node_backend\controllers\student.js:34:35)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+2024-12-16T22:01:26.912Z [FlexiJobs] info: Student registered successfully: wolfy@gmail.com
+2024-12-16T22:01:39.593Z [FlexiJobs] error: Error: Illegal arguments: undefined, string
+    at bcrypt.hashSync (C:\Users\User\Downloads\FlexiJobs\FlexiJobs\node_backend\node_modules\bcryptjs\dist\bcrypt.js:189:19)
+    at exports.updateStudent (C:\Users\User\Downloads\FlexiJobs\FlexiJobs\node_backend\controllers\student.js:34:35)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+2024-12-16T22:03:28.421Z [FlexiJobs] info: Student registered successfully: wolf@gmail.com
+2024-12-16T22:03:40.984Z [FlexiJobs] error: Error: Illegal arguments: undefined, string
+    at bcrypt.hashSync (C:\Users\User\Downloads\FlexiJobs\FlexiJobs\node_backend\node_modules\bcryptjs\dist\bcrypt.js:189:19)
+    at exports.updateStudent (C:\Users\User\Downloads\FlexiJobs\FlexiJobs\node_backend\controllers\student.js:34:35)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+2024-12-16T22:04:54.703Z [FlexiJobs] info: Database connection has been established successfully.
+2024-12-16T22:04:54.706Z [FlexiJobs] info: Database connection has been established successfully.
+2024-12-16T22:04:54.735Z [FlexiJobs] info: All models were synchronized successfully.

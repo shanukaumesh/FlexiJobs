@@ -1,0 +1,48 @@
+2024-12-16T20:03:17.367Z [NuraNest] error: Error
+    at Query.run (C:\Users\User\Downloads\FlexiJobs\FlexiJobs\node_backend\node_modules\sequelize\lib\dialects\postgres\query.js:50:25)
+    at C:\Users\User\Downloads\FlexiJobs\FlexiJobs\node_backend\node_modules\sequelize\lib\sequelize.js:315:28
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async PostgresQueryInterface.createTable (C:\Users\User\Downloads\FlexiJobs\FlexiJobs\node_backend\node_modules\sequelize\lib\dialects\abstract\query-interface.js:98:12)
+    at async Job.sync (C:\Users\User\Downloads\FlexiJobs\FlexiJobs\node_backend\node_modules\sequelize\lib\model.js:942:7)
+    at async Sequelize.sync (C:\Users\User\Downloads\FlexiJobs\FlexiJobs\node_backend\node_modules\sequelize\lib\sequelize.js:377:9)
+    at async initializeDatabase (C:\Users\User\Downloads\FlexiJobs\FlexiJobs\node_backend\index.js:18:5)
+2024-12-16T20:05:35.364Z [NuraNest] error: Error
+    at Query.run (C:\Users\User\Downloads\FlexiJobs\FlexiJobs\node_backend\node_modules\sequelize\lib\dialects\postgres\query.js:50:25)
+    at C:\Users\User\Downloads\FlexiJobs\FlexiJobs\node_backend\node_modules\sequelize\lib\sequelize.js:315:28
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async PostgresQueryInterface.createTable (C:\Users\User\Downloads\FlexiJobs\FlexiJobs\node_backend\node_modules\sequelize\lib\dialects\abstract\query-interface.js:98:12)
+    at async Job.sync (C:\Users\User\Downloads\FlexiJobs\FlexiJobs\node_backend\node_modules\sequelize\lib\model.js:942:7)
+    at async Sequelize.sync (C:\Users\User\Downloads\FlexiJobs\FlexiJobs\node_backend\node_modules\sequelize\lib\sequelize.js:377:9)
+    at async initializeDatabase (C:\Users\User\Downloads\FlexiJobs\FlexiJobs\node_backend\index.js:18:5)
+2024-12-16T20:07:13.124Z [NuraNest] error: Error
+    at Query.run (C:\Users\User\Downloads\FlexiJobs\FlexiJobs\node_backend\node_modules\sequelize\lib\dialects\postgres\query.js:50:25)
+    at C:\Users\User\Downloads\FlexiJobs\FlexiJobs\node_backend\node_modules\sequelize\lib\sequelize.js:315:28
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async PostgresQueryInterface.createTable (C:\Users\User\Downloads\FlexiJobs\FlexiJobs\node_backend\node_modules\sequelize\lib\dialects\abstract\query-interface.js:98:12)
+    at async Payment.sync (C:\Users\User\Downloads\FlexiJobs\FlexiJobs\node_backend\node_modules\sequelize\lib\model.js:942:7)
+    at async Sequelize.sync (C:\Users\User\Downloads\FlexiJobs\FlexiJobs\node_backend\node_modules\sequelize\lib\sequelize.js:377:9)
+    at async initializeDatabase (C:\Users\User\Downloads\FlexiJobs\FlexiJobs\node_backend\index.js:18:5)
+2024-12-16T20:07:14.610Z [NuraNest] error: Error
+    at Query.run (C:\Users\User\Downloads\FlexiJobs\FlexiJobs\node_backend\node_modules\sequelize\lib\dialects\postgres\query.js:50:25)
+    at C:\Users\User\Downloads\FlexiJobs\FlexiJobs\node_backend\node_modules\sequelize\lib\sequelize.js:315:28
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async PostgresQueryInterface.createTable (C:\Users\User\Downloads\FlexiJobs\FlexiJobs\node_backend\node_modules\sequelize\lib\dialects\abstract\query-interface.js:98:12)
+    at async Application.sync (C:\Users\User\Downloads\FlexiJobs\FlexiJobs\node_backend\node_modules\sequelize\lib\model.js:942:7)
+    at async Sequelize.sync (C:\Users\User\Downloads\FlexiJobs\FlexiJobs\node_backend\node_modules\sequelize\lib\sequelize.js:377:9)
+    at async initializeDatabase (C:\Users\User\Downloads\FlexiJobs\FlexiJobs\node_backend\index.js:18:5)
+2024-12-16T21:52:19.601Z [FlexiJobs] error: Error: Illegal arguments: undefined, string
+    at bcrypt.hashSync (C:\Users\User\Downloads\FlexiJobs\FlexiJobs\node_backend\node_modules\bcryptjs\dist\bcrypt.js:189:19)
+    at exports.updateStudent (C:\Users\User\Downloads\FlexiJobs\FlexiJobs\node_backend\controllers\student.js:34:35)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+2024-12-16T21:59:49.858Z [FlexiJobs] error: Error: Illegal arguments: undefined, string
+    at bcrypt.hashSync (C:\Users\User\Downloads\FlexiJobs\FlexiJobs\node_backend\node_modules\bcryptjs\dist\bcrypt.js:189:19)
+    at exports.updateStudent (C:\Users\User\Downloads\FlexiJobs\FlexiJobs\node_backend\controllers\student.js:34:35)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+2024-12-16T22:01:39.593Z [FlexiJobs] error: Error: Illegal arguments: undefined, string
+    at bcrypt.hashSync (C:\Users\User\Downloads\FlexiJobs\FlexiJobs\node_backend\node_modules\bcryptjs\dist\bcrypt.js:189:19)
+    at exports.updateStudent (C:\Users\User\Downloads\FlexiJobs\FlexiJobs\node_backend\controllers\student.js:34:35)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+2024-12-16T22:03:40.984Z [FlexiJobs] error: Error: Illegal arguments: undefined, string
+    at bcrypt.hashSync (C:\Users\User\Downloads\FlexiJobs\FlexiJobs\node_backend\node_modules\bcryptjs\dist\bcrypt.js:189:19)
+    at exports.updateStudent (C:\Users\User\Downloads\FlexiJobs\FlexiJobs\node_backend\controllers\student.js:34:35)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)

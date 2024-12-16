@@ -28,7 +28,7 @@ const Step1 = ({ nextStep }) => {
     try {
       // API call to create the employer
       const response = await axios.post(
-        "http://localhost:8000/user-ms/users", 
+        "http://localhost:8080/auth/register/employer", 
         employerData
       );
 
