@@ -52,10 +52,7 @@ const ApplicantPage = () => {
                       {app.status === "Pending" && (
                         <Link
                           to={`/application-review/${app.id}`}
-                          state={{
-                            application: app, // Pass the full application object
-                            updateStatus: updateApplicationStatus,
-                          }}
+                          
                         >
                           View
                         </Link>
