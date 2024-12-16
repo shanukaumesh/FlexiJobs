@@ -26,6 +26,8 @@ import ApplicantPage from './pages/Applicants';
 import StudentJobTracking from './pages/StudentJobTracking';
 import StudentJobDetails from './pages/StudentJobDetails';
 import PaymentDashboardPage from './pages/PaymentDashboardPage';
+import StudentLogin from './pages/StudentLogin';
+import EmployerLogin from './pages/EmployerLogin';
 
 const App = () => {
   return (
@@ -56,6 +58,8 @@ const App = () => {
         <Route path="/job-tracking" element={<StudentJobTracking />} />
         <Route path="/job-details/:id" element={<StudentJobDetails />} />
         <Route path="/Payments" element={<PaymentDashboardPage />} />
+        <Route path="/student-login" element={<StudentLogin />} />
+        <Route path="/employer-login" element={<EmployerLogin />} />
   
 
 
