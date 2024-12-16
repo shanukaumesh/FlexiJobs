@@ -20,45 +20,48 @@ import EmployerProfile from './pages/EmployerProfile';
 import StudentProfile from './pages/StudentProfilePage';
 import SettingsPage from './pages/SettingsPage';
 import ApplicationReview from './pages/ApplicationReview';
-import JobTrackingPage from './pages/JobTrackingPage';
-import JobDetailsPage from './pages/JobDetailsPage';
+import JobTrackingPage from './pages/EmployerJobTrackingPage';
+import JobDetailsPage from './pages/EmployerJobDetailsPage';
 import ApplicantPage from './pages/Applicants';
 import StudentJobTracking from './pages/StudentJobTracking';
 import StudentJobDetails from './pages/StudentJobDetails';
+import PaymentDashboardPage from './pages/PaymentDashboardPage';
 
 const App = () => {
   return (
     <div>
-      
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/about" element={<AboutPage />} />
-          <Route path="/login" element={<LoginPage />} />
-          <Route path="/register" element={<RegisterPage />} />
-          <Route path="/forgot-password" element={<ForgotPassword />} />
-          <Route path="/Student" element={<StudentDashboard />} />
-          <Route path="/Employer" element={<EmployerDashboard />} />
-          <Route path="/student-register" element={<StudentRegister/>} />
-          <Route path="/employer-register" element={<EmployerRegister/>} />
-          <Route path="/available-Jobs" element={<AvailableJobs />} />
-          <Route path="/job/:id" element={<JobDetails />} />
-          <Route path="/post-job" element={<PostJob />} />
-          <Route path="/apply" element={<ApplyJob />} /> 
-          <Route path="/profile-employer" element={<EmployerProfile />} />
-          <Route path="/profile-student" element={<StudentProfile />} />
-          <Route path="/settings" element={<SettingsPage/>} />
-          <Route path="/applications" element={<ApplicationPage />} />
-          <Route path="/application-review/:id" element={<ApplicationReview />} />
-          <Route path="/job-tracking" element={<JobTrackingPage />} />
-          <Route path="/job-details" element={<JobDetailsPage />} />
-          <Route path="/applicants" element={<ApplicantPage />} />
-          <Route path="/student-jobs" element={<StudentJobTracking />} />
-          <Route path="/student-job-details/:id" element={<StudentJobDetails />} />
-         
-     
-          <Route path="*" element={<NotFound />} />
-        </Routes>
-        
+
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/about" element={<AboutPage />} />
+        <Route path="/login" element={<LoginPage />} />
+        <Route path="/register" element={<RegisterPage />} />
+        <Route path="/forgot-password" element={<ForgotPassword />} />
+        <Route path="/Student" element={<StudentDashboard />} />
+        <Route path="/Employer" element={<EmployerDashboard />} />
+        <Route path="/student-register" element={<StudentRegister />} />
+        <Route path="/employer-register" element={<EmployerRegister />} />
+        <Route path="/available-Jobs" element={<AvailableJobs />} />
+        <Route path="/job/:id" element={<JobDetails />} />
+        <Route path="/post-job" element={<PostJob />} />
+        <Route path="/apply" element={<ApplyJob />} />
+        <Route path="/profile-employer" element={<EmployerProfile />} />
+        <Route path="/profile-student" element={<StudentProfile />} />
+        <Route path="/settings" element={<SettingsPage />} />
+        <Route path="/applications" element={<ApplicationPage />} />
+        <Route path="/application-review/:id" element={<ApplicationReview />} />
+        <Route path="/Employer-Job-Tracking" element={<JobTrackingPage />} />
+        <Route path="/Employer-Job/:id" element={<JobDetailsPage />} />
+        <Route path="/applicants" element={<ApplicantPage />} />
+        <Route path="/job-tracking" element={<StudentJobTracking />} />
+        <Route path="/job-details/:id" element={<StudentJobDetails />} />
+        <Route path="/Payments" element={<PaymentDashboardPage />} />
+  
+
+
+        <Route path="*" element={<NotFound />} />
+      </Routes>
+
     </div>
   );
 }

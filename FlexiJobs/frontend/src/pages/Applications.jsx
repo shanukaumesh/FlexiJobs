@@ -29,6 +29,7 @@ const ApplicationPage = () => {
                   <th>Location</th>
                   <th>Status</th>
                   <th>Applied Date</th>
+                  <th>Action</th>
                 </tr>
               </thead>
               <tbody>
@@ -38,6 +39,10 @@ const ApplicationPage = () => {
                     <td>{app.location}</td>
                     <td>{app.status ? "Accepted" : "Pending"}</td>
                     <td>{app.appliedDate}</td>
+                    <td>
+                      {/* Link to navigate to the review page */}
+                      <Link to={`/application-review/${app.id}`}>View</Link>
+                    </td>
                   </tr>
                 ))}
               </tbody>

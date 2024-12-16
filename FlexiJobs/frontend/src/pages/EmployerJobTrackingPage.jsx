@@ -53,7 +53,8 @@ const JobTrackingPage = () => {
   }, [approvedApplication]);
 
   const handleRowClick = (job) => {
-    navigate("/job-details", { state: { job } }); // Pass job details to JobDetailsPage
+    console.log("Navigating to JobDetailsPage with job data:", job); // Log for debugging
+    navigate(`/Employer-Job/${job.id}`, { state: { job } }); // Dynamic path with job.id
   };
 
   return (

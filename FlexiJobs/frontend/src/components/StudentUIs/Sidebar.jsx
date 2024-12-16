@@ -17,7 +17,7 @@ const Sidebar = () => {
       <NavLink to="/applications" className="sidebar-link">
         <i className="icon-applications" />My Applications
       </NavLink>
-      <NavLink to="/student-jobs" className="sidebar-link">
+      <NavLink to="/job-tracking" className="sidebar-link">
         <i className="icon-job-tracking" /> My Jobs
       </NavLink>
       <NavLink to="/payments" className="sidebar-link">

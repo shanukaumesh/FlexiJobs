@@ -14,7 +14,7 @@ const Sidebar = () => {
       <NavLink to="/applicants" className="sidebar-link">
         <i className="icon-applications" /> Applications
       </NavLink>
-      <NavLink to="/job-tracking" className="sidebar-link">
+      <NavLink to="/Employer-Job-Tracking" className="sidebar-link">
         <i className="icon-job-tracking" /> Job Tracking
       </NavLink>
       <NavLink to="/payments" className="sidebar-link">

@@ -1,10 +1,12 @@
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import Header_LoggedUser from "../components/Header_LoggedUser";
 import Sidebar from "../components/StudentUIs/Sidebar";
 import "../styles/StudentJobTracking.css";
 
 const StudentJobTracking = () => {
+  const navigate = useNavigate();
+
   // Example list of jobs assigned to the student
   const [studentJobs, setStudentJobs] = useState([
     {
@@ -13,6 +15,7 @@ const StudentJobTracking = () => {
       employer: "ABC Tech",
       startDate: "2024-12-10",
       status: "Completed",
+      description: "Develop and maintain web applications.",
     },
     {
       id: 2,
@@ -20,6 +23,7 @@ const StudentJobTracking = () => {
       employer: "XYZ Media",
       startDate: "2024-12-12",
       status: "Ongoing",
+      description: "Write content for blogs, websites, and other media.",
     },
     {
       id: 3,
@@ -27,8 +31,14 @@ const StudentJobTracking = () => {
       employer: "Creative Studio",
       startDate: "2024-12-14",
       status: "Not Started",
+      description: "Design graphics for digital and print media.",
     },
   ]);
+
+  // Handle row click to navigate to job details page
+  const handleRowClick = (job) => {
+    navigate(`/job-details/${job.id}`, { state: { job } });
+  };
 
   return (
     <div className="student-job-tracking-page">
@@ -47,12 +57,15 @@ const StudentJobTracking = () => {
                   <th>Employer</th>
                   <th>Start Date</th>
                   <th>Status</th>
-                  <th>Action</th>
                 </tr>
               </thead>
               <tbody>
                 {studentJobs.map((job) => (
-                  <tr key={job.id}>
+                  <tr
+                    key={job.id}
+                    onClick={() => handleRowClick(job)} // Row click handler
+                    className="clickable-row"
+                  >
                     <td>{job.jobTitle}</td>
                     <td>{job.employer}</td>
                     <td>{job.startDate}</td>
@@ -66,9 +79,6 @@ const StudentJobTracking = () => {
                       }`}
                     >
                       {job.status}
-                    </td>
-                    <td>
-                      <Link to={`/student-job-details/${job.id}`}>View Details</Link>
                     </td>
                   </tr>
                 ))}
