@@ -9,33 +9,39 @@ const JobTrackingPage = () => {
   const location = useLocation();
   const { approvedApplication } = location.state || {}; // Get the approved application passed from ApplicationReview
 
-  // Existing approved applications
-  const [approvedApplications, setApprovedApplications] = useState([
-    {
-      id: 1,
-      jobTitle: "Web Developer",
-      applicantName: "John Doe",
-      email: "johndoe@example.com",
-      startDate: "2024-12-15",
-      status: "Not Started",
-    },
-    {
-      id: 2,
-      jobTitle: "Graphic Designer",
-      applicantName: "Jane Smith",
-      email: "janesmith@example.com",
-      startDate: "2024-12-14",
-      status: "Completed",
-    },
-    {
-      id: 3,
-      jobTitle: "Content Writer",
-      applicantName: "Robert Johnson",
-      email: "robertjohnson@example.com",
-      startDate: "2024-12-16",
-      status: "In Progress",
-    },
-  ]);
+  // State for approved applications
+  const [approvedApplications, setApprovedApplications] = useState([]);
+
+  // Fetch jobs data from the backend API
+  useEffect(() => {
+    const fetchJobs = async () => {
+      console.log("Fetching jobs data..."); // Debugging log
+      try {
+        const response = await fetch("http://localhost:8080/jobs/");
+        if (!response.ok) {
+          throw new Error(`Failed to fetch jobs: ${response.status}`);
+        }
+        const data = await response.json();
+        console.log("Fetched jobs data:", data); // Debugging log
+
+        // Map job data to approved applications format
+        const jobsData = data.jobs.map((job) => ({
+          id: job.id,
+          jobTitle: job.title,
+          applicantName: job.companyName, // Using companyName for now
+          email: job.contactEmail,
+          startDate: new Date(job.created_at).toISOString().split("T")[0], // Format as YYYY-MM-DD
+          status: job.jobStatus || "Not Started", // Default status
+        }));
+
+        setApprovedApplications(jobsData);
+      } catch (error) {
+        console.error("Error fetching jobs:", error.message);
+      }
+    };
+
+    fetchJobs();
+  }, []);
 
   // Add the newly approved application to the list
   useEffect(() => {
@@ -53,7 +59,7 @@ const JobTrackingPage = () => {
   }, [approvedApplication]);
 
   const handleRowClick = (job) => {
-    console.log("Navigating to JobDetailsPage with job data:", job); // Log for debugging
+    console.log("Navigating to JobDetailsPage with job data:", job); // Debugging log
     navigate(`/Employer-Job/${job.id}`, { state: { job } }); // Dynamic path with job.id
   };
 
