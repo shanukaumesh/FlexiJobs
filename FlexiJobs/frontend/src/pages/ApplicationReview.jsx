@@ -1,21 +1,40 @@
 import React from "react";
-import { useParams } from "react-router-dom";
+import { useLocation, useNavigate, useParams } from "react-router-dom";
 import Header_LoggedUser from "../components/Header_LoggedUser";
 import Sidebar from "../components/EmployerUIs/Sidebar";
 import "../styles/ApplicationReview.css";
 
 const ApplicationReview = () => {
-  const { id } = useParams(); // Extract the application ID from the URL
+  const { id } = useParams(); // Extract application ID
+  const location = useLocation();
+  const navigate = useNavigate();
 
-  // Dummy data for applications
+  // Get the updateStatus function passed via state
+  const updateStatus = location.state?.updateStatus;
+
+  // Dummy application for review
   const dummyApplications = [
-    { id: 1, jobTitle: "Web Developer", applicantName: "Shanuka", email: "shanuka@example.com", location: "Colombo", status: true, appliedDate: "2024-12-10", description: "Experienced in React and Node.js." },
-    { id: 2, jobTitle: "Graphic Designer", applicantName: "Umesh", email: "umesh@example.com", location: "Kandy", status: false, appliedDate: "2024-12-12", description: "Proficient in Photoshop and Illustrator." },
-    { id: 3, jobTitle: "Content Writer", applicantName: "Dilanjaya", email: "dilanjaya@example.com", location: "Galle", status: true, appliedDate: "2024-12-14", description: "Expert in SEO writing and blogging." },
+    { id: 1, jobTitle: "Web Developer", Applicant: "Shanuka", status: "Pending", appliedDate: "2024-12-10" },
+    { id: 2, jobTitle: "Graphic Designer", Applicant: "Umesh", status: "Rejected", appliedDate: "2024-12-12" },
+    { id: 3, jobTitle: "Content Writer", Applicant: "Dilanjaya", status: "Approved", appliedDate: "2024-12-14" },
   ];
 
-  // Find the specific application based on the ID
+  // Find the application by ID
   const application = dummyApplications.find((app) => app.id === parseInt(id));
+
+  const handleApprove = () => {
+    if (application) {
+      updateStatus(application.id, "Approved"); // Update status to Approved
+      navigate("/job-tracking", { state: { approvedApplication: application } });
+    }
+  };
+
+  const handleReject = () => {
+    if (application) {
+      updateStatus(application.id, "Rejected"); // Update status to Rejected
+      navigate("/"); // Navigate back to ApplicantPage
+    }
+  };
 
   return (
     <div>
@@ -29,35 +48,23 @@ const ApplicationReview = () => {
               <div className="application-details">
                 <h2>{application.jobTitle}</h2>
                 <p>
-                  <strong>Applicant Name:</strong> {application.applicantName}
+                  <strong>Applicant Name:</strong> {application.Applicant}
                 </p>
                 <p>
-                  <strong>Email:</strong> {application.email}
-                </p>
-                <p>
-                  <strong>Location:</strong> {application.location}
-                </p>
-                <p>
-                  <strong>Status:</strong> {application.status ? "Accepted" : "Pending"}
+                  <strong>Status:</strong> {application.status}
                 </p>
                 <p>
                   <strong>Applied Date:</strong> {application.appliedDate || "N/A"}
                 </p>
-                <p>
-                  <strong>Description:</strong> {application.description}
-                </p>
               </div>
               <div className="review-actions">
                 <h3>Take Action</h3>
-                <button className="btn-approve">Approve</button>
-                <button className="btn-reject">Reject</button>
-              </div>
-              <div className="additional-notes">
-                <h3>Notes</h3>
-                <textarea
-                  placeholder="Add your notes about the application..."
-                  rows="5"
-                ></textarea>
+                <button className="btn-approve" onClick={handleApprove}>
+                  Approve
+                </button>
+                <button className="btn-reject" onClick={handleReject}>
+                  Reject
+                </button>
               </div>
             </div>
           ) : (
