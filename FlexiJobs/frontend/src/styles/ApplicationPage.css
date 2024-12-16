@@ -49,3 +49,12 @@
     background-color: #f9f9f9;
   }
   
+  .clickable-row {
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .clickable-row:hover {
+    background-color: #f0f0f0; /* Light grey on hover */
+  }
+  

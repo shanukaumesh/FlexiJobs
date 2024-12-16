@@ -4,7 +4,7 @@ import Sidebar from "../EmployerUIs/Sidebar";
 import "../../styles/EmployerUIs/EmployerSettings.css";
 import Header_LoggedUser from "../Header_LoggedUser";
 import ChatService from "../ChatService";
-
+ 
 const EmployerSettings = () => {
   const [employerProfile, setEmployerProfile] = useState(null);
   const [loading, setLoading] = useState(true);

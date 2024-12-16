@@ -4,7 +4,7 @@ import StudentSettings from "../components/StudentUIs/StudentSettings"; // Assum
 import EmployerSettings from "../components/EmployerUIs/EmployerSettings";
 
 const SettingsPage = () => {
-  const userRole = "student"; // Set this to either "student" or "employer" based on the user's role
+  const userRole = "employer"; // Set this to either "student" or "employer" based on the user's role
   
   return (
     <div>

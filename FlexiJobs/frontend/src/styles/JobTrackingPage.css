@@ -1,0 +1,91 @@
+/* General styles for the Job Tracking page */
+.job-tracking-page {
+    font-family: Arial, sans-serif;
+    background-color: #f9f9f9;
+
+  }
+  
+  .main-content {
+    display: flex;
+    margin-top: 0px;
+  }
+  
+  /* Sidebar styles */
+  .sidebar {
+    flex: 6; /* Fixed width for sidebar */
+    
+  }
+  
+  /* Tracking content section */
+  .tracking-content {
+    flex: 1; /* Take remaining space */
+    background-color: #fff;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .tracking-content h1 {
+    font-size: 28px;
+    color: #333;
+    margin-bottom: 20px;
+  }
+  
+  /* Table styles */
+  .tracking-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+  }
+  
+  .tracking-table th,
+  .tracking-table td {
+    padding: 12px;
+    text-align: left;
+    border: 1px solid #ddd;
+  }
+  
+  .tracking-table th {
+    background-color: #f4f4f4;
+    font-size: 16px;
+    color: #333;
+  }
+  
+  .tracking-table tr:nth-child(even) {
+    background-color: #f9f9f9;
+  }
+  
+  .tracking-table tr:hover {
+    background-color: #f1f1f1;
+  }
+  
+  .tracking-table td {
+    font-size: 14px;
+    color: #555;
+  }
+  
+  /* Status badge styling */
+  .tracking-table td:last-child {
+    font-weight: bold;
+  }
+  
+  .tracking-table td:last-child::before {
+    content: "• ";
+  }
+  
+  .tracking-table td:contains('In Progress') {
+    color: #007bff;
+  }
+  
+  .tracking-table td:contains('Completed') {
+    color: #28a745;
+  }
+  
+  /* No applications found message */
+  .tracking-content p {
+    font-size: 16px;
+    color: #555;
+    text-align: center;
+    margin-top: 20px;
+  }
+  
