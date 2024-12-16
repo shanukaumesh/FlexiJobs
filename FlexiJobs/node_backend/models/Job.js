@@ -26,7 +26,7 @@ const Job = sequelize.define(
       type: DataTypes.STRING,
     },
     salary: {
-      type: DataTypes.INTEGER,
+      type: DataTypes.STRING,
     },
     jobType: {
       type: DataTypes.ENUM("Full-time", "Part-time", "Contract", "Internship"),

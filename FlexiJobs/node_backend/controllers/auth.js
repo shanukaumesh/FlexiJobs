@@ -96,6 +96,7 @@ exports.registerEmployer = async (req, res) => {
       .json({
         message: "Employer registered successfully",
         employer: newEmployer,
+        id: newEmployer.id,
       });
   } catch (error) {
     logger.error("Error in registering a user: ", error);

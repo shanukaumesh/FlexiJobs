@@ -28,14 +28,14 @@ const Step1 = ({ nextStep }) => {
     try {
       // API call to create the employer
       const response = await axios.post(
-        "http://localhost:8080/auth/register/employer", 
+        "http://localhost:8080/auth/register/employer",
         employerData
       );
 
       console.log("Employer created successfully:", response.data);
 
-      // Save employerId in localStorage
-      localStorage.setItem("employerId", response.data); // Save the integer response directly
+      // Store the userid in local storage
+      localStorage.setItem("userId", response.data.id);
 
       // Proceed to the next step
       nextStep();
@@ -110,7 +110,8 @@ const Step1 = ({ nextStep }) => {
                 />
               </div>
             </div>
-            {error && <p className="error-message">{error}</p>} {/* Display error message */}
+            {error && <p className="error-message">{error}</p>}{" "}
+            {/* Display error message */}
             <button className="register-btn" onClick={handleNext}>
               Next
             </button>

@@ -6,7 +6,6 @@ import Header_LoggedUser from "../components/Header_LoggedUser";
 import { useNavigate } from "react-router-dom";
 
 const PostJob = () => {
-
   const navigate = useNavigate();
 
   const [formData, setFormData] = useState({
@@ -45,35 +44,27 @@ const PostJob = () => {
 
     console.log("Form submission started.");
 
-    // Retrieve and parse the user data from localStorage
-    const userData = JSON.parse(localStorage.getItem("user"));
-    if (!userData || !userData.email) {
-      console.error(
-        "User data in localStorage is invalid or missing:",
-        userData
-      );
-      alert("User email not found. Please log in again.");
-      return;
-    }
+    // Retrieve the user id from the local storage
+    const userId = localStorage.getItem("userId");
 
-    const userEmail = userData.email;
-    console.log("User email retrieved successfully:", userEmail);
+    // Console log the retrieved user id
+    console.log("User ID:", userId);
 
     // Creating the payload in the expected structure
     const payload = {
-      jobTitle: formData.jobTitle,
+      employerId: userId,
+      title: formData.jobTitle,
       companyName: formData.companyName,
       description: formData.jobDescription,
       location: formData.jobLocation,
       salary: formData.salary,
-      employmentType: formData.employmentType,
+      jobType: formData.employmentType,
       skills: formData.requiredSkills,
       experienceLevel: formData.experienceLevel,
       deadline: new Date(formData.applicationDeadline).toISOString(),
       contactEmail: formData.contact,
       category: formData.jobCategory,
       logo: "dummy-logo.png", // Hardcoded for now
-      postedBy: userEmail,
       status: true,
     };
 
@@ -81,7 +72,7 @@ const PostJob = () => {
 
     try {
       const response = await axios.post(
-        "http://localhost:8001/job-ms/jobs",
+        "http://localhost:8080/jobs/",
         payload,
         {
           headers: {
@@ -92,7 +83,6 @@ const PostJob = () => {
 
       console.log("Job posted successfully:", response.data);
       navigate("/employer");
-      
     } catch (error) {
       if (error.response) {
         console.error("Server responded with an error:", error.response.data);
@@ -176,8 +166,8 @@ const PostJob = () => {
                 required
               >
                 <option value="">Select</option>
-                <option value="Full_Time">Full-Time</option>
-                <option value="Part_Time">Part-Time</option>
+                <option value="Full-time">Full-Time</option>
+                <option value="Part-time">Part-Time</option>
                 <option value="Contract">Contract</option>
                 <option value="Freelance">Freelance</option>
               </select>
@@ -200,9 +190,9 @@ const PostJob = () => {
                 onChange={handleChange}
               >
                 <option value="">Select</option>
-                <option value="Entry_Level">Entry-Level</option>
-                <option value="Mid_Level">Mid-Level</option>
-                <option value="Senior_Level">Senior-Level</option>
+                <option value="Entry-level">Entry-Level</option>
+                <option value="Mid-level">Mid-Level</option>
+                <option value="Senior-level">Senior-Level</option>
               </select>
             </div>
             <div className="form-group">

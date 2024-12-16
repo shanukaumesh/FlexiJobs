@@ -13,21 +13,16 @@ const EmployerDashboard = () => {
 
   useEffect(() => {
     const fetchJobs = async () => {
-      // Retrieve user data from localStorage
-      const userData = JSON.parse(localStorage.getItem("user"));
-      if (!userData || !userData.email) {
-        console.error("User email not found in localStorage.");
-        alert("User email not found. Please log in again.");
-        return;
-      }
+      // Retrieve the user id from the local storage
+      const userId = localStorage.getItem("userId");
 
-      const userEmail = userData.email;
-      console.log(`Fetching jobs posted by: ${userEmail}`);
+      // Console log the retrieved user id
+      console.log("User ID:", userId);
 
       try {
         setLoading(true); // Start loading
         const response = await axios.get(
-          `http://localhost:8001/job-ms/jobs?postedBy=${userEmail}`
+          `http://localhost:8080/jobs/employer/${userId}`
         );
         console.log("Fetched Jobs:", response.data); // Log the response
         setJobs(response.data); // Set jobs to state

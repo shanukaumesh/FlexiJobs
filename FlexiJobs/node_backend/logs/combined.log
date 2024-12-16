@@ -99,3 +99,85 @@
 2024-12-16T22:09:02.208Z [FlexiJobs] info: Student updated successfully: umesh@gmail.com
 2024-12-16T22:10:28.390Z [FlexiJobs] info: Employer registered successfully: emma@gmail.com
 2024-12-16T22:10:50.844Z [FlexiJobs] info: Employer registered successfully: fernandonirmal607@gmail.com
+2024-12-16T22:19:29.706Z [FlexiJobs] info: Database connection has been established successfully.
+2024-12-16T22:19:29.710Z [FlexiJobs] info: Database connection has been established successfully.
+2024-12-16T22:19:29.747Z [FlexiJobs] info: All models were synchronized successfully.
+2024-12-16T22:24:03.579Z [FlexiJobs] error: SequelizeValidationError: string violation: skills cannot be an array or an object
+    at InstanceValidator._validate (C:\Users\User\Downloads\FlexiJobs\FlexiJobs\node_backend\node_modules\sequelize\lib\instance-validator.js:50:13)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async InstanceValidator._validateAndRunHooks (C:\Users\User\Downloads\FlexiJobs\FlexiJobs\node_backend\node_modules\sequelize\lib\instance-validator.js:60:7)
+    at async InstanceValidator.validate (C:\Users\User\Downloads\FlexiJobs\FlexiJobs\node_backend\node_modules\sequelize\lib\instance-validator.js:54:12)
+    at async model.save (C:\Users\User\Downloads\FlexiJobs\FlexiJobs\node_backend\node_modules\sequelize\lib\model.js:2426:7)
+    at async Job.create (C:\Users\User\Downloads\FlexiJobs\FlexiJobs\node_backend\node_modules\sequelize\lib\model.js:1362:12)
+    at async exports.createJob (C:\Users\User\Downloads\FlexiJobs\FlexiJobs\node_backend\controllers\job.js:26:20)
+2024-12-16T22:25:27.716Z [FlexiJobs] info: Job created successfully: Software Engineer
+2024-12-16T22:32:16.205Z [FlexiJobs] error: Error
+    at Query.run (C:\Users\User\Downloads\FlexiJobs\FlexiJobs\node_backend\node_modules\sequelize\lib\dialects\postgres\query.js:50:25)
+    at C:\Users\User\Downloads\FlexiJobs\FlexiJobs\node_backend\node_modules\sequelize\lib\sequelize.js:315:28
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async PostgresQueryInterface.insert (C:\Users\User\Downloads\FlexiJobs\FlexiJobs\node_backend\node_modules\sequelize\lib\dialects\abstract\query-interface.js:308:21)
+    at async model.save (C:\Users\User\Downloads\FlexiJobs\FlexiJobs\node_backend\node_modules\sequelize\lib\model.js:2490:35)
+    at async Job.create (C:\Users\User\Downloads\FlexiJobs\FlexiJobs\node_backend\node_modules\sequelize\lib\model.js:1362:12)
+    at async exports.createJob (C:\Users\User\Downloads\FlexiJobs\FlexiJobs\node_backend\controllers\job.js:26:20)
+2024-12-16T22:34:00.691Z [FlexiJobs] error: Error
+    at Query.run (C:\Users\User\Downloads\FlexiJobs\FlexiJobs\node_backend\node_modules\sequelize\lib\dialects\postgres\query.js:50:25)
+    at C:\Users\User\Downloads\FlexiJobs\FlexiJobs\node_backend\node_modules\sequelize\lib\sequelize.js:315:28
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async PostgresQueryInterface.insert (C:\Users\User\Downloads\FlexiJobs\FlexiJobs\node_backend\node_modules\sequelize\lib\dialects\abstract\query-interface.js:308:21)
+    at async model.save (C:\Users\User\Downloads\FlexiJobs\FlexiJobs\node_backend\node_modules\sequelize\lib\model.js:2490:35)
+    at async Job.create (C:\Users\User\Downloads\FlexiJobs\FlexiJobs\node_backend\node_modules\sequelize\lib\model.js:1362:12)
+    at async exports.createJob (C:\Users\User\Downloads\FlexiJobs\FlexiJobs\node_backend\controllers\job.js:26:20)
+2024-12-16T22:35:07.388Z [FlexiJobs] error: Error
+    at Query.run (C:\Users\User\Downloads\FlexiJobs\FlexiJobs\node_backend\node_modules\sequelize\lib\dialects\postgres\query.js:50:25)
+    at C:\Users\User\Downloads\FlexiJobs\FlexiJobs\node_backend\node_modules\sequelize\lib\sequelize.js:315:28
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async PostgresQueryInterface.insert (C:\Users\User\Downloads\FlexiJobs\FlexiJobs\node_backend\node_modules\sequelize\lib\dialects\abstract\query-interface.js:308:21)
+    at async model.save (C:\Users\User\Downloads\FlexiJobs\FlexiJobs\node_backend\node_modules\sequelize\lib\model.js:2490:35)
+    at async Job.create (C:\Users\User\Downloads\FlexiJobs\FlexiJobs\node_backend\node_modules\sequelize\lib\model.js:1362:12)
+    at async exports.createJob (C:\Users\User\Downloads\FlexiJobs\FlexiJobs\node_backend\controllers\job.js:26:20)
+2024-12-16T22:37:10.894Z [FlexiJobs] info: Database connection has been established successfully.
+2024-12-16T22:37:10.896Z [FlexiJobs] info: Database connection has been established successfully.
+2024-12-16T22:37:10.977Z [FlexiJobs] info: All models were synchronized successfully.
+2024-12-16T22:37:18.316Z [FlexiJobs] info: Database connection has been established successfully.
+2024-12-16T22:37:18.319Z [FlexiJobs] info: Database connection has been established successfully.
+2024-12-16T22:37:18.579Z [FlexiJobs] info: All models were synchronized successfully.
+2024-12-16T22:37:21.560Z [FlexiJobs] info: Database connection has been established successfully.
+2024-12-16T22:37:21.562Z [FlexiJobs] info: Database connection has been established successfully.
+2024-12-16T22:37:21.592Z [FlexiJobs] info: All models were synchronized successfully.
+2024-12-16T22:37:48.020Z [FlexiJobs] info: Employer registered successfully: fernandonirmal607@gmail.com
+2024-12-16T22:38:32.900Z [FlexiJobs] error: Error
+    at Query.run (C:\Users\User\Downloads\FlexiJobs\FlexiJobs\node_backend\node_modules\sequelize\lib\dialects\postgres\query.js:50:25)
+    at C:\Users\User\Downloads\FlexiJobs\FlexiJobs\node_backend\node_modules\sequelize\lib\sequelize.js:315:28
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async PostgresQueryInterface.insert (C:\Users\User\Downloads\FlexiJobs\FlexiJobs\node_backend\node_modules\sequelize\lib\dialects\abstract\query-interface.js:308:21)
+    at async model.save (C:\Users\User\Downloads\FlexiJobs\FlexiJobs\node_backend\node_modules\sequelize\lib\model.js:2490:35)
+    at async Job.create (C:\Users\User\Downloads\FlexiJobs\FlexiJobs\node_backend\node_modules\sequelize\lib\model.js:1362:12)
+    at async exports.createJob (C:\Users\User\Downloads\FlexiJobs\FlexiJobs\node_backend\controllers\job.js:26:20)
+2024-12-16T22:40:25.061Z [FlexiJobs] error: Error
+    at Query.run (C:\Users\User\Downloads\FlexiJobs\FlexiJobs\node_backend\node_modules\sequelize\lib\dialects\postgres\query.js:50:25)
+    at C:\Users\User\Downloads\FlexiJobs\FlexiJobs\node_backend\node_modules\sequelize\lib\sequelize.js:315:28
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async PostgresQueryInterface.insert (C:\Users\User\Downloads\FlexiJobs\FlexiJobs\node_backend\node_modules\sequelize\lib\dialects\abstract\query-interface.js:308:21)
+    at async model.save (C:\Users\User\Downloads\FlexiJobs\FlexiJobs\node_backend\node_modules\sequelize\lib\model.js:2490:35)
+    at async Job.create (C:\Users\User\Downloads\FlexiJobs\FlexiJobs\node_backend\node_modules\sequelize\lib\model.js:1362:12)
+    at async exports.createJob (C:\Users\User\Downloads\FlexiJobs\FlexiJobs\node_backend\controllers\job.js:26:20)
+2024-12-16T22:41:22.806Z [FlexiJobs] error: Error
+    at Query.run (C:\Users\User\Downloads\FlexiJobs\FlexiJobs\node_backend\node_modules\sequelize\lib\dialects\postgres\query.js:50:25)
+    at C:\Users\User\Downloads\FlexiJobs\FlexiJobs\node_backend\node_modules\sequelize\lib\sequelize.js:315:28
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async PostgresQueryInterface.insert (C:\Users\User\Downloads\FlexiJobs\FlexiJobs\node_backend\node_modules\sequelize\lib\dialects\abstract\query-interface.js:308:21)
+    at async model.save (C:\Users\User\Downloads\FlexiJobs\FlexiJobs\node_backend\node_modules\sequelize\lib\model.js:2490:35)
+    at async Job.create (C:\Users\User\Downloads\FlexiJobs\FlexiJobs\node_backend\node_modules\sequelize\lib\model.js:1362:12)
+    at async exports.createJob (C:\Users\User\Downloads\FlexiJobs\FlexiJobs\node_backend\controllers\job.js:26:20)
+2024-12-16T22:43:41.646Z [FlexiJobs] info: Database connection has been established successfully.
+2024-12-16T22:43:41.649Z [FlexiJobs] info: Database connection has been established successfully.
+2024-12-16T22:43:41.680Z [FlexiJobs] info: All models were synchronized successfully.
+2024-12-16T22:44:01.239Z [FlexiJobs] info: Employer registered successfully: emma@gmail.com
+2024-12-16T22:47:27.614Z [FlexiJobs] info: Employer registered successfully: wolfy@gmail.com
+2024-12-16T22:48:08.494Z [FlexiJobs] info: Job created successfully: Backend Developer
+2024-12-16T22:58:12.910Z [FlexiJobs] info: Employer registered successfully: thirandi2002@gmail.com
+2024-12-16T22:59:13.143Z [FlexiJobs] info: Database connection has been established successfully.
+2024-12-16T22:59:13.146Z [FlexiJobs] info: Database connection has been established successfully.
+2024-12-16T22:59:13.181Z [FlexiJobs] info: All models were synchronized successfully.
+2024-12-16T22:59:39.347Z [FlexiJobs] info: Employer registered successfully: crystalst@gmail.com
+2024-12-16T23:00:13.109Z [FlexiJobs] info: Job created successfully: Backend Developer
