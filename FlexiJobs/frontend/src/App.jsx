@@ -21,6 +21,8 @@ import StudentProfile from './pages/StudentProfilePage';
 import SettingsPage from './pages/SettingsPage';
 import ApplicationReview from './pages/ApplicationReview';
 import JobTrackingPage from './pages/JobTrackingPage';
+import JobDetailsPage from './pages/JobDetailsPage';
+import ApplicantPage from './pages/Applicants';
 
 const App = () => {
   return (
@@ -46,6 +48,8 @@ const App = () => {
           <Route path="/applications" element={<ApplicationPage />} />
           <Route path="/application-review/:id" element={<ApplicationReview />} />
           <Route path="/job-tracking" element={<JobTrackingPage />} />
+          <Route path="/job-details" element={<JobDetailsPage />} />
+          <Route path="/applicants" element={<ApplicantPage />} />
          
      
           <Route path="*" element={<NotFound />} />

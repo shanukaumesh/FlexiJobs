@@ -1,10 +1,12 @@
 import React from "react";
+import { useNavigate } from "react-router-dom"; // For navigation to JobDetailsPage
 import Header_LoggedUser from "../components/Header_LoggedUser";
 import Sidebar from "../components/EmployerUIs/Sidebar";
 import "../styles/JobTrackingPage.css";
 
 const JobTrackingPage = () => {
-  // Dummy data for approved applications
+  const navigate = useNavigate();
+
   const approvedApplications = [
     {
       id: 1,
@@ -12,7 +14,7 @@ const JobTrackingPage = () => {
       applicantName: "John Doe",
       email: "johndoe@example.com",
       startDate: "2024-12-15",
-      status: "In Progress",
+      status: "Not Started",
     },
     {
       id: 2,
@@ -31,6 +33,10 @@ const JobTrackingPage = () => {
       status: "In Progress",
     },
   ];
+
+  const handleRowClick = (job) => {
+    navigate("/job-details", { state: { job } }); // Pass job details to JobDetailsPage
+  };
 
   return (
     <div className="job-tracking-page">
@@ -54,7 +60,11 @@ const JobTrackingPage = () => {
               </thead>
               <tbody>
                 {approvedApplications.map((app) => (
-                  <tr key={app.id}>
+                  <tr
+                    key={app.id}
+                    onClick={() => handleRowClick(app)}
+                    className="clickable-row"
+                  >
                     <td>{app.jobTitle}</td>
                     <td>{app.applicantName}</td>
                     <td>{app.email}</td>

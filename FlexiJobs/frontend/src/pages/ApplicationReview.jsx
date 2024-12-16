@@ -7,17 +7,15 @@ import "../styles/ApplicationReview.css";
 const ApplicationReview = () => {
   const { id } = useParams(); // Extract the application ID from the URL
 
-  // Dummy data for a single application
-  const dummyApplication = {
-    id,
-    jobTitle: "Web Developer",
-    applicantName: "John Doe",
-    email: "johndoe@example.com",
-    location: "Colombo",
-    status: true,
-    appliedDate: "2024-12-10",
-    description: "Experienced in React and Node.js.",
-  };
+  // Dummy data for applications
+  const dummyApplications = [
+    { id: 1, jobTitle: "Web Developer", applicantName: "Shanuka", email: "shanuka@example.com", location: "Colombo", status: true, appliedDate: "2024-12-10", description: "Experienced in React and Node.js." },
+    { id: 2, jobTitle: "Graphic Designer", applicantName: "Umesh", email: "umesh@example.com", location: "Kandy", status: false, appliedDate: "2024-12-12", description: "Proficient in Photoshop and Illustrator." },
+    { id: 3, jobTitle: "Content Writer", applicantName: "Dilanjaya", email: "dilanjaya@example.com", location: "Galle", status: true, appliedDate: "2024-12-14", description: "Expert in SEO writing and blogging." },
+  ];
+
+  // Find the specific application based on the ID
+  const application = dummyApplications.find((app) => app.id === parseInt(id));
 
   return (
     <div>
@@ -25,28 +23,28 @@ const ApplicationReview = () => {
       <div className="dashboard">
         <Sidebar />
         <div className="dashboard-content">
-          {dummyApplication ? (
+          {application ? (
             <div className="application-review">
               <h1>Application Review</h1>
               <div className="application-details">
-                <h2>{dummyApplication.jobTitle}</h2>
+                <h2>{application.jobTitle}</h2>
                 <p>
-                  <strong>Applicant Name:</strong> {dummyApplication.applicantName}
+                  <strong>Applicant Name:</strong> {application.applicantName}
                 </p>
                 <p>
-                  <strong>Email:</strong> {dummyApplication.email}
+                  <strong>Email:</strong> {application.email}
                 </p>
                 <p>
-                  <strong>Location:</strong> {dummyApplication.location}
+                  <strong>Location:</strong> {application.location}
                 </p>
                 <p>
-                  <strong>Status:</strong> {dummyApplication.status ? "Accepted" : "Pending"}
+                  <strong>Status:</strong> {application.status ? "Accepted" : "Pending"}
                 </p>
                 <p>
-                  <strong>Applied Date:</strong> {dummyApplication.appliedDate || "N/A"}
+                  <strong>Applied Date:</strong> {application.appliedDate || "N/A"}
                 </p>
                 <p>
-                  <strong>Description:</strong> {dummyApplication.description}
+                  <strong>Description:</strong> {application.description}
                 </p>
               </div>
               <div className="review-actions">
