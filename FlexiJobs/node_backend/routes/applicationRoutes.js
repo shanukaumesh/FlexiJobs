@@ -3,6 +3,8 @@ const {
   updateApplication,
   getAllApplications,
   getApplication,
+  getApplicationsByJob,
+  getApplicationsByStudent,
   deleteApplication,
 } = require("../controllers/application.js");
 const express = require("express");
@@ -20,6 +22,12 @@ router.get("/", getAllApplications);
 
 // Get an application by ID
 router.get("/:id", getApplication);
+
+// Get all applications by job ID
+router.get("/job/:jobId", getApplicationsByJob);
+
+// Get all applications by student ID
+router.get("/student/:studentId", getApplicationsByStudent);
 
 // Delete an application
 router.delete("/:id", deleteApplication);

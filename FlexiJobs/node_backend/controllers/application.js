@@ -151,6 +151,44 @@ exports.getAllApplications = async (req, res) => {
   }
 };
 
+// Get all applications by student ID
+exports.getApplicationsByStudent = async (req, res) => {
+  const { studentId } = req.params;
+
+  try {
+    const applications = await Application.findAll({
+      where: { studentId },
+    });
+
+    return res.status(200).json({ applications });
+  } catch (error) {
+    logger.error("Error in getting applications by student ID: ", error);
+    return res.status(500).json({
+      message: "Unable to get applications by student ID",
+      error: error.message,
+    });
+  }
+};
+
+// Get all applications by job ID
+exports.getApplicationsByJob = async (req, res) => {
+  const { jobId } = req.params;
+
+  try {
+    const applications = await Application.findAll({
+      where: { jobId },
+    });
+
+    return res.status(200).json({ applications });
+  } catch (error) {
+    logger.error("Error in getting applications by job ID: ", error);
+    return res.status(500).json({
+      message: "Unable to get applications by job ID",
+      error: error.message,
+    });
+  }
+};
+
 // Delete an application (soft delete)
 exports.deleteApplication = async (req, res) => {
   const { id } = req.params;
