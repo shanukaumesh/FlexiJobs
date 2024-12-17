@@ -19,23 +19,31 @@ const EmployerLogin = () => {
     try {
       // Make a POST request to the backend login API
       const response = await axios.post(
-        "http://localhost:8000/user-ms/users/login",
+        "http://localhost:8080/auth/login/employer", // Updated API endpoint
         {
           email,
           password,
         }
       );
 
-      const user = response.data;
+      const { message, employer } = response.data;
 
-      if (user.role === "employer") {
-        localStorage.setItem("user", JSON.stringify(user));
+      // Log the response for debugging
+      console.log("Login response:", response.data);
+
+      if (employer) {
+        // Save the employer's ID and other necessary info to localStorage
+        localStorage.setItem("userId", employer.id);
+        localStorage.setItem("user", JSON.stringify(employer));
+
+        // Redirect to the employer dashboard
         navigate("/employer");
       } else {
-        setError("You are not authorized to log in as an employer.");
+        setError("Invalid login credentials or unauthorized user.");
       }
     } catch (error) {
-      setError("Invalid email or password.");
+      console.error("Login error:", error);
+      setError("Invalid email or password. Please try again.");
     }
   };
 

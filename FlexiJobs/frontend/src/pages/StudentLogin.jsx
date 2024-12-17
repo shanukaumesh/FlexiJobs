@@ -19,23 +19,32 @@ const StudentLogin = () => {
     try {
       // Make a POST request to the backend login API
       const response = await axios.post(
-        "http://localhost:8000/user-ms/users/login",
+        "http://localhost:8080/auth/login/student",
         {
           email,
           password,
         }
       );
 
-      const user = response.data;
+      // Extract the student data from the response
+      const { message, student } = response.data;
 
-      if (user.role === "student") {
-        localStorage.setItem("user", JSON.stringify(user));
+      // Log the response for debugging
+      console.log("Login response:", response.data);
+
+      if (student) {
+        // Save the student's ID and other necessary info to localStorage
+        localStorage.setItem("userId", student.id);
+        localStorage.setItem("user", JSON.stringify(student));
+
+        // Redirect to the student dashboard
         navigate("/student");
       } else {
-        setError("You are not authorized to log in as a student.");
+        setError("Invalid login credentials or unauthorized user.");
       }
     } catch (error) {
-      setError("Invalid email or password.");
+      console.error("Login error:", error);
+      setError("Invalid email or password. Please try again.");
     }
   };
 
@@ -46,7 +55,7 @@ const StudentLogin = () => {
         <div className="login-card">
           <div className="login-left">
             <img
-              src={LoginIllustration} // Replace with your student image path
+              src={LoginIllustration}
               alt="Student Login Illustration"
             />
           </div>
