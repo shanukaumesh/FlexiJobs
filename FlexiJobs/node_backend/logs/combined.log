@@ -205,3 +205,23 @@
 2024-12-16T23:51:43.160Z [FlexiJobs] error: ReferenceError: patmentStatus is not defined
     at exports.updatePayment (C:\Users\User\Downloads\FlexiJobs\FlexiJobs\node_backend\controllers\payment.js:60:5)
     at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+2024-12-16T23:52:10.678Z [FlexiJobs] info: Database connection has been established successfully.
+2024-12-16T23:52:10.682Z [FlexiJobs] info: Database connection has been established successfully.
+2024-12-16T23:52:10.722Z [FlexiJobs] info: All models were synchronized successfully.
+2024-12-16T23:52:11.638Z [FlexiJobs] info: Payment updated successfully: 1
+2024-12-16T23:58:01.911Z [FlexiJobs] error: Error: Illegal arguments: undefined, string
+    at bcrypt.hashSync (C:\Users\User\Downloads\FlexiJobs\FlexiJobs\node_backend\node_modules\bcryptjs\dist\bcrypt.js:189:19)
+    at exports.updateEmployer (C:\Users\User\Downloads\FlexiJobs\FlexiJobs\node_backend\controllers\employer.js:20:35)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+2024-12-16T23:58:29.857Z [FlexiJobs] error: Error: Illegal arguments: undefined, string
+    at bcrypt.hashSync (C:\Users\User\Downloads\FlexiJobs\FlexiJobs\node_backend\node_modules\bcryptjs\dist\bcrypt.js:189:19)
+    at exports.updateEmployer (C:\Users\User\Downloads\FlexiJobs\FlexiJobs\node_backend\controllers\employer.js:20:35)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+2024-12-16T23:58:48.149Z [FlexiJobs] error: Error: Illegal arguments: undefined, string
+    at bcrypt.hashSync (C:\Users\User\Downloads\FlexiJobs\FlexiJobs\node_backend\node_modules\bcryptjs\dist\bcrypt.js:189:19)
+    at exports.updateEmployer (C:\Users\User\Downloads\FlexiJobs\FlexiJobs\node_backend\controllers\employer.js:20:35)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+2024-12-16T23:59:34.848Z [FlexiJobs] info: Database connection has been established successfully.
+2024-12-16T23:59:34.852Z [FlexiJobs] info: Database connection has been established successfully.
+2024-12-16T23:59:34.881Z [FlexiJobs] info: All models were synchronized successfully.
+2024-12-16T23:59:40.665Z [FlexiJobs] info: Employer updated successfully: crystalst@gmail.com

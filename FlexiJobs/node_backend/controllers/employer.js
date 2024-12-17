@@ -5,7 +5,8 @@ const logger = require("../middlewares/logger.js");
 // Update an employer
 exports.updateEmployer = async (req, res) => {
   const { id } = req.params;
-  const { name, email, password, contact, address, status } = req.body;
+  const { name, email, password, contact, address, webUrl, logo, status } =
+    req.body;
 
   try {
     // Find the employer by ID
@@ -14,10 +15,6 @@ exports.updateEmployer = async (req, res) => {
     if (!employer) {
       return res.status(404).json({ message: "Employer not found" });
     }
-
-    // Hash the password
-    const salt = bcrypt.genSaltSync(12);
-    const hashedPassword = bcrypt.hashSync(password, salt);
 
     // Update the fields if they are provided
     if (name) {
@@ -29,6 +26,9 @@ exports.updateEmployer = async (req, res) => {
     }
 
     if (password) {
+      // Hash the password
+      const salt = bcrypt.genSaltSync(12);
+      const hashedPassword = bcrypt.hashSync(password, salt);
       employer.password = hashedPassword;
     }
 
@@ -38,6 +38,14 @@ exports.updateEmployer = async (req, res) => {
 
     if (address) {
       employer.address = address;
+    }
+
+    if (webUrl) {
+      employer.webUrl = webUrl;
+    }
+
+    if (logo) {
+      employer.logo = logo;
     }
 
     if (status) {

@@ -12,23 +12,21 @@ const AdvancedEmployerProfile = () => {
 
   useEffect(() => {
     const fetchProfile = async () => {
-      const userData = JSON.parse(localStorage.getItem("user"));
-      if (!userData || !userData.email) {
-        console.error("User email not found in localStorage.");
-        alert("User email not found. Please log in again.");
-        return;
-      }
+      // Retrieve the user ID from local storage
+      const userId = localStorage.getItem("userId");
 
-      const userEmail = userData.email;
-      console.log(`Fetching profile for: ${userEmail}`);
+      // Console log the retrieved user ID
+      console.log("User ID:", userId);
 
       try {
         setLoading(true);
         const response = await axios.get(
-          `http://localhost:8001/employer-ms/profile?email=${userEmail}`
+          `http://localhost:8080/employers/${userId}`
         );
-        console.log("Fetched Profile:", response.data); // Log profile data
-        setProfile(response.data);
+        console.log("Fetched Profile:", response.data); // Log the response data
+
+        // Set profile state with fetched employer data
+        setProfile(response.data.employer);
       } catch (err) {
         console.error("Error fetching profile:", err);
         setError("Failed to fetch profile. Please try again later.");
@@ -56,33 +54,42 @@ const AdvancedEmployerProfile = () => {
               {/* Profile Header */}
               <div className="profile-header">
                 <img
-                  src={profile.profilePicture || "/default-avatar.png"}
+                  src={profile.logo || "/default-avatar.png"} // Use default image if logo is null
                   alt="Profile"
                   className="profile-picture"
                 />
                 <div className="profile-details">
-                  <h3>{profile.name || "Employer Name"}</h3>
-                  <p>{profile.email || "Email not provided"}</p>
-                  <p>{profile.company || "Company not specified"}</p>
+                  <h3>
+                    {profile.firstName} {profile.lastName}
+                  </h3>
+                  <p>{profile.email}</p>
+                  <p>{profile.webUrl || "Website not provided"}</p>
                 </div>
               </div>
 
               {/* Profile Stats */}
               <div className="profile-stats">
                 <div className="stat-card">
-                  <h4>Jobs Posted</h4>
-                  <p>{profile.jobsPosted || 0}</p>
+                  <h4>Status</h4>
+                  <p>{profile.status ? "Active" : "Inactive"}</p>
                 </div>
                 <div className="stat-card">
-                  <h4>Active Jobs</h4>
-                  <p>{profile.activeJobs || 0}</p>
+                  <h4>Created At</h4>
+                  <p>{new Date(profile.created_at).toLocaleDateString()}</p>
+                </div>
+                <div className="stat-card">
+                  <h4>Updated At</h4>
+                  <p>{new Date(profile.updated_at).toLocaleDateString()}</p>
                 </div>
               </div>
 
               {/* Bio Section */}
               <div className="profile-bio">
                 <h4>About Me</h4>
-                <p>{profile.bio || "Bio not provided"}</p>
+                <p>
+                  {profile.bio ||
+                    "No bio available. Update your profile to add more details about yourself."}
+                </p>
               </div>
 
               <button className="update-button">Update Profile</button>
