@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import Axios from "axios"; // For API requests
 import Sidebar from "../components/StudentUIs/Sidebar";
 import StatisticsCard from "../components/StudentUIs/StatisticsCard";
 import OngoingJobsCard from "../components/StudentUIs/OngoingJobsCard";
@@ -21,36 +20,30 @@ const StudentDashboard = () => {
   ];
 
   useEffect(() => {
+    // Fetch ongoing jobs data from API
     const fetchOngoingJobs = async () => {
-      console.log("Fetching user data from local storage...");
-      
-      // Retrieve and parse the user data from localStorage
-      const userData = JSON.parse(localStorage.getItem("user"));
-      if (!userData || !userData.email) {
-        console.error(
-          "User data in localStorage is invalid or missing:",
-          userData
-        );
-        alert("User email not found. Please log in again.");
-        return;
-      }
-
-      const userEmail = userData.email;
-      console.log("User email retrieved successfully:", userEmail);
-
+      setLoading(true); // Start loading
       try {
-        // Fetch ongoing jobs for the user based on their email
-        console.log(`Fetching ongoing jobs for email: ${userEmail}`);
-        const response = await Axios.get(
-          `http://localhost:8002/application-ms/applications?email=${userEmail}`
-        );
-        console.log("Fetched Ongoing Jobs: ", response.data); // Log the fetched data
-        setOngoingJobs(response.data); // Set ongoing jobs to state
+        const response = await fetch("http://localhost:8080/jobs/");
+        if (!response.ok) {
+          throw new Error("Failed to fetch jobs");
+        }
+        const data = await response.json();
+        // Map fetched jobs to match the format required for the component
+        const jobsData = data.jobs.map((job) => ({
+          id: job.id,
+          title: job.title,
+          company: job.companyName,
+          status: job.jobStatus || "Ongoing", // Default to "Ongoing" if jobStatus is not provided
+          image: job.logo || LoginIllustration, // Use the logo if available, else fallback to illustration
+        }));
+        setOngoingJobs(jobsData); // Set fetched data
+        setError(null); // Clear any existing error
       } catch (err) {
-        console.error("Error fetching ongoing jobs:", err);
-        setError("Failed to fetch ongoing jobs.");
+        console.error("Error fetching jobs:", err);
+        setError("Unable to load ongoing jobs. Please try again later.");
       } finally {
-        setLoading(false); // Stop loading in both success and error cases
+        setLoading(false); // Stop loading
       }
     };
 
@@ -75,13 +68,13 @@ const StudentDashboard = () => {
           <div className="ongoing-jobs-section">
             <h3>Ongoing Jobs</h3>
             {loading ? (
-              <p>Loading...</p> 
+              <p>Loading...</p>
             ) : error ? (
               <p className="error-message">{error}</p>
             ) : ongoingJobs.length > 0 ? (
               <div className="job-list">
                 {ongoingJobs.map((job, index) => (
-                  <OngoingJobsCard key={index} job={{ ...job, image: LoginIllustration }} />
+                  <OngoingJobsCard key={index} job={job} />
                 ))}
               </div>
             ) : (

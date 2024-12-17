@@ -12,7 +12,7 @@ const OngoingJobsCard = ({ job }) => {
         <p className="job-status">{job.status}</p>
         <p className="job-amount">Duration: {job.timePeriod}</p>
         
-      </div>
+      </div> 
     </div>
   );
 };
