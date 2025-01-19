@@ -632,3 +632,38 @@
 2025-01-19T11:50:28.346Z [FlexiJobs] info: Database connection has been established successfully.
 2025-01-19T11:50:28.354Z [FlexiJobs] info: Database connection has been established successfully.
 2025-01-19T11:50:28.487Z [FlexiJobs] info: All models were synchronized successfully.
+2025-01-19T12:40:42.824Z [FlexiJobs] info: Database connection has been established successfully.
+2025-01-19T12:40:42.830Z [FlexiJobs] info: Database connection has been established successfully.
+2025-01-19T12:40:42.991Z [FlexiJobs] info: All models were synchronized successfully.
+2025-01-19T14:31:08.764Z [FlexiJobs] info: Database connection has been established successfully.
+2025-01-19T14:31:08.769Z [FlexiJobs] info: Database connection has been established successfully.
+2025-01-19T14:31:08.874Z [FlexiJobs] info: All models were synchronized successfully.
+2025-01-19T14:31:38.957Z [FlexiJobs] info: Application created successfully: 1
+2025-01-19T14:50:00.632Z [FlexiJobs] info: Database connection has been established successfully.
+2025-01-19T14:50:00.648Z [FlexiJobs] info: Database connection has been established successfully.
+2025-01-19T14:50:00.811Z [FlexiJobs] info: All models were synchronized successfully.
+2025-01-19T14:52:44.663Z [FlexiJobs] info: Application created successfully: 2
+2025-01-19T15:20:32.035Z [FlexiJobs] info: Database connection has been established successfully.
+2025-01-19T15:20:32.040Z [FlexiJobs] info: Database connection has been established successfully.
+2025-01-19T15:20:32.155Z [FlexiJobs] info: All models were synchronized successfully.
+2025-01-19T15:21:32.847Z [FlexiJobs] info: Database connection has been established successfully.
+2025-01-19T15:21:32.851Z [FlexiJobs] info: Database connection has been established successfully.
+2025-01-19T15:21:32.927Z [FlexiJobs] info: All models were synchronized successfully.
+2025-01-19T15:48:23.664Z [FlexiJobs] info: Application created successfully: 3
+2025-01-19T16:08:11.559Z [FlexiJobs] info: Student logged in successfully: emma@gmail.com
+2025-01-19T16:08:27.521Z [FlexiJobs] info: Application created successfully: 4
+2025-01-19T16:09:21.588Z [FlexiJobs] info: Application created successfully: 5
+2025-01-19T16:10:35.026Z [FlexiJobs] info: Application created successfully: 6
+2025-01-19T16:25:38.021Z [FlexiJobs] info: Application created successfully: 7
+2025-01-19T16:25:46.425Z [FlexiJobs] info: Application created successfully: 8
+2025-01-19T16:25:52.160Z [FlexiJobs] info: Application created successfully: 9
+2025-01-19T16:31:45.506Z [FlexiJobs] info: Application created successfully: 10
+2025-01-19T16:32:41.797Z [FlexiJobs] error: Error
+    at Query.run (C:\Users\shanu\Documents\GitHub\FlexiJobs\FlexiJobs\node_backend\node_modules\sequelize\lib\dialects\postgres\query.js:50:25)
+    at C:\Users\shanu\Documents\GitHub\FlexiJobs\FlexiJobs\node_backend\node_modules\sequelize\lib\sequelize.js:315:28
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async PostgresQueryInterface.select (C:\Users\shanu\Documents\GitHub\FlexiJobs\FlexiJobs\node_backend\node_modules\sequelize\lib\dialects\abstract\query-interface.js:407:12)
+    at async Application.findAll (C:\Users\shanu\Documents\GitHub\FlexiJobs\FlexiJobs\node_backend\node_modules\sequelize\lib\model.js:1140:21)
+    at async exports.getApplicationsByStudent (C:\Users\shanu\Documents\GitHub\FlexiJobs\FlexiJobs\node_backend\controllers\application.js:159:26)
+2025-01-19T16:33:22.194Z [FlexiJobs] info: Student logged in successfully: emma@gmail.com
+2025-01-19T16:33:29.332Z [FlexiJobs] info: Application created successfully: 11

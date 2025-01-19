@@ -9,7 +9,7 @@
 
 /* Sidebar */
 .dashboard-content {
-  flex: 1;
+  flex: 10;
   padding: 20px;
 }
 
@@ -62,7 +62,7 @@
 
 .jobs-list {
   display: grid;
-  grid-template-columns: repeat(3, 1fr); /* 3 items in a row */
+  grid-template-columns: repeat(4, 1fr); /* 3 items in a row */
   gap: 20px;
 }
 

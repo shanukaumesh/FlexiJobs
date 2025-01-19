@@ -1,40 +1,89 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useLocation, useNavigate, useParams } from "react-router-dom";
 import Header_LoggedUser from "../components/Header_LoggedUser";
 import Sidebar from "../components/EmployerUIs/Sidebar";
+import axios from "axios";
 import "../styles/ApplicationReview.css";
 
 const ApplicationReview = () => {
-  const { id } = useParams(); // Extract application ID
-  const location = useLocation();
+  const { id } = useParams(); // Extract application ID from URL
+  const location = useLocation(); // Access data passed via state
   const navigate = useNavigate();
+  const [application, setApplication] = useState(location.state?.application || null); // Use passed data or null
+  const [loading, setLoading] = useState(!location.state?.application); // Skip loading if data is passed
+  const [error, setError] = useState(null);
 
-  // Get the updateStatus function passed via state
-  const updateStatus = location.state?.updateStatus;
-
-  // Dummy application for review
-  const dummyApplications = [
-    { id: 1, jobTitle: "Web Developer", Applicant: "Shanuka", status: "Pending", appliedDate: "2024-12-10" },
-    { id: 2, jobTitle: "Graphic Designer", Applicant: "Umesh", status: "Rejected", appliedDate: "2024-12-12" },
-    { id: 3, jobTitle: "Content Writer", Applicant: "Dilanjaya", status: "Approved", appliedDate: "2024-12-14" },
-  ];
-
-  // Find the application by ID
-  const application = dummyApplications.find((app) => app.id === parseInt(id));
-
-  const handleApprove = () => {
-    if (application) {
-      updateStatus(application.id, "Approved"); // Update status to Approved
-      navigate("/job-tracking", { state: { approvedApplication: application } });
+  // Fetch application details from the backend if not passed via state
+  const fetchApplicationDetails = async () => {
+    try {
+      setLoading(true);
+      const response = await axios.get(`http://localhost:8080/applications/${id}`);
+      setApplication(response.data.application);
+    } catch (err) {
+      console.error("Error fetching application:", err);
+      setError("Failed to fetch application details. Please try again later.");
+    } finally {
+      setLoading(false);
     }
   };
 
-  const handleReject = () => {
-    if (application) {
-      updateStatus(application.id, "Rejected"); // Update status to Rejected
+  // Update application status
+  const updateStatus = async (newStatus) => {
+    try {
+      const response = await axios.patch(`http://localhost:8080/applications/${id}`, {
+        status: newStatus,
+      });
+      console.log(`Application status updated to: ${newStatus}`);
+      setApplication((prev) => ({
+        ...prev,
+        status: response.data.application.status,
+      })); // Update local state
+    } catch (error) {
+      console.error("Error updating status:", error);
+      throw new Error("Failed to update application status.");
+    }
+  };
+
+  const handleApprove = async () => {
+    try {
+      await updateStatus("Approved"); // Mark as Approved
+      alert("Application approved successfully!");
+      navigate("/job-tracking", { state: { approvedApplication: application } }); // Pass data to JobTracking
+    } catch (error) {
+      alert("Failed to approve the application. Please try again.");
+    }
+  };
+
+  const handleReject = async () => {
+    try {
+      await updateStatus("Rejected"); // Mark as Rejected
+      alert("Application rejected successfully!");
       navigate("/"); // Navigate back to ApplicantPage
+    } catch (error) {
+      alert("Failed to reject the application. Please try again.");
     }
   };
+
+  useEffect(() => {
+    if (!application) {
+      fetchApplicationDetails(); // Fetch details only if not passed via state
+    }
+  }, [id, application]);
+
+  if (loading) {
+    return <p>Loading application details...</p>;
+  }
+
+  if (error) {
+    return (
+      <div className="application-review-error">
+        <h2>{error}</h2>
+        <button className="back-btn" onClick={() => navigate(-1)}>
+          Back
+        </button>
+      </div>
+    );
+  }
 
   return (
     <div>
@@ -48,13 +97,14 @@ const ApplicationReview = () => {
               <div className="application-details">
                 <h2>{application.jobTitle}</h2>
                 <p>
-                  <strong>Applicant Name:</strong> {application.Applicant}
+                  <strong>Applicant Name:</strong> {application.fullName}
                 </p>
                 <p>
                   <strong>Status:</strong> {application.status}
                 </p>
                 <p>
-                  <strong>Applied Date:</strong> {application.appliedDate || "N/A"}
+                  <strong>Applied Date:</strong>{" "}
+                  {new Date(application.appliedDate).toLocaleDateString() || "N/A"}
                 </p>
               </div>
               <div className="review-actions">

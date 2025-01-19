@@ -34,7 +34,9 @@ const EmployerLogin = () => {
       if (employer) {
         // Save the employer's ID and other necessary info to localStorage
         localStorage.setItem("userId", employer.id);
+        localStorage.setItem("email",employer.email)
         localStorage.setItem("user", JSON.stringify(employer));
+
 
         // Redirect to the employer dashboard
         navigate("/employer");
