@@ -20,7 +20,7 @@ const ApplicationPage = () => {
           <Sidebar />
         </div>
         <div className="application-content">
-          <h1>My Applications</h1>
+          <h1>Job Applications</h1>
           {dummyApplications.length > 0 ? (
             <table className="application-table">
               <thead>

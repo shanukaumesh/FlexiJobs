@@ -4,7 +4,7 @@ import Header_LoggedUser from "../components/Header_LoggedUser";
 import Sidebar from "../components/EmployerUIs/Sidebar";
 import "../styles/JobDetailsPage.css";
 
-const JobDetailsPage = () => {
+const JobDetailsPage = () => { 
   const { id } = useParams(); // Get the job ID from the URL
   const location = useLocation();
   const { job } = location.state || {}; // Access job details passed via state

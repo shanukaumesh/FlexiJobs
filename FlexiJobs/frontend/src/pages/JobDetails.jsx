@@ -1,33 +1,39 @@
-import React, { useEffect, useState } from "react";
-import { useParams, Link } from "react-router-dom";
-import Sidebar from "../components/StudentUIs/Sidebar";
+import React, { useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
 import Header_LoggedUser from "../components/Header_LoggedUser";
+import Sidebar from "../components/EmployerUIs/Sidebar";
 import axios from "axios";
 import "../styles/JobDetails.css";
 
 const JobDetails = () => {
-  const { id } = useParams(); 
-  const [job, setJob] = useState(null); 
-  const [loading, setLoading] = useState(true); 
-  const [error, setError] = useState(null); 
+  const { id } = useParams(); // Get job ID from URL
+  const [job, setJob] = useState(null); // Store job details
+  const [loading, setLoading] = useState(true); // Loading state
+  const [error, setError] = useState(null); // Error state
 
-  // Fetch job details when the component mounts
+  const deleteJob = async () => {
+    try {
+      await axios.delete(`http://localhost:8080/jobs/${id}`);
+      alert("Job deleted successfully.");
+      window.history.back();
+    } catch (err) {
+      console.error("Error deleting job:", err);
+      alert("Failed to delete job. Please try again later.");
+    }
+  };
+
+  // Fetch job details on component mount
   useEffect(() => {
-    console.log("Fetching job details for job ID:", id);
-
     const fetchJobDetails = async () => {
       try {
         setLoading(true);
-        console.log("Sending GET request to backend API...");
-        const response = await axios.get(`http://localhost:8001/job-ms/jobs/${id}`);
-        console.log("API Response received:", response.data);
-        setJob(response.data); 
+        const response = await axios.get(`http://localhost:8080/jobs/${id}`); // API call
+        setJob(response.data.job); // Set the job data
       } catch (err) {
         console.error("Error fetching job details:", err);
-        setError("Failed to load job details. Please try again later.");
+        setError("Failed to fetch job details. Please try again later.");
       } finally {
         setLoading(false);
-        console.log("Finished fetching job details.");
       }
     };
 
@@ -35,12 +41,10 @@ const JobDetails = () => {
   }, [id]);
 
   if (loading) {
-    console.log("Job details are loading...");
     return <p>Loading job details...</p>;
   }
 
   if (error) {
-    console.log("An error occurred:", error);
     return (
       <div className="job-details-error">
         <h2>{error}</h2>
@@ -51,48 +55,47 @@ const JobDetails = () => {
     );
   }
 
-  console.log("Rendering job details for:", job);
-
-  const formattedDeadline = new Date(job.deadline).toISOString().split("T")[0];
-
   return (
     <div className="job-details-page">
       {/* Header */}
       <Header_LoggedUser />
 
-      {/* Main content container */}
+      {/* Main Content */}
       <div className="main-content">
         {/* Sidebar */}
         <div className="sidebar">
           <Sidebar />
         </div>
 
-        {/* Job details */}
-        <div className="job-details-content">
-          <h1>{job.jobTitle}</h1>
-          <p><strong>Company:</strong> {job.companyName}</p>
-          <p><strong>Location:</strong> {job.location}</p>
-          <p><strong>Status:</strong> {job.status ? "Active" : "Inactive"}</p>
-          <p><strong>Application Deadline:</strong> {formattedDeadline || "Not specified"}</p>
-          <img
-            src={job.logo} // Assuming `logo` contains the image URL
-            alt={job.jobTitle}
-            className="job-image"
-          />
-          <p>{job.description}</p>
+        {/* Job Details */}
+        <div className="details-content">
+          <h1>Job Details</h1>
+          {job ? (
+            <div className="job-card">
+              <h2>{job.title}</h2>
+              <p><strong>Company Name:</strong> {job.companyName}</p>
+              <p><strong>Description:<br></br></strong> {job.description}</p>
+              <p><strong>Salary:</strong> ${job.salary}</p>
+              <p><strong>Experience Level:</strong> {job.experienceLevel}</p>
+              <p><strong>Application Deadline:</strong> {new Date(job.deadline).toLocaleDateString()}</p>
+              <p>
+                <strong>Job Status:</strong>
+                <span className={`status ${job.jobStatus?.toLowerCase()}`}>
+                  {job.jobStatus || "Not specified"}
+                </span>
+              </p>
 
-          {/* Back button */}
-          <button className="back-btn" onClick={() => window.history.back()}>
-            Back
-          </button>
-
-          {/* Apply link */}
-          <Link
-            to="/apply"
-            state={{ job }} // Passing job details to the ApplyJob component
-          >
-            <button className="apply-btn">Apply</button>
-          </Link>
+              {/* Back Button */}
+              <button className="baack-btn" onClick={() => window.history.back()}>
+                Back
+              </button>
+              <button className="deleteJob-btn" onClick={() => deleteJob()}>
+                Delete Job
+              </button>
+            </div>
+          ) : (
+            <p>Job details not found.</p>
+          )}
         </div>
       </div>
     </div>

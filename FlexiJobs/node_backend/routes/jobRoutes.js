@@ -2,7 +2,7 @@ const {
   createJob,
   updateJob,
   getAllJobs,
-  getJob,
+  getJob, 
   getAllJobsByCategory,
   getAllJobsByEmployer,
   getAllJobsByExperienceLevel,

@@ -19,7 +19,7 @@ const AvailableJobsPage = () => {
       console.log("Starting to fetch available jobs...");
       try {
         setLoading(true);
-        const response = await axios.get("http://localhost:8001/job-ms/jobs");
+        const response = await axios.get("http://localhost:8080/job-ms/");
         console.log("API Response:", response.data); 
         setJobs(response.data); 
       } catch (err) {

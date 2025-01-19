@@ -28,6 +28,7 @@ import StudentLogin from './pages/StudentLogin';
 import EmployerLogin from './pages/EmployerLogin';
 import StudentRegister from './pages/StudentRegister';
 import EmployerRegister from './pages/EmployerRegister';
+import StudentPaymentDashboard from './pages/PaymentDashboardStudent';
 
 
 
@@ -63,6 +64,7 @@ const App = () => {
         <Route path="/employer-login" element={<EmployerLogin />} />
         <Route path="/student-register" element={<StudentRegister />} />
         <Route path="/employer-register" element={<EmployerRegister />} />
+        <Route path="/payments-student" element={<StudentPaymentDashboard />} />
 
 
 

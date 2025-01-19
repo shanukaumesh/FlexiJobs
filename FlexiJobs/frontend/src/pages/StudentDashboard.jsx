@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react"; 
 import Sidebar from "../components/StudentUIs/Sidebar";
 import StatisticsCard from "../components/StudentUIs/StatisticsCard";
 import OngoingJobsCard from "../components/StudentUIs/OngoingJobsCard";
@@ -34,9 +34,10 @@ const StudentDashboard = () => {
           id: job.id,
           title: job.title,
           company: job.companyName,
-          status: job.jobStatus || "Ongoing", // Default to "Ongoing" if jobStatus is not provided
-          image: job.logo || LoginIllustration, // Use the logo if available, else fallback to illustration
+          status: job.jobStatus || "Ongoing",
+          image: job.logo && job.logo.trim() ? job.logo : LoginIllustration,
         }));
+        
         setOngoingJobs(jobsData); // Set fetched data
         setError(null); // Clear any existing error
       } catch (err) {
@@ -52,7 +53,7 @@ const StudentDashboard = () => {
 
   return (
     <div>
-      <Header_LoggedUser />
+      <Header_LoggedUser /> 
       <div className="dashboard">
         <Sidebar />
         <div className="dashboard-content">

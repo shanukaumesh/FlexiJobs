@@ -50,39 +50,35 @@ const PostJob = () => {
     // Console log the retrieved user id
     console.log("User ID:", userId);
 
-    // Creating the payload in the expected structure
-    const payload = {
-      employerId: userId,
-      title: formData.jobTitle,
-      companyName: formData.companyName,
-      description: formData.jobDescription,
-      location: formData.jobLocation,
-      salary: formData.salary,
-      jobType: formData.employmentType,
-      skills: formData.requiredSkills,
-      experienceLevel: formData.experienceLevel,
-      deadline: new Date(formData.applicationDeadline).toISOString(),
-      contactEmail: formData.contact,
-      category: formData.jobCategory,
-      logo: "dummy-logo.png", // Hardcoded for now
-      status: true,
-    };
+    // Create a FormData object for file upload
+    const payload = new FormData();
+    payload.append("employerId", userId);
+    payload.append("title", formData.jobTitle);
+    payload.append("companyName", formData.companyName);
+    payload.append("description", formData.jobDescription);
+    payload.append("location", formData.jobLocation);
+    payload.append("salary", formData.salary);
+    payload.append("jobType", formData.employmentType);
+    payload.append("skills", formData.requiredSkills);
+    payload.append("experienceLevel", formData.experienceLevel);
+    payload.append("deadline", new Date(formData.applicationDeadline).toISOString());
+    payload.append("contactEmail", formData.contact);
+    payload.append("category", formData.jobCategory);
+    payload.append("logo", formData.companyLogo);  // Append file
+    payload.append("status", true);
 
     console.log("Payload constructed:", payload);
 
     try {
-      const response = await axios.post(
-        "http://localhost:8080/jobs/",
-        payload,
-        {
-          headers: {
-            "Content-Type": "application/json",
-          },
-        }
-      );
+      const response = await axios.post("http://localhost:8080/jobs/", payload, {
+        headers: {
+          "Content-Type": "multipart/form-data",  // Make sure the request is handled as a multipart form
+        },
+      });
 
       console.log("Job posted successfully:", response.data);
       navigate("/employer");
+
     } catch (error) {
       if (error.response) {
         console.error("Server responded with an error:", error.response.data);
@@ -232,9 +228,10 @@ const PostJob = () => {
             </div>
             <div className="form-group">
               <label>Upload Company Logo</label>
-              <input type="file" onChange={handleFileChange} accept="image/*" />
+              <input type="file" name="companyLogo" onChange={handleFileChange} />
             </div>
             <div className="form-actions">
+              
               <button type="submit" className="submit-btn">
                 Post Job
               </button>

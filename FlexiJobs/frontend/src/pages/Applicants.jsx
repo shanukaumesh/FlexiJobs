@@ -25,7 +25,7 @@ const ApplicantPage = () => {
         const data = await response.json();
         console.log("Fetched Data:", data); // Step 3: Log the JSON response
 
-        if (data && data.applications) {
+        if (data && data.applications) { 
           setApplications(data.applications); // Set the 'applications' array
           console.log("Applications Set:", data.applications);
         } else {

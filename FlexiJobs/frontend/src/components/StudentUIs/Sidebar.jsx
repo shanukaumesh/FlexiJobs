@@ -20,7 +20,7 @@ const Sidebar = () => {
       <NavLink to="/job-tracking" className="sidebar-link">
         <i className="icon-job-tracking" /> My Jobs
       </NavLink>
-      <NavLink to="/payments" className="sidebar-link">
+      <NavLink to="/payments-student" className="sidebar-link">
         <i className="icon-payments" /> Payments
       </NavLink>
 
