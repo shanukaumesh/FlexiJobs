@@ -1,0 +1,172 @@
+/* Overall page container */
+.home-container {
+  font-family: 'Arial', sans-serif;
+  color: #333;
+  text-align: center;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Header */
+.header {
+  background-color: #4169E1;
+  padding: 15px 30px;
+}
+
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font-size: 24px;
+  font-weight: bold;
+  color: #fff;
+}
+
+.logo .blue {
+  color: #FFD700;
+}
+
+.nav-links {
+  display: flex;
+  list-style: none;
+}
+
+.nav-links li {
+  margin: 0 15px;
+}
+
+.nav-links li a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 16px;
+}
+
+.auth-buttons {
+  display: flex;
+}
+
+.auth-buttons a {
+  padding: 10px 15px;
+  border-radius: 5px;
+  margin-left: 10px;
+  text-decoration: none;
+}
+
+.login-btn {
+  background-color: transparent;
+  color: #fff;
+  border: 2px solid #FFD700;
+}
+
+.find-job-btn {
+  background-color: #FFD700;
+  color: #fff;
+}
+
+/* Main Section */
+.main-section {
+  display: flex;
+  justify-content: space-between;
+  padding: 50px 100px;
+  background-color: #F8F8F8;
+}
+
+.text-content {
+  max-width: 50%;
+}
+
+.text-content h1 {
+  font-size: 36px;
+  line-height: 1.4;
+}
+
+.text-content .highlight {
+  color: #FFD700;
+}
+
+.text-content p {
+  margin: 20px 0;
+  font-size: 18px;
+}
+
+.job-qualifications {
+  display: flex;
+  align-items: center;
+  margin: 20px 0;
+}
+
+.job-qualifications p {
+  margin-right: 20px;
+}
+
+.qualification-circle {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background-color: #4169E1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-size: 18px;
+}
+
+.get-started-btn {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #FFD700;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+  font-size: 18px;
+}
+
+.image-content {
+  position: relative;
+}
+
+.image-content img {
+  width: 400px;
+  border-radius: 10px;
+}
+
+.bubble {
+  position: absolute;
+  top: -20px;
+  left: 50px;
+  background-color: #F8F8F8;
+  padding: 10px 20px;
+  border-radius: 25px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.bubble p {
+  margin: 0;
+  font-size: 16px;
+}
+
+/* Stats Section */
+.stats-section {
+  display: flex;
+  justify-content: space-around;
+  background-color: #4169E1;
+  color: white;
+  padding: 30px 0;
+}
+
+.stat-box {
+  max-width: 300px;
+}
+
+.stat-box h3 {
+  font-size: 22px;
+  margin-bottom: 10px;
+}
+
+.stat-box p {
+  font-size: 16px;
+}

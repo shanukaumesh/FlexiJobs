@@ -1,0 +1,110 @@
+.hero-section {
+    
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 40px;
+  background-color: #FAFAFA;
+  color: #333;
+  position: relative;
+  width: 80%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.hero-content {
+  max-width: 50%;
+}
+
+.hero-content h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  line-height: 1.4;
+}
+
+.hero-content .highlight {
+  color: #f7ba1e;
+}
+
+.hero-content p {
+  margin-top: 15px;
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: #666;
+}
+
+.qualifications {
+  display: flex;
+  align-items: center;
+  margin-top: 20px;
+  gap: 15px;
+}
+
+.qualifications h3 {
+  font-size: 1.2rem;
+  font-weight: 500;
+}
+
+.progress-circle {
+  width: 80px;
+  height: 80px;
+  border: 4px solid #2c65d8;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1rem;
+  font-weight: bold;
+  color: #2c65d8;
+}
+
+.cta-button {
+  margin-top: 20px;
+  padding: 10px 20px;
+  background-color: #f7ba1e;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.cta-button:hover {
+  background-color: #e0a918;
+}
+
+.hero-image {
+    position: relative;
+    width: 35%; /* Reduced width for a smaller image */
+    display: flex;
+    justify-content: center; /* Center the image horizontally */
+    align-items: center; /* Center the content vertically */
+  }
+  
+  .hero-image .main-image {
+    width: 100%; /* Resize the image to a smaller size */
+    max-width: 350px; /* Optional: Limit the maximum width */
+    border-radius: 10px; /* Keep the rounded corners */
+    position: relative;
+  }
+
+.hero-image .overlay-text {
+  position: absolute;
+  top: 20%;
+  left: -30%;
+  background-color: white;
+  padding: 10px 20px;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  font-weight: bold;
+  color: #333;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.hero-image .chart-icon {
+  position: absolute;
+  bottom: 10%;
+  right: 10%;
+  width: 50px;
+}
+

@@ -1,0 +1,60 @@
+.dashboard {
+    display: flex;
+  }
+  
+  .dashboard-content {
+    flex: 6;
+    padding: 20px;
+  }
+  
+  .greeting {
+    margin-bottom: 20px;
+  }
+  
+  .statistics-section {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+  }
+  
+  .ongoing-jobs-section h3 {
+    margin-bottom: 10px;
+  }
+  
+  .job-list {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    /* 4 cards per row for larger screens */
+    gap: 20px;
+    /* Space between the cards */
+    margin-top: 20px;
+    padding: 10px;
+}
+
+.job-list :hover {
+    transform: scale(1.005);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+ 
+}
+
+@media (max-width: 1200px) {
+    .job-list {
+        grid-template-columns: repeat(3, 1fr);
+        /* 3 cards per row for medium screens */
+    }
+}
+
+@media (max-width: 768px) {
+    .job-list {
+        grid-template-columns: repeat(2, 1fr);
+        /* 2 cards per row for tablets */
+    }
+}
+
+@media (max-width: 480px) {
+    .job-list {
+        grid-template-columns: 1fr;
+        /* 1 card per row for small screens */
+    }
+}

@@ -4,12 +4,13 @@ const {
   getEmployer,
   deleteEmployer,
 } = require("../controllers/employer.js");
+const { verifyToken } = require("../middlewares/authRole.js");
 const express = require("express");
 
 const router = express.Router();
 
 // Update an employer
-router.put("/:id", updateEmployer);
+router.put("/:id", verifyToken, updateEmployer);
 
 // Get all employers
 router.get("/", getAllEmployers);

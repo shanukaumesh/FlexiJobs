@@ -1,0 +1,112 @@
+.payment-dashboard-page {
+  display: flex;
+  flex-direction: column;
+ 
+}
+
+.main-content {
+  display: flex;
+  flex: 1;
+  overflow-y: auto;
+  margin-left: -40px;
+  margin-top: -10px;
+}
+
+.sidebar {
+  flex: 1;
+  background-color: #f4f5f7;
+  padding: 20px;
+  max-width: 200px;
+}
+
+.dashboard-content {
+  flex: 1;
+  padding: 30px;
+  background-color: #ffffff;
+  display: flex;
+  flex-direction: column;
+}
+
+h1 {
+  font-size: 32px;
+  margin-bottom: 30px;
+  color: #333;
+}
+
+.filter-section {
+  margin-bottom: 20px;
+  font-size: 18px;
+}
+
+.filter-section select {
+  padding: 8px;
+  font-size: 16px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  max-width: 100px;
+}
+
+.payments-section {
+  margin-bottom: 40px;
+}
+
+.card-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.payment-card {
+  background-color: #f9f9f9;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 350px;
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  cursor: pointer;
+}
+
+.payment-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.payment-card h3 {
+  font-size: 24px;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.payment-card p {
+  font-size: 16px;
+  margin-bottom: 8px;
+  color: #555;
+}
+
+.status {
+  font-weight: bold;
+  text-transform: capitalize;
+}
+
+.status.paid {
+  color: green;
+}
+
+.status.pending {
+  color: orange;
+}
+
+.status.failed {
+  color: red;
+}
+
+@media (max-width: 768px) {
+  .card-container {
+    flex-direction: column;
+  }
+
+  .filter-section {
+    margin-top: 20px;
+  }
+}

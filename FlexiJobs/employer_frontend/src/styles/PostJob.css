@@ -1,0 +1,133 @@
+.dashboard {
+  display: flex;
+}
+
+
+.post-job-content {
+  flex: 6;
+  padding: 20px;
+  background: #f4f7fb;
+  min-height: 100vh;
+  margin-left: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  width: 70%;
+}
+
+.post-job-content h2 {
+  margin-bottom: 10px;
+  font-size: 28px;
+  font-weight: bold;
+  color: #333;
+}
+
+.post-job-content p {
+  margin-bottom: 20px;
+  color: #555;
+  font-size: 16px;
+}
+
+.form-group {
+  margin-bottom: 20px;
+  width: 50%;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 600;
+  color: #555;
+}
+
+.form-group input,
+textarea,
+select {
+  width: 100%;
+  padding: 12px 14px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 14px;
+  background: #fff;
+  transition: 0.3s ease;
+}
+
+textarea {
+  resize: vertical;
+  height: 120px;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+  border-color: #4169E1;
+  box-shadow: 0 0 6px rgba(65, 105, 225, 0.3);
+  outline: none;
+}
+
+.form-actions {
+  margin-top: 20px;
+  display: flex;
+  gap: 10px;
+}
+
+.submit-btn,
+.cancel-btn {
+  padding: 12px 20px;
+  border: none;
+  border-radius: 6px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.submit-btn {
+  background: #4169E1;
+  color: #fff;
+}
+
+.cancel-btn {
+  background: #ddd;
+  color: #333;
+}
+
+.submit-btn:hover {
+  background: #365ab3;
+  transform: translateY(-2px);
+}
+
+.cancel-btn:hover {
+  background: #bbb;
+  transform: translateY(-2px);
+}
+
+@media (max-width: 768px) {
+  .post-job-content {
+    padding: 15px;
+    margin-left: 0;
+  }
+  .form-actions {
+    flex-direction: column;
+  }
+  .submit-btn,
+  .cancel-btn {
+    width: 100%;
+    text-align: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .post-job-content {
+    padding: 10px;
+  }
+  input,
+  textarea,
+  select {
+    padding: 10px;
+    font-size: 13px;
+  }
+  .submit-btn,
+  .cancel-btn {
+    font-size: 14px;
+  }
+}

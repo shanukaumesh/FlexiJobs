@@ -8,8 +8,6 @@ import RegisterPage from './pages/Register';
 import ForgotPassword from './pages/ForgotPassword';
 import StudentDashboard from './pages/StudentDashboard';
 import NotFound from './pages/NotFound';
-import StudentRegister from './pages/StudentRegister';
-import EmployerRegister from './pages/EmployerRegister';
 import EmployerDashboard from './pages/EmployerDashboard';
 import AvailableJobs from './pages/AvailableJobs';
 import PostJob from './pages/PostJob';
@@ -28,6 +26,11 @@ import StudentJobDetails from './pages/StudentJobDetails';
 import PaymentDashboardPage from './pages/PaymentDashboardPage';
 import StudentLogin from './pages/StudentLogin';
 import EmployerLogin from './pages/EmployerLogin';
+import StudentRegister from './pages/StudentRegister';
+import EmployerRegister from './pages/EmployerRegister';
+
+
+
 
 const App = () => {
   return (
@@ -41,8 +44,6 @@ const App = () => {
         <Route path="/forgot-password" element={<ForgotPassword />} />
         <Route path="/Student" element={<StudentDashboard />} />
         <Route path="/Employer" element={<EmployerDashboard />} />
-        <Route path="/student-register" element={<StudentRegister />} />
-        <Route path="/employer-register" element={<EmployerRegister />} />
         <Route path="/available-Jobs" element={<AvailableJobs />} />
         <Route path="/job/:id" element={<JobDetails />} />
         <Route path="/post-job" element={<PostJob />} />
@@ -60,6 +61,11 @@ const App = () => {
         <Route path="/Payments" element={<PaymentDashboardPage />} />
         <Route path="/student-login" element={<StudentLogin />} />
         <Route path="/employer-login" element={<EmployerLogin />} />
+        <Route path="/student-register" element={<StudentRegister />} />
+        <Route path="/employer-register" element={<EmployerRegister />} />
+
+
+
   
 
 

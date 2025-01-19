@@ -1,9 +1,9 @@
 const express = require("express");
 const dotenv = require("dotenv");
 const cors = require("cors");
+const bodyParser = require("body-parser");
 const sequelize = require("./connect.js");
 const cookieParser = require("cookie-parser");
-require("./models/associations.js");
 const logger = require("./middlewares/logger.js");
 const authRoutes = require("./routes/authRoutes.js");
 const studentRoutes = require("./routes/studentRoutes.js");
@@ -32,7 +32,7 @@ initializeDatabase();
 
 const app = express();
 const IP = process.env.IP || "localhost";
-const PORT = process.env.PORT || 8080;
+const PORT = process.env.PORT || 8081; // Main server runs on a different port
 
 // Middleware to parse JSON requests
 app.use(express.json());
@@ -43,7 +43,9 @@ app.use(cors());
 // Middleware to parse cookies
 app.use(cookieParser());
 
-// setup the routes
+app.use(bodyParser.json());
+
+// Set up the routes
 app.use("/auth", authRoutes);
 app.use("/students", studentRoutes);
 app.use("/employers", employerRoutes);
@@ -51,6 +53,27 @@ app.use("/applications", applicationRoutes);
 app.use("/jobs", jobRoutes);
 app.use("/payments", paymentRoutes);
 
+// Proxy OTP routes to the OTP server
+const axios = require("axios");
+app.post("/send-otp", async (req, res) => {
+  try {
+    const response = await axios.post("http://localhost:8080/send-otp", req.body);
+    res.status(response.status).json(response.data);
+  } catch (error) {
+    res.status(500).json({ message: "Failed to send OTP", error: error.message });
+
+  }
+});
+
+app.post("/verify-otp", async (req, res) => {
+  try {
+    const response = await axios.post("http://localhost:8080/verify-otp", req.body);
+    res.status(response.status).json(response.data);
+  } catch (error) {
+    res.status(error.response?.status || 500).json({ message: error.message });
+  }
+});
+
 app.listen(PORT, IP, () => {
-  console.log(`Server is running on port ${PORT}`);
+  console.log(`Main server is running on http://${IP}:${PORT}`);
 });

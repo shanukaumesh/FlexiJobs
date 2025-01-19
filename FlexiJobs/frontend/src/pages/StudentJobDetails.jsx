@@ -21,7 +21,7 @@ const StudentJobDetails = () => {
   }, [jobStatus, startTime, endTime]);
 
   const handleStartJob = () => {
-    setJobStatus("In Progress");
+    setJobStatus("Ongoing");
     setStartTime(new Date().getTime()); // Set start time to now
   };
 
@@ -47,7 +47,7 @@ const StudentJobDetails = () => {
           <p><strong>Start Date:</strong> {job.startDate}</p>
           <p><strong>Status:</strong> {jobStatus}</p>
 
-          {jobStatus === "In Progress" && (
+          {jobStatus === "Ongoing" && (
             <div className="progress-section">
               <h3>Job In Progress</h3>
               <p><strong>Start Time:</strong> {new Date(startTime).toLocaleTimeString()}</p>

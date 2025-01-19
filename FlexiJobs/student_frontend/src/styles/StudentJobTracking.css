@@ -1,0 +1,48 @@
+.student-job-tracking-page {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .main-content {
+    display: flex;
+  }
+  
+  .job-tracking-content {
+    flex: 6;
+    padding: 20px;
+  }
+  
+  .job-tracking-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+  }
+  
+  .job-tracking-table th,
+  .job-tracking-table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+  }
+  
+  .job-tracking-table th {
+    background-color: #f4f4f4;
+  }
+  
+  .status {
+    font-weight: bold;
+    text-transform: capitalize;
+  }
+  
+  .status-completed {
+    color: green;
+  }
+  
+  .status-ongoing {
+    color: orange;
+  }
+  
+  .status-not-started {
+    color: red;
+  }
+  

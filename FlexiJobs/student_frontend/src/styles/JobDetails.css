@@ -1,0 +1,116 @@
+/* Main container for the job details page */
+.job-details-page {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+  }
+  
+  /* Main content container */
+  .main-content {
+    display: flex;
+    flex: 6; /* Allow the main content to take up the remaining height after the header */
+  }
+  
+  /* Sidebar styles */
+  .sidebar {
+    flex: 1; /* Sidebar takes up 1 portion of the horizontal space */
+    background-color: #f4f4f4; /* Light gray background for the sidebar */
+    border-right: 1px solid #ccc; /* Divider between sidebar and job details */
+    overflow-y: auto; /* Add vertical scrolling if content exceeds height */
+    padding: 10px;
+  }
+  
+  /* Job details section styles */
+  .job-details-content {
+    flex: 6; /* Job details take up 6 portions of the horizontal space */
+    padding: 20px;
+    overflow-y: auto; /* Add vertical scrolling if content exceeds height */
+    margin-left: 50px; /* Add space to the left of the job details */
+  }
+  
+  .job-details-content h1 {
+    font-size: 2rem;
+    margin-bottom: 10px;
+    color: #333; /* Darker text color */
+  }
+  
+  .job-details-content p {
+    margin-bottom: 10px;
+    color: #555; /* Subtle gray text */
+  }
+  
+  .job-details-content img {
+    max-width: 200px;
+    border-radius: 8px; /* Add slight rounding to the image corners */
+    margin: 20px 0;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
+  }
+  
+  /* Header styles */
+  .header-logged-user {
+    background-color: #ddd; /* Light gray background for the header */
+    padding: 10px 20px;
+    border-bottom: 1px solid #ccc; /* Divider between header and main content */
+    font-size: 1.2rem;
+    font-weight: bold;
+    text-align: center;
+  }
+
+.apply-btn{
+    background-color: #4CAF50; /* Green background color */
+    color: white; /* White text color */
+    padding: 10px 20px; /* Padding around the text */
+    border: none; /* Remove border */
+    border-radius: 5px; /* Add slight rounding to the corners */
+    cursor: pointer; /* Change cursor to pointer on hover */
+    margin-top: 20px; /* Add space above the button */
+    margin-left: 10px; /* Add space to the left of the button */
+  }
+  
+  .apply-btn:hover {
+    background-color: #45a049; /* Darker green color on hover */
+  }
+  
+  .apply-btn:active {
+    background-color: #3e8e41; /* Slightly darker green color when button is clicked */
+  }
+  
+  .back-btn {
+    background-color: #f44336; /* Red background color */
+    color: white; /* White text color */
+    padding: 10px 20px; /* Padding around the text */
+    border: none; /* Remove border */
+    border-radius: 5px; /* Add slight rounding to the corners */
+    cursor: pointer; /* Change cursor to pointer on hover */
+    margin-top: 20px; /* Add space above the button */
+  }
+  
+  .back-btn:hover {
+    background-color: #f44336; /* Darker red color on hover */
+  }
+  
+  .back-btn:active {
+    background-color: #f44336; /* Slightly darker red color when button is clicked */
+}
+  
+    /* Responsive styles */
+    @media (max-width: 768px) {
+        .main-content {
+        flex-direction: column; /* Stack sidebar and job details on top of each other */
+        }
+    
+        .sidebar {
+        border-right: none; /* Remove the border between sidebar and job details */
+        border-bottom: 1px solid #ccc; /* Add a divider between sidebar and job details */
+        }
+    
+        .job-details-content {
+        padding: 10px; /* Reduce padding for job details on smaller screens */
+        }
+    }
+    
+    @media (max-width: 480px) {
+        .header-logged-user {
+        font-size: 1rem; /* Reduce font size for the header on smaller screens */
+        }
+    }

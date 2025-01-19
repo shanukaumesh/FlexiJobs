@@ -1,0 +1,112 @@
+/* General Layout */
+.dashboard-content {
+  flex: 1;
+  padding: 30px;
+  background: #ffffff;
+  border-radius: 10px;
+  margin: 20px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.profile-container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* Profile Header */
+.profile-header {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  background: #f9f9f9;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
+}
+
+.profile-picture {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.profile-details h3 {
+  font-size: 1.5rem;
+  margin: 0;
+}
+
+.profile-details p {
+  font-size: 1rem;
+  color: #666;
+  margin: 5px 0;
+}
+
+/* Profile Stats */
+.profile-stats {
+  display: flex;
+  gap: 20px;
+}
+
+.stat-card {
+  flex: 1;
+  text-align: center;
+  background: #f9f9f9;
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
+}
+
+.stat-card h4 {
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+}
+
+.stat-card p {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #4169e1; /* Royal Blue */
+}
+
+/* Bio Section */
+.profile-bio {
+  background: #f9f9f9;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
+}
+
+.profile-bio h4 {
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+}
+
+.profile-bio p {
+  font-size: 1rem;
+  color: #666;
+}
+
+/* Update Button */
+.update-button {
+  align-self: flex-start;
+  padding: 10px 20px;
+  font-size: 1rem;
+  color: #fff;
+  background-color: #ffd700; /* Golden Yellow */
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.update-button:hover {
+  background-color: #e6c200;
+}
+
+/* Error Message */
+.error {
+  color: red;
+  font-size: 1rem;
+  margin-top: 10px;
+}
