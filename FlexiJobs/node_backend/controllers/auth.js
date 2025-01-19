@@ -111,9 +111,9 @@ exports.verifyStudentOtp = async (req, res) => {
   }
 };
 
-// Register a new employer
+// Register a new employer and Send OTP
 exports.registerEmployer = async (req, res) => {
-  const { firstName, lastName, email, password } = req.body;
+  const { email } = req.body;
 
   try {
     const existingEmployer = await Employer.findOne({
@@ -122,6 +122,53 @@ exports.registerEmployer = async (req, res) => {
 
     if (existingEmployer) {
       return res.status(400).json({ message: "Employer already exists" });
+    }
+
+    // Generate an OTP and expiry
+    const otp = generateOtp();
+    const expires = new Date(Date.now() + 5 * 60 * 1000); // 5 minutes
+
+    // Save OTP to database (upsert to handle resends of OTP)
+    await Otp.upsert({ email, otp, expires });
+
+    // Send OTP to the user email
+    await transporter.sendMail({
+      from: process.env.EMAIL,
+      to: email,
+      subject: "FlexiJobs OTP Verification",
+      text: `Your OTP is: ${otp}. It will expire in 5 minutes.`,
+    });
+
+    logger.info(`OTP sent to ${email}`);
+    return res.status(200).json({ message: "OTP sent successfully" });
+  } catch (error) {
+    logger.error("Error in sending OTP: ", error);
+    return res
+      .status(500)
+      .json({ message: "Unable to send OTP", error: error.message });
+  }
+};
+
+// Verify OTP and Register a new employer
+exports.verifyEmployerOtp = async (req, res) => {
+  const { email, otp, firstName, lastName, password } = req.body;
+
+  try {
+    const existingEmployer = await Employer.findOne({
+      where: { email: email },
+    });
+
+    if (existingEmployer) {
+      return res.status(400).json({ message: "Employer already exists" });
+    }
+
+    // Check if OTP is valid
+    const existingOtp = await Otp.findOne({
+      where: { email: email, otp: otp, expires: { [Op.gt]: new Date() } },
+    });
+
+    if (!existingOtp) {
+      return res.status(400).json({ message: "Invalid OTP" });
     }
 
     // Hash the password
@@ -141,6 +188,9 @@ exports.registerEmployer = async (req, res) => {
     const token = jwt.sign({ id: newEmployer.id }, JWT_SECRET, {
       expiresIn: "1h",
     });
+
+    // Delete the OTP from the database
+    await Otp.destroy({ where: { email: email } });
 
     logger.info(`Employer registered successfully: ${newEmployer.email}`);
     return res

@@ -2,6 +2,7 @@ const {
   registerStudent,
   verifyStudentOtp,
   registerEmployer,
+  verifyEmployerOtp,
   loginStudent,
   loginEmployer,
   logoutStudent,
@@ -19,6 +20,9 @@ router.post("/verify/student", verifyStudentOtp);
 
 // Register a new employer
 router.post("/register/employer", registerEmployer);
+
+// Verify OTP and register a new employer
+router.post("/verify/employer", verifyEmployerOtp);
 
 // Login a student
 router.post("/login/student", loginStudent);
