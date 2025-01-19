@@ -6,6 +6,10 @@ import axios from "axios";
 import "../styles/JobDetails.css";
 
 const JobDetails = () => {
+
+  // Get user role from URL
+  const userRole = localStorage.getItem("userRole"); // Get user role from local storage
+
   const { id } = useParams(); // Get job ID from URL
   const [job, setJob] = useState(null); // Store job details
   const [loading, setLoading] = useState(true); // Loading state
@@ -86,12 +90,24 @@ const JobDetails = () => {
               </p>
 
               {/* Back Button */}
-              <button className="baack-btn" onClick={() => window.history.back()}>
+              <button className="back-btn" onClick={() => window.history.back()}>
                 Back
               </button>
-              <button className="deleteJob-btn" onClick={() => deleteJob()}>
-                Delete Job
-              </button>
+
+              {/* Delete Button (only for employers) */}
+              {userRole === "employer" && (
+                <button className="deleteJob-btn" onClick={() => deleteJob()}>
+                  Delete Job
+                </button>
+              )}
+
+              {/* Apply Button (only for students) */}
+              {userRole === "student" && (
+                <button className="applyJob-btn" onClick={() => alert("Applied to job successfully.")}>
+                  Apply to Job
+                </button>
+              )}
+
             </div>
           ) : (
             <p>Job details not found.</p>

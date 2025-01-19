@@ -354,3 +354,4 @@ exports.deleteJob = async (req, res) => {
       .json({ message: "Unable to delete a job", error: error.message });
   }
 };
+

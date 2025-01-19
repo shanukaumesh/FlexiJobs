@@ -8,6 +8,14 @@ import ChatService from "../components/ChatService";
 import LoginIllustration from '../assets/EmployerGroupImage.png';
 
 const StudentDashboard = () => {
+
+   const userRole = "student"; // Global user role
+  
+    useEffect(() => {
+      localStorage.setItem("userRole", userRole);
+    }, []);
+  
+
   const [ongoingJobs, setOngoingJobs] = useState([]); // State to store ongoing jobs
   const [loading, setLoading] = useState(true); // State to handle loading status
   const [error, setError] = useState(null); // State to handle errors

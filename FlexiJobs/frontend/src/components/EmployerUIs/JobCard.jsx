@@ -5,7 +5,7 @@ import LoginIllustration from "../../assets/EmployerGroupImage.png"; // Correctl
 
 const JobCard = ({ job }) => {
   return (
-    <div className="job-card">
+    <div className="job-card"> 
       <img
         src={job.image}
         alt={job.title}

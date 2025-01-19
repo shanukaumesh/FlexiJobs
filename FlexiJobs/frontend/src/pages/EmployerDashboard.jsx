@@ -8,7 +8,16 @@ import ChatService from "../components/ChatService";
 import JobCard from "../components/EmployerUIs/JobCard"; // Ensure this component is styled appropriately
 import JobListDummyPhoto from "../assets/EmployerGroupImage.png"; // Fallback logo
 
+
+
 const EmployerDashboard = () => {
+
+  const userRole = "employer"; // Global user role
+
+  useEffect(() => {
+    localStorage.setItem("userRole", userRole);
+  }, []);
+
   const [jobs, setJobs] = useState([]); // State to store jobs
   const [loading, setLoading] = useState(true); // Loading state
   const [error, setError] = useState(null); // Error state
@@ -35,7 +44,7 @@ const EmployerDashboard = () => {
         const formattedJobs = response.data.jobs.map((job) => ({
           id: job.id,
           title: job.title,
-          company: job.companyName,
+          company: job.companyName, 
           location: job.location,
           salary: job.salary,
           jobType: job.jobType,

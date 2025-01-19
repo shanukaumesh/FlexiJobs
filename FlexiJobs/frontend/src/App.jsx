@@ -66,11 +66,6 @@ const App = () => {
         <Route path="/employer-register" element={<EmployerRegister />} />
         <Route path="/payments-student" element={<StudentPaymentDashboard />} />
 
-
-
-  
-
-
         <Route path="*" element={<NotFound />} />
       </Routes>
 
