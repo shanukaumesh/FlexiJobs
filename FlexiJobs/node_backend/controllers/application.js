@@ -1,5 +1,5 @@
 const Application = require("../models/Application.js");
-const logger = require("../middlewares/logger.js");
+const logger = require("../middlewares/logger.js"); 
 
 // Create a new application
 exports.createApplication = async (req, res) => {
@@ -22,7 +22,7 @@ exports.createApplication = async (req, res) => {
       studentId,
       jobTitle,
       location,
-      fullName,
+      fullName, 
       email,
       resume,
       applicationStatus,
@@ -130,7 +130,7 @@ exports.getApplication = async (req, res) => {
   } catch (error) {
     logger.error("Error in getting an application: ", error);
     return res.status(500).json({
-      message: "Unable to get an application",
+      message: "Unable to get an application", 
       error: error.message,
     });
   }

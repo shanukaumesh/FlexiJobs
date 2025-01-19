@@ -1,5 +1,6 @@
 const Job = require("../models/Job.js");
 const logger = require("../middlewares/logger.js");
+const { use } = require("../routes/authRoutes.js");
 
 // Create a new job
 exports.createJob = async (req, res) => {
@@ -19,6 +20,7 @@ exports.createJob = async (req, res) => {
     logo,
     jobStatus,
     status,
+    userID, // New field added (Optional, may be NULL initially)
   } = req.body;
 
   try {
@@ -39,6 +41,7 @@ exports.createJob = async (req, res) => {
       logo,
       jobStatus,
       status,
+      userID, // Insert userID if available, or NULL if not assigned
     });
 
     logger.info(`Job created successfully: ${newJob.title}`);
@@ -135,6 +138,9 @@ exports.updateJob = async (req, res) => {
       job.jobStatus = jobStatus;
     }
 
+ 
+
+
     if (status) {
       job.status = status;
     }
@@ -195,7 +201,10 @@ exports.getAllJobsByEmployer = async (req, res) => {
 
   try {
     const jobs = await Job.findAll({
-      where: { employerId: employerId },
+      where: {
+        employerId: employerId,
+        status: true, // Add the condition for status: true
+      },
     });
 
     return res.status(200).json({ jobs });
@@ -206,7 +215,7 @@ exports.getAllJobsByEmployer = async (req, res) => {
       error: error.message,
     });
   }
-};
+}; 
 
 // Get all jobs by category
 exports.getAllJobsByCategory = async (req, res) => {
@@ -345,3 +354,4 @@ exports.deleteJob = async (req, res) => {
       .json({ message: "Unable to delete a job", error: error.message });
   }
 };
+

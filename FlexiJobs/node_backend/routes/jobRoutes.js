@@ -2,7 +2,7 @@ const {
   createJob,
   updateJob,
   getAllJobs,
-  getJob,
+  getJob, 
   getAllJobsByCategory,
   getAllJobsByEmployer,
   getAllJobsByExperienceLevel,
@@ -51,5 +51,45 @@ router.get("/status/:status", getAllJobsByStatus);
 
 // Delete a job
 router.delete("/:id", deleteJob);
+
+// Get jobs with filters (status, location, jobType, employerId)
+router.get("/filtered", async (req, res) => {
+  try {
+    const { status, location, jobType, employerId } = req.query; // Access filters from query parameters
+
+    // Build the query based on available filters
+    let query = {};
+
+    if (status) {
+      query.jobStatus = status; // Filter by job status (true/false)
+    }
+
+    if (location) {
+      query.location = location; // Filter by location
+    }
+
+    if (jobType) {
+      query.jobType = jobType; // Filter by job type
+    }
+
+    if (employerId) {
+      query.employerId = employerId; // Filter by employer ID
+    }
+
+    // Fetch jobs with the constructed query
+    const jobs = await Job.findAll({
+      where: query, // Apply filters to the query
+    });
+
+    // Send back the jobs in the response
+    return res.status(200).json({ jobs });
+  } catch (error) {
+    console.error("Error fetching jobs:", error);
+    return res.status(500).json({
+      message: "Failed to fetch jobs. Please try again later.",
+      error: error.message,
+    });
+  }
+});
 
 module.exports = router;

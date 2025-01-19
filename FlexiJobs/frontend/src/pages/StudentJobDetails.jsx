@@ -3,7 +3,7 @@ import { useLocation } from "react-router-dom";
 import Header_LoggedUser from "../components/Header_LoggedUser";
 import Sidebar from "../components/StudentUIs/Sidebar";
 import "../styles/StudentJobDetails.css";
-
+ 
 const StudentJobDetails = () => {
   const location = useLocation();
   const { job } = location.state || {}; // Get the job details from the location state

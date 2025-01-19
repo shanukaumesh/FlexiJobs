@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom"; // Import useNavigate
 import Header_LoggedUser from "../components/Header_LoggedUser";
 import Sidebar from "../components/EmployerUIs/Sidebar";
 import "../styles/ApplicantPage.css";
@@ -9,6 +9,7 @@ const ApplicantPage = () => {
   const [applications, setApplications] = useState([]);
   const [loading, setLoading] = useState(true); // Loading state
   const [error, setError] = useState(null); // Error state
+  const navigate = useNavigate(); // Initialize navigate function
 
   // Fetch applications data from the backend API
   useEffect(() => {
@@ -44,15 +45,14 @@ const ApplicantPage = () => {
     fetchApplications();
   }, []);
 
-  // Function to update the application status dynamically
-  const updateApplicationStatus = (id, newStatus) => {
-    setApplications((prevApps) =>
-      prevApps.map((app) =>
-        app.id === id ? { ...app, applicationStatus: newStatus } : app
-      )
-    );
-    console.log(`Application ID ${id} updated to status: ${newStatus}`);
+  // Function to handle the "Review" button click
+  const handleViewApplication = (application) => {
+    console.log("Navigating to ApplicationReview with application data:", application);
+    navigate(`/application-review/${application.id}`, {
+      state: { application }, // Pass the application data to the review page
+    });
   };
+  
 
   return (
     <div className="application-page">
@@ -75,7 +75,7 @@ const ApplicantPage = () => {
                   <th>Full Name</th>
                   <th>Email</th>
                   <th>Status</th>
-                  <th>Created At</th>
+                  <th>Applied Date</th>
                   <th>Action</th>
                 </tr>
               </thead>
@@ -89,15 +89,12 @@ const ApplicantPage = () => {
                     <td>{new Date(app.created_at).toLocaleDateString()}</td>
                     <td>
                       {app.applicationStatus === "Pending" && (
-                        <Link
-                          to={`/application-review/${app.id}`}
-                          state={{
-                            application: app, // Pass the full application object
-                            updateStatus: updateApplicationStatus,
-                          }}
+                        <button
+                          className="review-button"
+                          onClick={() => handleViewApplication(app)}
                         >
-                          View
-                        </Link>
+                          Review
+                        </button>
                       )}
                     </td>
                   </tr>

@@ -21,6 +21,10 @@ Payment.belongsTo(Student, { foreignKey: "studentId" });
 Job.hasMany(Payment, { foreignKey: "jobId", onDelete: "CASCADE", onUpdate: "CASCADE" });
 Payment.belongsTo(Job, { foreignKey: "jobId" });
 
+// New association for userID (Job -> Student)
+Job.belongsTo(Student, { foreignKey: "userID", as: "assignedStudent", onDelete: "SET NULL", onUpdate: "CASCADE" });
+Student.hasMany(Job, { foreignKey: "userID", as: "assignedJobs", onDelete: "SET NULL", onUpdate: "CASCADE" });
+
 // Export all models
 module.exports = {
   Student,

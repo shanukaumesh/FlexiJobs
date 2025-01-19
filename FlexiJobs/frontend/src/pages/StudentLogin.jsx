@@ -35,6 +35,7 @@ const StudentLogin = () => {
       if (student) {
         // Save the student's ID and other necessary info to localStorage
         localStorage.setItem("userId", student.id);
+        localStorage.setItem("email",student.email)
         localStorage.setItem("user", JSON.stringify(student));
 
         // Redirect to the student dashboard

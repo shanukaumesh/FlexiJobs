@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
-import Header_LoggedUser from "../components/Header_LoggedUser";
+import Header_LoggedUser from "../components/Header_LoggedUser"; 
 import Sidebar from "../components/EmployerUIs/Sidebar";
 import "../styles/JobTrackingPage.css";
 

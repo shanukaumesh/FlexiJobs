@@ -33,3 +33,4 @@ router.get("/student/:studentId", getApplicationsByStudent);
 router.delete("/:id", deleteApplication);
 
 module.exports = router;
+ 

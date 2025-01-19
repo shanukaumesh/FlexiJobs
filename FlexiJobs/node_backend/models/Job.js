@@ -1,6 +1,7 @@
 const { DataTypes } = require("sequelize");
 const sequelize = require("../connect.js");
 const Employer = require("./Employer.js");
+const Student = require("./Student.js");
 
 // Define the Job model
 const Job = sequelize.define(
@@ -53,6 +54,16 @@ const Job = sequelize.define(
       type: DataTypes.ENUM("Ongoing", "Completed", "Not Started"),
       defaultValue: "Not Started",
     },
+
+    userID: {
+       type: DataTypes.INTEGER,
+      references: {
+        model: Student,
+        key: "id",
+      },
+
+    },
+
     status: {
       type: DataTypes.BOOLEAN,
       allowNull: false,

@@ -1,0 +1,66 @@
+/* JobCardStyles.css */
+
+/* Style for the card container */
+.card-container {
+  width: 100%;
+  max-width: 250px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  overflow: hidden;
+  background-color: #fff;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+  cursor: pointer; 
+  transition: transform 0.2s ease-in-out;
+  }
+  
+  .card-container:hover {
+  transform: scale(1.05);
+  }
+  
+  /* Style for the image */
+  .card-image {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+  }
+  
+  /* Style for the details section */
+  .card-info {
+  padding: 10px;
+  }
+  
+  /* Style for the title */
+  .card-info h4 {
+  margin: 0;
+  font-size: 18px;
+  font-weight: bold;
+  color: #333;
+  }
+  
+  /* Style for the paragraphs in the details section */
+  .card-info p {
+  margin: 5px 0;
+  font-size: 14px;
+  color: #555;
+  }
+  
+  /* Style for the status text */
+  .card-status {
+  color: green;
+  font-weight: bold;
+  }
+  
+  /* Style for the application deadline text */
+  .card-deadline {
+  font-size: 14px;
+  color: #888;
+  margin-top: 5px;
+  }
+  
+  /* Container for the job cards (3 columns layout) */
+  .card-list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* Creates 3 equal columns */
+  gap: 20px; /* Space between the cards */
+  margin-top: 20px; /* Add space between the filter section and the job cards */
+  }

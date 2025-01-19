@@ -75,7 +75,18 @@
     background-color: #3e8e41; /* Slightly darker green color when button is clicked */
   }
   
-  .back-btn {
+  .baack-btn {
+    background-color: #f5ff69; /* Red background color */
+    color: white; /* White text color */
+    padding: 10px 20px; /* Padding around the text */
+    border: none; /* Remove border */
+    border-radius: 5px; /* Add slight rounding to the corners */
+    cursor: pointer; /* Change cursor to pointer on hover */
+    margin-top: 20px; /* Add space above the button */
+    margin-left: 20px;
+  }
+
+  .deleteJob-btn{
     background-color: #f44336; /* Red background color */
     color: white; /* White text color */
     padding: 10px 20px; /* Padding around the text */
@@ -83,15 +94,40 @@
     border-radius: 5px; /* Add slight rounding to the corners */
     cursor: pointer; /* Change cursor to pointer on hover */
     margin-top: 20px; /* Add space above the button */
+    margin-left: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5); /* Add a subtle shadow */
+
+  }
+
+.applyJob-btn {
+  background-color: #4CAF50; /* Green background color */
+  color: white; /* White text color */
+  padding: 10px 20px; /* Padding around the text */
+  border: none; /* Remove border */
+  border-radius: 5px; /* Add slight rounding to the corners */
+  cursor: pointer; /* Change cursor to pointer on hover */
+  margin-top: 20px; /* Add space above the button */
+  margin-left: 20px; /* Add space to the left of the button */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5); /* Add a subtle shadow */
+}
+
+.applyJob-btn:hover {
+  background-color: #45a049; /* Darker green color on hover */
+}
+
+  .deleteJob-btn:hover {
+    background-color: #d32f2f; /* Darker red color on hover */
+    
   }
   
-  .back-btn:hover {
-    background-color: #f44336; /* Darker red color on hover */
+  .baack-btn:hover {
+    background-color: #e8ff19; /* Darker red color on hover */
   }
   
-  .back-btn:active {
+  .baack-btn:active {
     background-color: #f44336; /* Slightly darker red color when button is clicked */
 }
+
   
     /* Responsive styles */
     @media (max-width: 768px) {
