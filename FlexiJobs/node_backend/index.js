@@ -32,7 +32,7 @@ initializeDatabase();
 
 const app = express();
 const IP = process.env.IP || "localhost";
-const PORT = process.env.PORT || 8081; // Main server runs on a different port
+const PORT = process.env.PORT || 8080; // Main server runs on a different port
 
 // Middleware to parse JSON requests
 app.use(express.json());

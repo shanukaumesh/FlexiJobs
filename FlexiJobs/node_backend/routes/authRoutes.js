@@ -1,5 +1,6 @@
 const {
   registerStudent,
+  verifyStudentOtp,
   registerEmployer,
   loginStudent,
   loginEmployer,
@@ -12,6 +13,9 @@ const router = express.Router();
 
 // Register a new student
 router.post("/register/student", registerStudent);
+
+// Verify OTP and register a new student
+router.post("/verify/student", verifyStudentOtp);
 
 // Register a new employer
 router.post("/register/employer", registerEmployer);

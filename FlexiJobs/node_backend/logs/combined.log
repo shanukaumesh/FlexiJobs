@@ -324,3 +324,23 @@
 2025-01-18T13:07:15.093Z [FlexiJobs] info: Database connection has been established successfully.
 2025-01-18T13:07:15.103Z [FlexiJobs] info: Database connection has been established successfully.
 2025-01-18T13:07:15.200Z [FlexiJobs] info: All models were synchronized successfully.
+2025-01-19T15:03:40.430Z [FlexiJobs] info: Database connection has been established successfully.
+2025-01-19T15:03:40.432Z [FlexiJobs] info: Database connection has been established successfully.
+2025-01-19T15:03:40.509Z [FlexiJobs] info: All models were synchronized successfully.
+2025-01-19T15:06:15.322Z [FlexiJobs] info: Database connection has been established successfully.
+2025-01-19T15:06:15.325Z [FlexiJobs] info: Database connection has been established successfully.
+2025-01-19T15:06:15.356Z [FlexiJobs] info: All models were synchronized successfully.
+2025-01-19T15:06:25.824Z [FlexiJobs] info: Database connection has been established successfully.
+2025-01-19T15:06:25.826Z [FlexiJobs] info: Database connection has been established successfully.
+2025-01-19T15:06:25.859Z [FlexiJobs] info: All models were synchronized successfully.
+2025-01-19T15:07:51.116Z [FlexiJobs] info: Student logged in successfully: emma@gmail.com
+2025-01-19T15:08:15.214Z [FlexiJobs] info: Student logged in successfully: emma@gmail.com
+2025-01-19T16:26:31.678Z [FlexiJobs] info: Database connection has been established successfully.
+2025-01-19T16:26:31.680Z [FlexiJobs] info: Database connection has been established successfully.
+2025-01-19T16:26:31.966Z [FlexiJobs] info: All models were synchronized successfully.
+2025-01-19T16:26:37.617Z [FlexiJobs] info: Database connection has been established successfully.
+2025-01-19T16:26:37.619Z [FlexiJobs] info: Database connection has been established successfully.
+2025-01-19T16:26:37.654Z [FlexiJobs] info: All models were synchronized successfully.
+2025-01-19T16:27:29.511Z [FlexiJobs] info: OTP sent to emma@gmail.com
+2025-01-19T16:28:14.197Z [FlexiJobs] info: OTP sent to wolfyst607@gmail.com
+2025-01-19T16:29:17.038Z [FlexiJobs] info: Student registered successfully: wolfyst607@gmail.com
