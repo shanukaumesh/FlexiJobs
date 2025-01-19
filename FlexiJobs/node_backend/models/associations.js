@@ -3,6 +3,7 @@ const Employer = require("./Employer.js");
 const Job = require("./Job.js");
 const Payment = require("./Payment.js");
 const Application = require("./Application.js");
+const Otp = require("./Otp.js");
 
 // Define associations
 Employer.hasMany(Job, { foreignKey: "employerId", onDelete: "CASCADE", onUpdate: "CASCADE" });
@@ -31,4 +32,5 @@ module.exports = {
   Job,
   Payment,
   Application,
+  Otp,
 };
